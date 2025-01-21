@@ -9,7 +9,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link {{ Request::is('post*') ? 'active' : '' }}">
+                <a href="#"
+                    class="nav-link {{ (Request::is('post_create') ? 'active' : '' || Request::is('post_list')) ? 'active' : '' }}">
                     <i class="nav-icon bi bi-box-seam-fill"></i>
                     <p>
                         Post
@@ -19,14 +20,14 @@
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="{{ route('post_create') }}"
-                            class="nav-link {{ Request::is('post/create') ? 'active' : '' }}">
+                            class="nav-link {{ Request::is('post_create') ? 'active' : '' }}">
                             <i class="nav-icon bi bi-circle"></i>
                             <p>Create Post</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('post_list') }}"
-                            class="nav-link {{ Request::is('post/list') ? 'active' : '' }}">
+                            class="nav-link {{ Request::is('post_list') ? 'active' : '' }}">
                             <i class="nav-icon bi bi-circle"></i>
                             <p>Post List</p>
                         </a>

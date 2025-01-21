@@ -11,7 +11,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('admin.post.index'); // Points to resources/views/admin/dashboard.blade.php
+        $posts = Post::all();
+        return view('admin.post.index', compact('posts')); // Points to resources/views/admin/dashboard.blade.php
     }
 
     public function create()
