@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,4 +33,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/post_list', [PostController::class, 'index'])->name('post_list');
+    Route::get('/admin/post_create', [PostController::class, 'create'])->name('post_create');
+    Route::post('/admin/post_create', [PostController::class, 'store'])->name('posts.store');
 });
