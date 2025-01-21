@@ -39,13 +39,6 @@
             toolbar_mode: 'floating',
         });
     </script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/summernote-lite.min.js"></script>
-    <script>
-        $(document).ready(function() {
-        $('#mytextarea').summernote({
-            tabsize: 1,
-            height: 200
-        });
-    });
-    </script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/summernote-lite.min.css" rel="stylesheet">
 </head>
