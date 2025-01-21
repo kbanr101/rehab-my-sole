@@ -12,8 +12,15 @@ class HomeController extends Controller
     public function index()
     {
 
-        // $post = Post->all();
+        $posts = Post::paginate(10);
 
-        return view('welcome');
+        return view('index', compact('posts'));
+    }
+
+    public function blogDetails($slug)
+    {
+        $post = Post::where('slug', $slug)->firstOrFail();
+
+        return view('blog.details', compact('post'));
     }
 }

@@ -20,6 +20,8 @@ use App\Http\Controllers\Admin\PostController;
 //     return view('welcome');
 // });
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.details');
+
 
 Route::get('/admin', function () {
     return view('admin.login');

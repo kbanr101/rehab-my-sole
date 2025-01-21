@@ -3,25 +3,44 @@
         <!--begin::Sidebar Menu-->
         <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="/admin" class="nav-link active">
+                <a href="/admin" class="nav-link {{ Request::is('admin') ? 'active' : '' }}">
                     <i class="nav-icon bi bi-speedometer"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link {{ Request::is('post*') ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-box-seam-fill"></i>
                     <p>
-                        Dashboard
+                        Post
+                        <i class="nav-arrow bi bi-chevron-right"></i>
                     </p>
                 </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('post_create') }}"
+                            class="nav-link {{ Request::is('post/create') ? 'active' : '' }}">
+                            <i class="nav-icon bi bi-circle"></i>
+                            <p>Create Post</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('post_list') }}"
+                            class="nav-link {{ Request::is('post/list') ? 'active' : '' }}">
+                            <i class="nav-icon bi bi-circle"></i>
+                            <p>Post List</p>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li class="nav-item">
-                <a href="{{ route('post_list') }}" class="nav-link">
-                    <i class="nav-icon bi bi-palette"></i>
-                    <p>Post List</p>
+                <a href="{{ route('logout') }}" class="nav-link">
+                    {{-- <i class="nav-icon bi bi-circle"></i> --}}
+                    <i class="nav-icon bi bi-box-arrow-in-right"></i>
+                    <p>Logout</p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="{{ route('post_create') }}" class="nav-link">
-                    <i class="nav-icon bi bi-palette"></i>
-                    <p>Create</p>
-                </a>
-            </li>
+
             {{-- <li class="nav-item">
                 <a href="#" class="nav-link">
                     <i class="nav-icon bi bi-box-seam-fill"></i>
