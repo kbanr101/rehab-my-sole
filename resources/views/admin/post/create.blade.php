@@ -82,7 +82,7 @@
                                         <div class="col-md-12">
                                             <label for="validationCustom03" class="form-label">Description</label>
 
-                                            <textarea class="textarea" name="content">Welcome to TinyMCE!</textarea>
+                                            <textarea class="textarea" name="content"></textarea>
                                         </div>
                                         <!--end::Col-->
                                         <!--begin::Col-->

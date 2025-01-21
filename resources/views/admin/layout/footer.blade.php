@@ -10,12 +10,3 @@
      All rights reserved.
      <!--end::Copyright-->
  </footer>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/summernote-lite.min.js"></script>
- <script>
-     $(document).ready(function() {
-         $('#mytextarea').summernote({
-             tabsize: 1,
-             height: 200
-         });
-     });
- </script>
