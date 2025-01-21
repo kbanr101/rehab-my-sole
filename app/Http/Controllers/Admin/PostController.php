@@ -32,9 +32,12 @@ class PostController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $imageName = time() . '.' . request()->image->getClientOriginalExtension();
-            request()->image->move(public_path('blogs'), $imageName);
-            $validated['image'] = $imageName;
+            $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $validated['image'] = $request->file('image')->storeAs('blogs', $imageName, 'public');
+
+            // $imageName = time() . '.' . request()->image->getClientOriginalExtension();
+            // request()->image->move(public_path('blogs'), $imageName);
+            // $validated['image'] = $imageName
         }
 
         $validated['user_id'] = auth()->id(); // Set the logged-in user's ID
