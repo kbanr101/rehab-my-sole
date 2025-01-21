@@ -51,93 +51,81 @@
                             </div>
                             <!--end::Header-->
                             <!--begin::Form-->
-                            <form action="{{ route('posts.store') }}" class="needs-validation" novalidate>
-                                <!--begin::Body-->
+                            <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data"
+                                class="needs-validation">
                                 @csrf
                                 <div class="card-body">
-                                    <!--begin::Row-->
                                     <div class="row g-3">
-                                        <!--begin::Col-->
+                                        <!-- Title -->
                                         <div class="col-md-6">
-                                            <label for="validationCustom01" class="form-label">Title</label>
-                                            <input type="text" class="form-control" id="validationCustom01"
-                                                value="" name="title" required />
+                                            <label class="form-label">Title</label>
+                                            <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                                name="title" value="{{ old('title') }}" required />
+                                            @error('title')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col-md-6">
-                                            <label for="validationCustom02" class="form-label">Slug Name</label>
-                                            <input type="text" name="slug" class="form-control"
-                                                id="validationCustom02" value="" required />
-                                        </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col-md-12">
-                                            <label for="validationCustomUsername" class="form-label">Image</label>
-                                            <input type="file" name="image" class="form-control"
-                                                id="inputGroupFile02" />
-                                        </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col-md-12">
-                                            <label for="validationCustom03" class="form-label">Description</label>
 
-                                            <textarea class="textarea" name="content"></textarea>
-                                        </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
+                                        <!-- Slug -->
                                         <div class="col-md-6">
-                                            <label for="validationCustom01" class="form-label">Seo Title</label>
-                                            <input type="text" class="form-control" id="validationCustom01"
-                                                value="" name="seo_title" required />
+                                            <label class="form-label">Slug Name</label>
+                                            <input type="text" name="slug"
+                                                class="form-control @error('slug') is-invalid @enderror"
+                                                value="{{ old('slug') }}" required />
+                                            @error('slug')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col-md-6">
-                                            <label for="validationCustom02" class="form-label">Seo Description </label>
-                                            <input type="text" name="seo_description" class="form-control"
-                                                id="validationCustom02" value="" required />
-                                        </div>
-                                        <!--end::Col-->
 
+                                        <!-- Image -->
+                                        <div class="col-md-12">
+                                            <label class="form-label">Image</label>
+                                            <input type="file" name="image"
+                                                class="form-control @error('image') is-invalid @enderror" />
+                                            @error('image')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                        <!-- Description -->
+                                        <div class="col-md-12">
+                                            <label class="form-label">Description</label>
+                                            <textarea class="form-control textarea @error('description') is-invalid @enderror" name="description">{{ old('description') }}</textarea>
+                                            @error('description')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                        <!-- SEO Title -->
+                                        <div class="col-md-6">
+                                            <label class="form-label">SEO Title</label>
+                                            <input type="text"
+                                                class="form-control @error('seo_title') is-invalid @enderror"
+                                                name="seo_title" value="{{ old('seo_title') }}" />
+                                            @error('seo_title')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                        <!-- SEO Description -->
+                                        <div class="col-md-6">
+                                            <label class="form-label">SEO Description</label>
+                                            <input type="text"
+                                                class="form-control @error('seo_description') is-invalid @enderror"
+                                                name="seo_description" value="{{ old('seo_description') }}" />
+                                            @error('seo_description')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                     </div>
-                                    <!--end::Row-->
                                 </div>
-                                <!--end::Body-->
-                                <!--begin::Footer-->
+
                                 <div class="card-footer">
                                     <button class="btn btn-info" type="submit">Submit Post</button>
                                 </div>
-                                <!--end::Footer-->
                             </form>
+
                             <!--end::Form-->
-                            <!--begin::JavaScript-->
-                            <script>
-                                // Example starter JavaScript for disabling form submissions if there are invalid fields
-                                (() => {
-                                    'use strict';
-
-                                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                                    const forms = document.querySelectorAll('.needs-validation');
-
-                                    // Loop over them and prevent submission
-                                    Array.from(forms).forEach((form) => {
-                                        form.addEventListener(
-                                            'submit',
-                                            (event) => {
-                                                if (!form.checkValidity()) {
-                                                    event.preventDefault();
-                                                    event.stopPropagation();
-                                                }
-
-                                                form.classList.add('was-validated');
-                                            },
-                                            false,
-                                        );
-                                    });
-                                })();
-                            </script>
-                            <!--end::JavaScript-->
                         </div>
                         <!--end::Form Validation-->
                     </div>

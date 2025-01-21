@@ -41,4 +41,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/post_list', [PostController::class, 'index'])->name('post_list');
     Route::get('/admin/post_create', [PostController::class, 'create'])->name('post_create');
     Route::post('/admin/post_create', [PostController::class, 'store'])->name('posts.store');
+    Route::post('/admin/post_delete', [PostController::class, 'destroy'])->name('posts.destroy');
+    Route::get('/admin/{slug}', [PostController::class, 'edit'])->name('posts.edit');
 });

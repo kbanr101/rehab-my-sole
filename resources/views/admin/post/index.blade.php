@@ -47,7 +47,7 @@
                                              <th>#</th>
                                              <th>Title</th>
                                              <th>Slug</th>
-                                             <th>Description</th>
+                                             <th style="width:40%">Description</th>
                                              <th>Image</th>
                                              <th>Action</th>
                                          </tr>
@@ -55,15 +55,29 @@
                                      <tbody>
                                          @php $i = 1; @endphp
                                          @foreach ($posts as $post)
-                                             <td>{{ $i++ }}</td>
-                                             <td>{{ $post->title }}</td>
-                                             <td>{{ $post->slug }}</td>
-                                             <td>{{ $post->description }}</td>
-                                             <td>{{ $post->image }}</td>
-                                             <td><a class="btn btn-primary btn-sm">Edit</a>
-                                                 <a class="btn btn-warning btn-sm">View</a>
-                                                 <a class="btn btn-danger btn-sm">Delete</a>
-                                             </td>
+                                             <tr>
+                                                 <td>{{ $i++ }}</td>
+                                                 <td>{{ $post->title }}</td>
+                                                 <td>{{ $post->slug }}</td>
+                                                 <td>{!! $post->description !!}</td>
+                                                 <td>
+                                                     <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image"
+                                                         style="width:50px;height:50px">
+                                                 </td>
+                                                 <td>
+                                                     <a href="{{ route('posts.edit', $post->slug) }}"
+                                                         class="btn btn-primary btn-sm">Edit</a>
+                                                     <a href="" class="btn btn-warning btn-sm">View</a>
+                                                     <form action="{{ route('posts.destroy', $post->id) }}" method="POST"
+                                                         style="display:inline;">
+                                                         @csrf
+                                                         @method('DELETE')
+                                                         <button type="submit" class="btn btn-danger btn-sm"
+                                                             onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
+                                                     </form>
+
+                                                 </td>
+                                             </tr>
                                          @endforeach
                                      </tbody>
                                  </table>

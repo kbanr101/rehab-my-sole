@@ -32,13 +32,15 @@ class PostController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('images', 'public');
+            $imageName = time() . '.' . request()->image->getClientOriginalExtension();
+            request()->image->move(public_path('blogs'), $imageName);
+            $validated['image'] = $imageName;
         }
 
         $validated['user_id'] = auth()->id(); // Set the logged-in user's ID
 
         Post::create($validated);
 
-        return redirect()->route('posts.index')->with('success', 'Post created successfully!');
+        return redirect()->route('post_list')->with('success', 'Post created successfully!');
     }
 }
