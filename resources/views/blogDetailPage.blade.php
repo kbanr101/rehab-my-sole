@@ -16,9 +16,9 @@
     </div>
     <div class="video-popup" id="videoPopup">
         <button class="close-button" id="closeButton">&times;</button>
-        {{-- <video id="video" controls>
+        <video id="video" controls>
             <source src="video.mp4" type="video/mp4">Your browser does not support the video tag.
-        </video> --}}
+        </video>
     </div>
 </section>
 <section class="serviceSection pt-5 pb-5">

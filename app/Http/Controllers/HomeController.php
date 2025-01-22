@@ -17,6 +17,8 @@ class HomeController extends Controller
         return view('index', compact('posts'));
     }
 
+    public function blogList(){ return view('blogListPage'); }
+
     public function blogDetails($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();

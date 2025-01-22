@@ -57,3 +57,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/admin/post_update', [PostController::class, 'update'])->name('posts.update');
     Route::get('/admin/{slug}', [PostController::class, 'edit'])->name('posts.edit');
 });
+
+Route::get('blog-list', [HomeController::class, 'blogList'])->name('blogListPage');
