@@ -1,0 +1,253 @@
+
+body{margin: 0 0;padding: 0 0}
+:root{
+    --font-one: "Raleway", serif;
+
+    /* Brown Color Palet  */
+    --color-brownL: 243 238 236;
+    --color-brownLH: 237 229 226;
+    --color-brownLA: 219 202 195;
+    --color-brownN: 138 84 60;
+    --color-brownNH: 124 76 54;
+    --color-brownNA: 110 67 48;
+    --color-brownD: 104 63 45;
+    --color-brownDH: 83 50 36;
+    --color-brownDA: 62 38 27;
+    --color-brown: 48 29 21;
+    /* Brown Color Palet End  */
+    /* Gray Color Palet  */
+    --color-grayL: 236 236 236;
+    --color-grayLH: 237 229 226;
+    --color-grayLA: 195 195 195;
+    --color-grayN: 61 61 61;
+    --color-grayNH: 55 55 55;
+    --color-grayNA: 49 49 49;
+    --color-grayD: 46 46 46;
+    --color-grayDH: 37 37 37;
+    --color-grayDA: 27 27 27;
+    --color-gray: 21 21 21;
+    /* Gray Color Palet End  */
+    /* White Color Palet  */
+    --color-whiteL: 252 252 252;
+    --color-whiteLH: 251 251 251;
+    --color-whiteLA: 246 246 246;
+    --color-whiteN: 225 225 225;
+    --color-whiteNH: 203 203 203;
+    --color-whiteNA: 180 180 180;
+    --color-whiteD: 169 169 169;
+    --color-whiteDH: 135 135 135;
+    --color-whiteDA: 101 101 101;
+    --color-white: 79 79 79;
+    --color-whiteG: 255 255 255;
+    --color-blackG: 0 0 0;
+    /* White Color Palet End  */
+    --transition: 0.3s all ease-in-out;
+    --box-shadow: 0 4px 4px 0;
+}
+.main-header{
+    box-shadow: var(--box-shadow) rgb(var(--color-whiteD) / 25%);
+}
+button.defaultClass,
+a.defaultClass {
+    padding: 0 24px;
+    text-decoration: none;
+    color: rgb(var(--color-whiteG));
+    background-color: rgb(var(--color-brownN));
+    display: inline-block;
+    font: 400 16px/40px var(--font-one);
+    border-radius: 4px;
+    transition: var(--transition);
+    border-color: rgb(var(--color-brownN));
+    box-shadow: none;
+    border: 1px solid;
+}
+button.defaultClass:hover,
+a.defaultClass:hover{
+    background-color: rgb(var(--color-brownNH));
+    border-color: rgb(var(--color-brownNH));
+}
+button.defaultClass:active,
+a.defaultClass:active{
+    background-color: rgb(var(--color-brownNA));
+    border-color: rgb(var(--color-brownNA));
+}
+/* default Titles */
+.mainTitle > h3{
+    font: 600 26px/normal var(--font-one);
+    margin-bottom: 0.5rem;
+    color: rgb(var(--color-grayN));
+}
+.mainTitle > p{
+    font: 400 16px/normal var(--font-one);
+    max-width: 800px;
+    color: rgb(var(--color-grayDH));
+}
+/* default Titles End */
+/* Header  */
+.header-container{
+    display: flex;
+    min-height: 90px;
+    align-items: center;
+    justify-content: space-between
+}
+/* Header End */
+/* Hero Banner */
+.herobanner .centerContent{
+    max-width: 500px;
+    margin: auto;
+}
+.herobanner h3{
+    font: 600 36px/normal var(--font-one);
+    margin-bottom: 1rem;
+}
+/* Hero Banner End */
+/* Video section */
+.video-section {
+    position: relative;
+    width: 100%;
+    max-height: 600px;
+    overflow: hidden;
+}
+.video-thumbnail {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 8px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(var(--color-blackG) / 70%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgb(var(--color-blackG) / 20%);
+}
+.video-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(var(--color-blackG) / 80%);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.video-popup video {
+    width: 90%;
+    max-width: 800px;
+    border-radius: 8px;
+}
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+/* Video section End */
+/* Service Card */
+.serviceCard p{
+    font: 400 14px/20px var(--font-one);
+    color: rgb(var(--color-whiteDH));
+    text-align: center;
+}
+/* Service Card End */
+/* Join Now */
+section.joinForm.pt-5.pb-5 {
+    background: rgb(var(--color-grayLH));
+}
+form.queryForm {
+    max-width: 400px;
+    margin: auto;
+}
+.form-group > label{
+    display: block;
+    color: rgb(var(--color-grayN));
+    font: 500 13px/normal var(--font-one);
+    margin-bottom: 0.5rem;
+}
+.form-group > input {
+    border-radius: 4px;
+    font: 500 14px/40px var(--font-one);
+    color: rgb(var(--color-brownDA));
+    padding: 0 15px;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.form-group > input::placeholder {color: rgb(var(--color-grayLA));}
+/* Join Now End */
+/* Blog Page Start */
+/* ##blog title */
+.blog_contents h3{
+    font: 500 18px/26px var(--font-one);
+    color: rgb(var(--color-blackG));
+}
+.blog_contents p,
+.blog_contents span.blog_date{
+    font: 400 16px/24px var(--font-one);
+    color: rgb(var(--color-whiteDH));
+    display: block;
+    margin-bottom: 5px;
+}
+.blogCard_Image span.like_Blog {
+    position: absolute;
+    top: 2px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: rgb(var(--color-whiteG));
+}
+.blog_contents, .blog_action > span{cursor: pointer;transition: var(--transition);}
+.blog_action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.blog_action > a{
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid rgb(var(--color-grayN));
+    border-radius: 50%;
+}
+.moreText.active {
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.blogCard_Image > img {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.blogCard:hover {
+    box-shadow: 0px 2px 15px -5px rgb(var(--color-blackG) / 50% );
+    transition: var(--transition);
+}
+/* Blog Page End */
+@media (max-width: 767px){
+    button.defaultClass, a.defaultClass {
+        padding: 0 10px;
+        font-size: 13px;
+    }
+}

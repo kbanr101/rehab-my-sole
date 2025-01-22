@@ -44,3 +44,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/admin/post_delete', [PostController::class, 'destroy'])->name('posts.destroy');
     Route::get('/admin/{slug}', [PostController::class, 'edit'])->name('posts.edit');
 });
+
+Route::get('blog-list', [HomeController::class, 'blogList'])->name('blogListPage');
