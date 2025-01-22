@@ -44,6 +44,27 @@ body{margin: 0 0;padding: 0 0}
     --transition: 0.3s all ease-in-out;
     --box-shadow: 0 4px 4px 0;
 }
+/* page Navigaton */
+.pageNavigaton p{
+    font: 500 16px/24px var(--font-one);
+    color: rgb(var(--color-whiteDH));
+}
+.pageNavigaton h3{
+    font: 700 32px/40px var(--font-one);
+    color: rgb(var(--color-grayD));
+}
+.blogTopNavigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+.blogTopNavigation > a{
+    color: rgb(var(--color-grayD));
+    font: 500 16px/24px var(--font-one);
+    text-decoration: none;
+}
+/* page Navigaton */
 header.main-header.transparentClass {
     /* background-color: transparent;
     position: fixed;

@@ -23,6 +23,10 @@ class HomeController extends Controller
         $posts = Post::orderBy('created_at', 'desc')->paginate(3);
         return view('blogListPage', compact('posts'));
     }
+    public function blogDetailPage()
+    {
+        return view('blogDetailPage');
+    }
     public function blogDetails($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
