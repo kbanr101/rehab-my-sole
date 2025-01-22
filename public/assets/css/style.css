@@ -44,6 +44,24 @@ body{margin: 0 0;padding: 0 0}
     --transition: 0.3s all ease-in-out;
     --box-shadow: 0 4px 4px 0;
 }
+header.main-header.transparentClass {
+    /* background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; */
+}
+.comming-soon ~ .comingDoon .logo >img {
+    max-width: 60px;
+    filter: brightness(100);
+}
+.logo > img {
+    filter: none;
+    max-width: 60px;
+    width: 100%;
+}
+.main-header.comming-soon{display: none;}
 .main-header{
     box-shadow: var(--box-shadow) rgb(var(--color-whiteD) / 25%);
 }

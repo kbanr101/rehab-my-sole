@@ -3,7 +3,7 @@
     <head>
         @include('include.head')
     </head>
-    <body>
+    <body class="{{ Request::is('/') ? 'common-home' : 'information' }}">
         @include('include.navigation')
 
         {{-- Yeld All Content --}}

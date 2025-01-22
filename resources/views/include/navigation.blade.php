@@ -1,7 +1,7 @@
-<header class="main-header">
+<header class="main-header {{ !empty($transparentClass) }}">
     <div class="header-container container">
-        <div class="brand-logo">
-            <h3>Rehabmysole</h3>
+        <div class="brand-logo logo">
+            <img src="{{  asset('assets/media/RehabMySole-logo.svg') }}" alt="RehabMySolo" class="img-fluid w-100" />
         </div>
         <div class="main-navigation">
             {{-- New Nevbar Section --}}

@@ -55,3 +55,4 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 Route::get('blog-list', [HomeController::class, 'blogList'])->name('blogListPage');
+Route::get('coming-soon', [HomeController::class, 'comingSoon'])->name('comingSoonPage');

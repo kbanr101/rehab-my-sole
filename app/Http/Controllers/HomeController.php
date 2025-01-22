@@ -18,6 +18,10 @@ class HomeController extends Controller
     }
 
     public function blogList(){ return view('blogListPage'); }
+    public function comingSoon(){
+        $transparentClass = "transparentClass comming-soon";
+        return view('comingSoonPage', compact('transparentClass'));
+    }
 
     public function blogDetails($slug)
     {
