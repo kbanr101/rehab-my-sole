@@ -35,6 +35,12 @@
                 </ul>
             </li>
             <li class="nav-item">
+                <a href="{{ route('contact') }}" class="nav-link {{ Request::is('contact') ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-table"></i>
+                    <p>Contact</p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('logout') }}" class="nav-link">
                     {{-- <i class="nav-icon bi bi-circle"></i> --}}
                     <i class="nav-icon bi bi-box-arrow-in-right"></i>
