@@ -12,12 +12,18 @@ class HomeController extends Controller
     public function index()
     {
 
-        $posts = Post::paginate(10);
+        $posts = Post::paginate(3);
 
         return view('index', compact('posts'));
     }
 
-    public function blogList(){ return view('blogListPage'); }
+    public function blogList()
+    {
+
+        $posts = Post::orderBy('created_at', 'desc')->paginate(3);
+
+        return view('blogListPage', compact('posts'));
+    }
 
     public function blogDetails($slug)
     {
