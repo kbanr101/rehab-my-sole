@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contacts;
+use App\Mail\ContactCreated;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -12,7 +14,7 @@ class ContactController extends Controller
     {
         // dd("work");
 
-        $contacts = Contacts::paginate(3);
+        $contacts = Contacts::orderBy('created_at', 'desc')->paginate(5);
         return view('admin.contact.index', compact('contacts'));
     }
 
@@ -22,7 +24,7 @@ class ContactController extends Controller
 
             $validatedData = $request->validate([
                 'name' => 'required|string|max:255',
-                'email' => 'required|email|unique:contacts,email|max:255',
+                'email' => 'required|email|max:255',
             ]);
 
 
@@ -31,10 +33,13 @@ class ContactController extends Controller
                 'email' => $validatedData['email'],
             ]);
 
+            $email = "vineetk@mtriplet.com";
+
+            Mail::to($email)->send(new ContactCreated($validatedData['name'], $validatedData['email']));
 
             return response()->json([
                 'success' => true,
-                'message' => 'Contact created successfully.',
+                'message' => 'Thank you,' . $validatedData['name'] . '! Your message has been received.',
                 // 'data' => $contact,
             ], 201);
         } catch (\Exception $e) {

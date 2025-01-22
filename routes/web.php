@@ -36,7 +36,7 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //store contact details
-Route::post('/contact', [ContactController::class, 'store']);
+Route::post('/contact', [ContactController::class, 'store'])->name('contact_submit');
 
 
 Route::middleware(['auth', 'admin'])->group(function () {
