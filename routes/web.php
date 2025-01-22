@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,8 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+//store contact details
+Route::post('/contact', [ContactController::class, 'store']);
 
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -42,10 +45,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/change_password', [AdminController::class, 'password'])->name('password');
 
     Route::post('/update-password', [AdminController::class, 'updatePassword'])->name('password.update');
+    //contactcontroller
+    Route::get('/admin/contact', [ContactController::class, 'index'])->name('contact');
 
 
-
-    // post controller
+    // postcontroller
     Route::get('/admin/post_list', [PostController::class, 'index'])->name('post_list');
     Route::get('/admin/post_create', [PostController::class, 'create'])->name('post_create');
     Route::post('/admin/post_create', [PostController::class, 'store'])->name('posts.store');
