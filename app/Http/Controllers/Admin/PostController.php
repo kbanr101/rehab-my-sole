@@ -11,13 +11,14 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
-        return view('admin.post.index', compact('posts')); // Points to resources/views/admin/dashboard.blade.php
+        $posts = Post::paginate(3); // Fetch 10 posts per page
+        return view('admin.post.index', compact('posts'));
     }
+
 
     public function create()
     {
-        return view('admin.post.create'); // Points to resources/views/admin/dashboard.blade.php
+        return view('admin.post.create');
     }
 
     public function store(Request $request)
@@ -34,10 +35,6 @@ class PostController extends Controller
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
             $validated['image'] = $request->file('image')->storeAs('blogs', $imageName, 'public');
-
-            // $imageName = time() . '.' . request()->image->getClientOriginalExtension();
-            // request()->image->move(public_path('blogs'), $imageName);
-            // $validated['image'] = $imageName
         }
 
         $validated['user_id'] = auth()->id(); // Set the logged-in user's ID
@@ -45,5 +42,59 @@ class PostController extends Controller
         Post::create($validated);
 
         return redirect()->route('post_list')->with('success', 'Post created successfully!');
+    }
+
+
+    public function destroy($id)
+    {
+        try {
+            $post = Post::find($id);
+
+            if (!$post) {
+                return redirect()->back()->with('error', 'Post not found.');
+            }
+
+            $post->delete();
+
+            return redirect()->back()->with('success', 'Post deleted successfully.');
+        } catch (\Exception $e) {
+
+            return redirect()->back()->with('error', 'An error occurred while deleting the post. Please try again.');
+        }
+    }
+
+    public function edit($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+        return view('admin.post.edit', compact('post'));
+    }
+
+    public function update(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|unique:posts,slug,' . $request->id,
+            'description' => 'required',
+            'seo_title' => 'nullable|max:255',
+            'seo_description' => 'nullable|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        $post = Post::findOrFail($request->id);
+
+        $post->title = $validated['title'];
+        $post->slug = $validated['slug'];
+        $post->description = $validated['description'];
+        $post->seo_title = $validated['seo_title'];
+        $post->seo_description = $validated['seo_description'];
+
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $post->image = $request->file('image')->storeAs('blogs', $imageName, 'public');
+        }
+
+        $post->save();
+
+        return redirect()->route('post_list')->with('success', 'Post updated successfully.');
     }
 }

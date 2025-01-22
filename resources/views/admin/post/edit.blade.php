@@ -6,17 +6,7 @@
             <!--begin::Container-->
             <div class="container-fluid">
                 <!--begin::Row-->
-                <div class="row">
-                    {{-- <div class="col-sm-6">
-                        <h3 class="mb-0">General Form</h3>
-                    </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-end">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">General Form</li>
-                        </ol>
-                    </div> --}}
-                </div>
+                <div class="row"></div>
                 <!--end::Row-->
             </div>
             <!--end::Container-->
@@ -28,28 +18,27 @@
             <div class="container-fluid">
                 <!--begin::Row-->
                 <div class="row g-4">
-
-
                     <!--begin::Col-->
                     <div class="col-md-12">
                         <!--begin::Form Validation-->
                         <div class="card card-info card-outline mb-4">
                             <!--begin::Header-->
                             <div class="card-header">
-                                <div class="card-title">Create Post</div>
+                                <div class="card-title">Edit Post</div>
                             </div>
                             <!--end::Header-->
                             <!--begin::Form-->
-                            <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data"
+                            <form action="{{ route('posts.update') }}" method="POST" enctype="multipart/form-data"
                                 class="needs-validation">
                                 @csrf
+                                <input type="hidden" name="id" value="{{ $post->id }}">
                                 <div class="card-body">
                                     <div class="row g-3">
                                         <!-- Title -->
                                         <div class="col-md-6">
                                             <label class="form-label">Title</label>
                                             <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                                name="title" value="{{ old('title') }}" required />
+                                                name="title" value="{{ old('title', $post->title) }}" required />
                                             @error('title')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -60,7 +49,7 @@
                                             <label class="form-label">Slug Name</label>
                                             <input type="text" name="slug"
                                                 class="form-control @error('slug') is-invalid @enderror"
-                                                value="{{ old('slug') }}" required />
+                                                value="{{ old('slug', $post->slug) }}" required />
                                             @error('slug')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -71,6 +60,10 @@
                                             <label class="form-label">Image</label>
                                             <input type="file" name="image"
                                                 class="form-control @error('image') is-invalid @enderror" />
+                                            <small class="form-text text-muted">Leave blank to keep the current
+                                                image.</small>
+                                            <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image"
+                                                class="mt-2" style="width:100px;height:auto;">
                                             @error('image')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -79,7 +72,7 @@
                                         <!-- Description -->
                                         <div class="col-md-12">
                                             <label class="form-label">Description</label>
-                                            <textarea class="form-control textarea @error('description') is-invalid @enderror" name="description">{{ old('description') }}</textarea>
+                                            <textarea class="form-control textarea @error('description') is-invalid @enderror" name="description">{{ old('description', $post->description) }}</textarea>
                                             @error('description')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -90,7 +83,7 @@
                                             <label class="form-label">SEO Title</label>
                                             <input type="text"
                                                 class="form-control @error('seo_title') is-invalid @enderror"
-                                                name="seo_title" value="{{ old('seo_title') }}" />
+                                                name="seo_title" value="{{ old('seo_title', $post->seo_title) }}" />
                                             @error('seo_title')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -101,7 +94,8 @@
                                             <label class="form-label">SEO Description</label>
                                             <input type="text"
                                                 class="form-control @error('seo_description') is-invalid @enderror"
-                                                name="seo_description" value="{{ old('seo_description') }}" />
+                                                name="seo_description"
+                                                value="{{ old('seo_description', $post->seo_description) }}" />
                                             @error('seo_description')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -110,7 +104,7 @@
                                 </div>
 
                                 <div class="card-footer">
-                                    <button class="btn btn-info" type="submit">Submit Post</button>
+                                    <button class="btn btn-info" type="submit">Update Post</button>
                                 </div>
                             </form>
 
@@ -126,5 +120,4 @@
         </div>
         <!--end::App Content-->
     </main>
-
 @stop
