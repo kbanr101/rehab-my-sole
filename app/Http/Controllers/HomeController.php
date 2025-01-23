@@ -24,23 +24,27 @@ class HomeController extends Controller
         $posts = Post::orderBy('created_at', 'desc')->paginate(3);
         return view('blogListPage', compact('posts'));
     }
-    // public function blogDetailPage()
-    // {
 
-    //     return view('blogDetailPage');
-    // }
-    public function blogDetailPage()
+
+    public function blogDetails($slug)
     {
-        return view('blogDetailPage');
+
+        $post = Post::where('slug', $slug)->firstOrFail();
+        $recentPost = Post::orderBy('created_at', 'desc')->limit(3)->get();
+
+        $nextPost = Post::select('slug')->where('id', '>', $post->id)->orderBy('id', 'asc')->first();
+
+        if ($nextPost) {
+            $nextPostSlug = $nextPost->slug;
+        } else {
+            $randomPost  = Post::select('slug')->inRandomOrder()->first();
+            $nextPostSlug =  $randomPost->slug;
+        }
+
+        return view('blogDetailPage', compact('post', 'recentPost', 'nextPostSlug'));
     }
     public function aboutus()
     {
         return view('aboutusPage');
-    }
-    public function blogDetails($slug)
-    {
-        $post = Post::where('slug', $slug)->firstOrFail();
-
-        return view('blogDetailPage', compact('post'));
     }
 }

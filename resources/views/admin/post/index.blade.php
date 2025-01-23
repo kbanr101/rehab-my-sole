@@ -68,7 +68,8 @@
                                                 <td>
                                                     <a href="{{ route('posts.edit', $post->slug) }}"
                                                         class="btn btn-primary btn-sm">Edit</a>
-                                                    <a href="" class="btn btn-warning btn-sm">View</a>
+                                                    <a href="{{ route('blogDetailPage', $post->slug) }}" target="_blank"
+                                                        class="btn btn-warning btn-sm">View</a>
                                                     <form action="{{ route('posts.destroy', $post->id) }}" method="POST"
                                                         style="display:inline;">
                                                         @csrf

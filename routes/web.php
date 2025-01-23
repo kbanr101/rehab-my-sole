@@ -60,5 +60,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::get('about-us', [HomeController::class, 'aboutus'])->name('aboutusPage');
 Route::get('blog-list', [HomeController::class, 'blogList'])->name('blogListPage');
-Route::get('blog-detail/{slug}', [HomeController::class, 'blogDetailPage'])->name('blogDetailPage');
+Route::get('blog-detail/{slug}', [HomeController::class, 'blogDetails'])->name('blogDetailPage');
 Route::get('coming-soon', [HomeController::class, 'comingSoon'])->name('comingSoonPage');
