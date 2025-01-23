@@ -14,7 +14,8 @@ class HomeController extends Controller
         $posts = Post::paginate(3);
         return view('index', compact('posts'));
     }
-    public function comingSoon(){
+    public function comingSoon()
+    {
         $transparentClass = "transparentClass comming-soon";
         return view('comingSoonPage', compact('transparentClass'));
     }
@@ -23,13 +24,15 @@ class HomeController extends Controller
         $posts = Post::orderBy('created_at', 'desc')->paginate(3);
         return view('blogListPage', compact('posts'));
     }
-    public function blogDetailPage()
-    {
-        return view('blogDetailPage');
-    }
+    // public function blogDetailPage()
+    // {
+
+    //     return view('blogDetailPage');
+    // }
     public function blogDetails($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
-        return view('blog.details', compact('post'));
+
+        return view('blogDetailPage', compact('post'));
     }
 }
