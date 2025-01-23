@@ -2,13 +2,14 @@
     <header class="main-header ">
         <div class="header-container container">
             <div class="brand-logo logo">
-                <img src="{{ asset('assets/media/RehabMySole-logo.svg') }}" alt="RehabMySolo" class="img-fluid w-100" />
+                <div class="mobile_hamburger" hidden><i class="fa-solid fa-bars"></i></div>
+                <a href="{{ url('/') }}" class="d-inline"><img src="{{ asset('assets/media/RehabMySole-logo.svg') }}" alt="RehabMySolo" class="img-fluid w-100" /></a>
             </div>
             <div class="main-navigation">
                 {{-- New Nevbar Section --}}
                 <ul class="navbar-block menubar">
                     {{-- <li style="display: none;" class="mobile_menu_bar"><i class="fa fa-times"></i></li> --}}
-                    <li><a href="#">About us</a></li>
+                    <li><a href="{{ route('aboutusPage') }}">About us</a></li>
                     <li class="dropdown-list"><a href="#">Services</a>
                         <i class="drop-plus" hidden></i>
                         <ul class="sublist">
@@ -20,7 +21,7 @@
                     </li>
                     <li><a href="#">How it works</a></li>
                     <li><a href="#">FAQ's</a></li>
-                    <li><a href="#">Blogs</a></li>
+                    <li><a href="{{ route('blogListPage') }}">Blogs</a></li>
                     <li><a href="#">Contact us</a></li>
                 </ul>
                 {{-- New Nevbar Section End --}}
