@@ -29,6 +29,14 @@ class HomeController extends Controller
 
     //     return view('blogDetailPage');
     // }
+    public function blogDetailPage()
+    {
+        return view('blogDetailPage');
+    }
+    public function aboutus()
+    {
+        return view('aboutusPage');
+    }
     public function blogDetails($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();

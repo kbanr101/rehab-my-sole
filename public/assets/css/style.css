@@ -44,7 +44,23 @@ body{margin: 0 0;padding: 0 0}
     --transition: 0.3s all ease-in-out;
     --box-shadow: 0 4px 4px 0;
 }
+a{outline: none !important; text-decoration: none;}
 /* page Navigaton */
+.pageItem_right,
+.pageContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(var(--color-grayN) / 25%);
+    grid-gap: 10px;
+}
+.pageItem_right > p:first-child {
+    border-right: 2px solid rgb(var(--color-grayLA));
+    padding-right: 10px;
+}
+.pageItem_right p > span {
+    display: block;
+}
 .pageNavigaton p{
     font: 500 16px/24px var(--font-one);
     color: rgb(var(--color-whiteDH));
@@ -73,11 +89,11 @@ header.main-header.transparentClass {
     right: 0;
     z-index: 1; */
 }
-.comming-soon ~ .comingDoon .logo >img {
+.comming-soon ~ .comingDoon .logo img {
     max-width: 60px;
     filter: brightness(100);
 }
-.logo > img {
+.logo img {
     filter: none;
     max-width: 60px;
     width: 100%;
@@ -214,7 +230,7 @@ section.joinForm.pt-5.pb-5 {
     background: rgb(var(--color-grayLH));
 }
 form.queryForm {
-    max-width: 400px;
+    max-width: 500px;
     margin: auto;
 }
 .form-group > label{
@@ -239,6 +255,7 @@ form.queryForm {
     font: 500 18px/26px var(--font-one);
     color: rgb(var(--color-blackG));
 }
+.blogCard_Image {position: relative;}
 .blog_contents p,
 .blog_contents span.blog_date{
     font: 400 16px/24px var(--font-one);
@@ -284,9 +301,45 @@ form.queryForm {
     transition: var(--transition);
 }
 /* Blog Page End */
+/* Footer Section  */
+.footer-container{
+    background: #120803;
+}
+h3.footer_title {
+    font: 600 18px/normal var(--font-one);
+    color: rgb(var(--color-whiteG));
+    margin-bottom: 1rem;
+}
+.footer_item p, .footer_item p > a,.footer_item a {
+    color: rgb(var(--color-whiteNH));
+    font: 400 14px/22px var(--font-one);
+    max-width: 400px;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+.footer_social li, .footer_social {
+    list-style: none;
+    padding: 0 0;
+    margin: 0 0;
+    display: inline-block;
+}
+.footer_social {max-width: 110px;}
+.footer_social li > a {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    background-color: rgb(var(--color-grayL));
+    margin: .5rem 5px;
+    color: rgb(var(--color-brownN));
+    font: 700 20px/40px fontAwesome;
+}
+/* Footer Section End */
 @media (max-width: 767px){
     button.defaultClass, a.defaultClass {
         padding: 0 10px;
         font-size: 13px;
     }
+    .main-navigation{display: none;}
 }

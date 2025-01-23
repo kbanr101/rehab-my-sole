@@ -4,9 +4,12 @@
         <header class="main-headers">
             <div class="custom-container">
                 <div class="logo">
-                    <img src="{{ asset('assets/media/RehabMySole-logo.svg') }}" alt="RehabMySolo" class="img-fluid w-100" />
+                    <a href="{{ url('/') }}" class="d-inline-block"><img src="{{ asset('assets/media/RehabMySole-logo.svg') }}" alt="RehabMySolo" class="img-fluid w-100" /></a>
                 </div>
-                <a href="#">About us</a>
+                <div class="navigation">
+                    <a href="{{ route('blogListPage') }}">Blog</a>&nbsp;&nbsp;
+                    <a href="{{ route('aboutusPage') }}">About us</a>
+                </div>
             </div>
         </header>
         <div class="formContainer pt-5 mt-4">
@@ -70,7 +73,7 @@
             margin: 0 0;
         }
 
-        .custom-container>a {
+        .custom-container a {
             color: #fff;
             text-decoration: none;
             font: 500 16px/normal var(--font-one);
@@ -195,18 +198,21 @@
         }
 
         footer#footer ul li a {
-            width: 30px;
-            height: 30px;
-            line-height: 35px;
-            text-align: center;
-            color: rgb(255 255 255 / 0.8);
-            display: inline-block;
-            border-radius: 50px;
-            border: 1px solid white;
-            background-color: transparent;
-            margin-bottom: 0.5rem;
-            transition: 0.3s all ease-in-out;
-        }
+    width: 30px;
+    height: 30px;
+    line-height: 35px;
+    text-align: center;
+    color: rgb(255 255 255 / 0.8);
+    display: inline-block;
+    border-radius: 50px;
+    border: 1px solid white;
+    background-color: transparent;
+    margin-bottom: 0.5rem;
+    transition: 0.3s all ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
         footer#footer ul li a:hover {
             color: #000;

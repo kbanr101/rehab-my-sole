@@ -3,9 +3,9 @@
 <section class="herobanner pt-5 pb-5 mt-5 mb-5">
     <div class="container">
         <div class="centerContent text-center m-auto">
-            <h3>A very catchy coming soon write up..</h3>
+            <h3>An engaging heading. An engaging heading.</h3>
             <p>Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-            <a class="defaultClass" href="#">Join our waitlist now</a>
+            <a class="defaultClass" href="#">Book us now</a>
         </div>
     </div>
 </section>
@@ -24,7 +24,7 @@
 <section class="serviceSection pt-5 pb-5">
     <div class="container">
         <div class="mainTitle text-center m-auto pb-5">
-            <h3>Our Service</h3>
+            <h3>Choose a Service</h3>
             <p class="m-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores qui amet, esse omnis illum sed nihil, debitis dolorum quae pariatur harum asperiores quidem saepe quas, necessitatibus earum quod itaque. Molestias expedita eveniet aliquid cupiditate? Consectetur cumque error ipsam?</p>
         </div>
         <div class="row">
@@ -70,23 +70,25 @@
 <section class="joinForm pt-5 pb-5">
     <div class="container pt-4 pb-4">
         <div class="mainTitle text-center m-auto pb-5">
-            <h3>Join our waitlist</h3>
+            <h3>Contact us</h3>
             <p class="m-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores qui amet.</p>
         </div>
-        <form action="method" class="queryForm">
-            <div class="form-group mb-3">
+        <form action="method" class="queryForm row">
+            <div class="form-group mb-3 col-md-6">
                 <label for="name">Enter your full name</label>
                 <input type="text" name="name" placeholder="Enter your full name" class="form-control" autocomplete="off" />
             </div>
-            <div class="form-group mb-3">
+            <div class="form-group mb-3 col-md-6">
                 <label for="email">Enter your email address</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email address" class="form-control" autocomplete="off" />
             </div>
-            <div class="form-group mb-3">
-                <label for="mobile">Enter your mobile number</label>
-                <input type="text" id="mobile" name="mobile" placeholder="Enter your mobile number" class="form-control" autocomplete="off" />
+            <div class="form-group mb-3 col-md-12">
+                <label for="message">Type your message</label>
+                <textarea type="text" rows="5" id="message" name="message" placeholder="Type your message" class="form-control" autocomplete="off"></textarea>
             </div>
-            <button type="button" class=" w-100 defaultClass" aria-label="Submit Button">Join our waitlist now</button>
+            <div class="form-group col-md-12">
+                <button type="button" class="w-100 defaultClass" aria-label="Submit Button">Send</button>
+            </div>
         </div>
     </div>
 </section>

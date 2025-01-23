@@ -19,7 +19,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="blogDiscriptions"></div>
+                <div class="blogDiscriptions">
+                    Blog content Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo harum odit similique dicta enim distinctio aperiam tenetur dolorem repellendus quasi! Ea dolor, cupiditate aliquid accusantium laborum eius distinctio mollitia, ipsum cumque eum exercitationem aut quod beatae velit commodi similique quia at dicta esse asperiores ullam eos optio sunt! Rerum, doloremque temporibus modi enim eaque quidem quaerat obcaecati molestias, praesentium doloribus sed esse, aliquid totam! Obcaecati et cum placeat ratione repellat quis nobis ut explicabo, voluptates quam aperiam ducimus consequuntur deleniti. Ipsam placeat harum facere fugiat illo hic reprehenderit officia nesciunt, quidem odio optio molestiae praesentium consequuntur eum eligendi magnam facilis?
+                </div>
             </div>
             <div class="col-md-12">
                 <div class="blogTopNavigation">
