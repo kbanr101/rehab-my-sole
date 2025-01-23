@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,6 +49,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     //contactcontroller
     Route::get('/admin/contact', [ContactController::class, 'index'])->name('contact');
 
+    // category 
+    Route::resource('categories', CategoryController::class);
+
 
     // postcontroller
     Route::get('/admin/post_list', [PostController::class, 'index'])->name('post_list');
@@ -62,3 +66,7 @@ Route::get('about-us', [HomeController::class, 'aboutus'])->name('aboutusPage');
 Route::get('blog-list', [HomeController::class, 'blogList'])->name('blogListPage');
 Route::get('blog-detail/{slug}', [HomeController::class, 'blogDetails'])->name('blogDetailPage');
 Route::get('coming-soon', [HomeController::class, 'comingSoon'])->name('comingSoonPage');
+Route::post('/post/{id}/like', [HomeController::class, 'like']);
+Route::get('/voice', function () {
+    return view('voice');
+});

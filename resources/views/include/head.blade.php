@@ -7,10 +7,10 @@
 <meta name="googlebot" content="index, follow" />
 <meta name="language" content="English">
 
-<title>Rehab My Sole</title>
-<meta name="title" content="">
-<meta name="keywords" content="">
-<meta name="description" content="">
+<title>@yield('title', 'Rehab My Sole')</title>
+<meta name="title" content="@yield('title', 'Rehab My Sole')">
+<meta name="keywords" content="@yield('meta_keywords', 'Default keywords of the page')">
+<meta name="description" content="@yield('meta_description', 'Default description of the page')">
 <link rel="canonical" href="https://rehabmysole.com" />
 
 <meta property="og:site_name" content="Rehab My Sole">
@@ -39,7 +39,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 
 <script type="application/ld+json">
 {

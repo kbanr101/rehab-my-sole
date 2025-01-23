@@ -27,9 +27,11 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:posts',
             'description' => 'required|string',
+            'short_description' => 'required|string',
             'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'seo_title' => 'nullable|string|max:255',
             'seo_description' => 'nullable|string',
+            'seo_keywords' => 'nullable|string',
         ]);
 
         if ($request->hasFile('image')) {
@@ -74,10 +76,13 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts,slug,' . $request->id,
+            'short_description' => 'required|string',
             'description' => 'required',
             'seo_title' => 'nullable|max:255',
             'seo_description' => 'nullable|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'seo_keywords' => 'nullable|string',
+
         ]);
 
         $post = Post::findOrFail($request->id);
@@ -87,6 +92,8 @@ class PostController extends Controller
         $post->description = $validated['description'];
         $post->seo_title = $validated['seo_title'];
         $post->seo_description = $validated['seo_description'];
+        $post->short_description = $validated['short_description'];
+        $post->seo_keywords = $validated['seo_keywords'];
 
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();

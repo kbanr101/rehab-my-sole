@@ -1,6 +1,12 @@
 @extends('include.master')
+@section('title', $post->title)
+
+@section('meta_description', Str::limit(strip_tags($post->seo_description), 160))
+@section('meta_keywords', Str::limit(strip_tags($post->seo_keywords), 160))
+
+
 @section('content')
-    <div class="pageNavigaton pt-4 pb-4">
+    <div class="pageNavigaton pt-4 pb-4" id="selected-content">
         <div class="container">
             <div class="pageContainer">
                 <div class="pageItem">
@@ -8,7 +14,11 @@
                 </div>
                 <div class="pageItem">
                     <div class="pageItem_right">
-                        <p><span class="like_Blog"><i class="fa-regular fa-heart"></i></span><label>99 Likes</label>
+                        <p><span class="like_Blog" data-post-id="{{ $post->id }}"><i class="fa-regular fa-heart"
+                                    style="{{ $post->likes_count ? 'color:red;' : '' }}"></i></span><label>{{ $post->likes_count }}
+                                Likes</label>
+                            <button id="read-selected-content" class="btn btn-primary">Read Content</button>
+                            <button id="stop-reading" class="btn btn-secondary">Stop Reading</button>
                         <p><span>{{ \Carbon\Carbon::parse($post->created_at)->format('l,') }}</span><label>{{ \Carbon\Carbon::parse($post->created_at)->format('M d, Y') }}</label>
                     </div>
                 </div>
@@ -19,7 +29,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="blogDiscriptions">
+                    <div class="blogDiscriptions" id="text-to-speak">
                         {!! $post->description !!}
                     </div>
                 </div>
@@ -45,13 +55,14 @@
                             <div class="blogCard_Image mb-3">
                                 <img src="{{ asset('storage/' . $newPost->image) }}" alt="Blog card"
                                     class="img-fluid w-100" />
-                                <span class="like_Blog"><i class="fa-regular fa-heart"></i></span>
+                                <span class="like_Blog" data-post-id="{{ $newPost->id }}"><i class="fa-regular fa-heart"
+                                        style="{{ $newPost->likes_count ? 'color:red;' : '' }}"></i></span>
                             </div>
                             <div class="blog_contents p-3">
                                 <h3>{{ $newPost->title }}</h3>
                                 <span
                                     class="blog_date">{{ \Carbon\Carbon::parse($newPost->created_at)->format('d M Y') }}</span>
-                                <p class="moreText active">{!! Str::limit($newPost->description, 50) !!}</p>
+                                <p class="moreText active">{!! Str::limit($newPost->short_description, 50) !!}</p>
                                 <div class="blog_action">
                                     <span class="moreBtn">See more</span>
                                     <a href="{{ route('blogDetailPage', $newPost->slug) }}"><svg width="19"
@@ -72,3 +83,21 @@
         </div>
     </section>
 @endsection
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const button = document.getElementById('read-selected-content');
+        const content = document.getElementById('selected-content');
+
+        button.addEventListener('click', function() {
+            const text = content.textContent || content
+                .innerText; // Get the text from the selected section
+            const speech = new SpeechSynthesisUtterance(text); // Create a speech instance
+            window.speechSynthesis.speak(speech); // Speak the text
+        });
+    });
+</script>
+<script>
+    document.getElementById('stop-reading').addEventListener('click', function() {
+        window.speechSynthesis.cancel(); // Stop any ongoing speech
+    });
+</script>

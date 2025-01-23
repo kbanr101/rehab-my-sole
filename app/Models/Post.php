@@ -17,10 +17,16 @@ class Post extends Model
         'user_id',
         'seo_title',
         'seo_description',
+        'short_description',
+        'seo_keywords',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function likes()
+    {
+        return $this->hasMany(Likes::class, 'post_id');
     }
 }

@@ -69,6 +69,15 @@
                                             @enderror
                                         </div>
 
+                                        <!-- Short Description -->
+                                        <div class="col-md-12">
+                                            <label class="form-label">Short Description</label>
+                                            <textarea class="form-control @error('short_description') is-invalid @enderror" name="short_description">{{ old('short_description', $post->short_description) }}</textarea>
+                                            @error('short_description')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
                                         <!-- Description -->
                                         <div class="col-md-12">
                                             <label class="form-label">Description</label>
@@ -79,7 +88,7 @@
                                         </div>
 
                                         <!-- SEO Title -->
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <label class="form-label">SEO Title</label>
                                             <input type="text"
                                                 class="form-control @error('seo_title') is-invalid @enderror"
@@ -88,14 +97,22 @@
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
+                                        <!-- SEO Keywords -->
+                                        <div class="col-md-6">
+                                            <label class="form-label">SEO Keywords</label>
+                                            <textarea class="form-control @error('seo_keywords') is-invalid @enderror" name="seo_keywords" rows="4">{{ old('seo_keywords', $post->seo_keywords) }}</textarea>
 
+                                            @error('seo_keywords')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                        <!-- SEO Description -->
                                         <!-- SEO Description -->
                                         <div class="col-md-6">
                                             <label class="form-label">SEO Description</label>
-                                            <input type="text"
-                                                class="form-control @error('seo_description') is-invalid @enderror"
-                                                name="seo_description"
-                                                value="{{ old('seo_description', $post->seo_description) }}" />
+                                            <textarea class="form-control @error('seo_description') is-invalid @enderror" name="seo_description" rows="4">{{ old('seo_description', $post->seo_description) }}</textarea>
+
                                             @error('seo_description')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror

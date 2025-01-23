@@ -49,7 +49,8 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Title</th>
-                                            <th>Slug</th>
+                                            <th>Short Description</th>
+                                            {{-- <th>Slug</th> --}}
                                             <th>Image</th>
                                             <th>Action</th>
                                         </tr>
@@ -60,7 +61,8 @@
                                                 <td>{{ $posts->firstItem() + $key }}</td>
                                                 <!-- Correct numbering with pagination -->
                                                 <td>{{ $post->title }}</td>
-                                                <td>{{ $post->slug }}</td>
+                                                <td>{{ $post->short_description }}</td>
+                                                {{-- <td>{{ $post->slug }}</td> --}}
                                                 <td>
                                                     <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image"
                                                         style="width:50px;height:50px">

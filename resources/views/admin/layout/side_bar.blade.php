@@ -35,6 +35,14 @@
                 </ul>
             </li>
             <li class="nav-item">
+                <a href="{{ route('categories.index') }}"
+                    class="nav-link {{ Request::is('categories*') ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-table"></i>
+                    <p>Category</p>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a href="{{ route('contact') }}" class="nav-link {{ Request::is('contact') ? 'active' : '' }}">
                     <i class="nav-icon bi bi-table"></i>
                     <p>Contact</p>
