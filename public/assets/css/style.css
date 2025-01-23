@@ -342,4 +342,6 @@ h3.footer_title {
         font-size: 13px;
     }
     .main-navigation{display: none;}
+    .pageContainer{flex-direction: column;}
+
 }
