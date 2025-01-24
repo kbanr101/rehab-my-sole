@@ -90,3 +90,8 @@
         });
     });
 </script>
+<script>
+    document.getElementById('stop-reading').addEventListener('click', function() {
+        window.speechSynthesis.cancel(); // Stop any ongoing speech
+    });
+</script>

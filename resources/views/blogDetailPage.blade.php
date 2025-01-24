@@ -86,21 +86,3 @@
         </div>
     </section>
 @endsection
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const button = document.getElementById('read-selected-content');
-        const content = document.getElementById('selected-content');
-
-        button.addEventListener('click', function() {
-            const text = content.textContent || content
-                .innerText; // Get the text from the selected section
-            const speech = new SpeechSynthesisUtterance(text); // Create a speech instance
-            window.speechSynthesis.speak(speech); // Speak the text
-        });
-    });
-</script>
-<script>
-    document.getElementById('stop-reading').addEventListener('click', function() {
-        window.speechSynthesis.cancel(); // Stop any ongoing speech
-    });
-</script>
