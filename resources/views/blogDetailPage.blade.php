@@ -6,11 +6,11 @@
 
 
 @section('content')
-<div class="blogPlay">
-    <span id="read-selected-content" aria-label="Read Content"><i class="fa-solid fa-play"></i></span>
-    <span id="stop-reading" aria-label="Stop Reading"><i class="fa-solid fa-pause"></i></span>
-</div>
-<div class="pageNavigaton pt-4 pb-4" id="selected-content">
+    <div class="blogPlay">
+        <span id="read-selected-content" aria-label="Read Content"><i class="fa-solid fa-play"></i></span>
+        <span id="stop-reading" aria-label="Stop Reading"><i class="fa-solid fa-pause"></i></span>
+    </div>
+    <div class="pageNavigaton pt-4 pb-4" id="selected-content">
         <div class="custom-container">
             <div class="pageContainer">
                 <div class="pageItem">
@@ -18,7 +18,10 @@
                 </div>
                 <div class="pageItem">
                     <div class="pageItem_right">
-                        <p><span class="like_Blog" data-post-id="{{ $post->id }}"><i class="fa-regular fa-heart" style="{{ $post->likes_count ? 'color:red;' : '' }}"></i></span><label>{{ $post->likes_count }} Likes</label>
+                        <p><span class="like_Blog {{ $post->likes_count ? 'active' : '' }}"
+                                data-post-id="{{ $post->id }}">
+                                <i class="fa-regular fa-heart " style=""></i>
+                            </span><label>{{ $post->likes_count }} Likes</label>
                         <p><span>{{ \Carbon\Carbon::parse($post->created_at)->format('l,') }}</span><label>{{ \Carbon\Carbon::parse($post->created_at)->format('M d, Y') }}</label>
                     </div>
                 </div>
