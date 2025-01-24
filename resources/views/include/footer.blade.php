@@ -25,9 +25,9 @@
                     <div class="footer_item mb-4">
                         <ul class="footer_social">
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="https://www.facebook.com/rehabmysole/"><i class="fab fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa-regular fa-paper-plane"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.instagram.com/rehab_my_sole/"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                     </div>
                     <div class="footer_item mb-4">
