@@ -48,9 +48,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/update-password', [AdminController::class, 'updatePassword'])->name('password.update');
     //contactcontroller
     Route::get('/admin/contact', [ContactController::class, 'index'])->name('contact');
+    Route::delete('/admin/contact_delete/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+
 
     // category 
     Route::resource('categories', CategoryController::class);
+    // Route::resource('categories', CategoryController::class)->parameters([
+    //     'categories' => 'category:slug', // Use slug as the parameter
+    // ]);
 
 
     // postcontroller

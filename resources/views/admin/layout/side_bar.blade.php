@@ -22,7 +22,7 @@
                     <li class="nav-item">
                         <a href="{{ route('categories.index') }}"
                             class="nav-link {{ Request::is('categories*') ? 'active' : '' }}">
-                            <i class="nav-icon bi bi-table"></i>
+                            <i class="nav-icon bi bi-circle"></i>
                             <p>Category</p>
                         </a>
                     </li>

@@ -12,9 +12,8 @@ class ContactController extends Controller
 {
     public function index()
     {
-        // dd("work");
 
-        $contacts = Contacts::orderBy('created_at', 'desc')->paginate(5);
+        $contacts = Contacts::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.contact.index', compact('contacts'));
     }
 
@@ -48,6 +47,23 @@ class ContactController extends Controller
                 'message' => 'Failed to create contact.',
                 'error' => $e->getMessage(),
             ], 500);
+        }
+    }
+    public function destroy($id)
+    {
+        try {
+            $contact = Contacts::find($id);
+
+            if (!$contact) {
+                return redirect()->back()->with('error', 'Contact not found.');
+            }
+
+            $contact->delete();
+
+            return redirect()->back()->with('success', 'Contact deleted successfully.');
+        } catch (\Exception $e) {
+
+            return redirect()->back()->with('error', 'An error occurred while deleting the post. Please try again.');
         }
     }
 }

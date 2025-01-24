@@ -38,9 +38,9 @@ class CategoryController extends Controller
     }
 
     // Show the form for editing the specified category
-    public function edit(Category $category)
+    public function edit($slug)
     {
-        dd("sss");
+        $category = Category::where('slug', $slug)->firstOrFail();
         return view('admin.category.edit', compact('category'));
     }
 

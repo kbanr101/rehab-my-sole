@@ -56,8 +56,9 @@
                                                 <td>{{ $category->slug }}</td>
                                                 <td>{{ ucfirst($category->status) }}</td>
                                                 <td>
-                                                    {{-- <a href="{{ route('categories.edit', $category->slug) }}"
-                                                        class="btn btn-primary btn-sm">Edit</a> --}}
+                                                    <a href="{{ route('categories.edit', $category->slug) }}"
+                                                        class="btn btn-primary btn-sm">Edit</a>
+
                                                     <form action="{{ route('categories.destroy', $category->id) }}"
                                                         method="POST" style="display:inline;">
                                                         @csrf
@@ -82,5 +83,9 @@
             </div>
         </div>
     </main>
-    <style>.card-header::after{display: none;}</style>
+    <style>
+        .card-header::after {
+            display: none;
+        }
+    </style>
 @stop
