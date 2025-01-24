@@ -278,13 +278,16 @@ form.queryForm {
     align-items: center;
     justify-content: space-between;
 }
-.blog_action > a{
+.blog_action > a {
     height: 35px;
     width: 35px;
     text-align: center;
     line-height: 30px;
     border: 1px solid rgb(var(--color-grayN));
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .moreText.active {
     -webkit-line-clamp: 2;
@@ -304,6 +307,11 @@ form.queryForm {
     box-shadow: 0px 2px 15px -5px rgb(var(--color-blackG) / 50% );
     transition: var(--transition);
 }
+.blogCard {
+    border: 1px solid rgb(var(--color-blackG) / 5%);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
 .blogPlay {
     position: fixed;
     top: 50%;
@@ -312,9 +320,10 @@ form.queryForm {
     display: flex;
     flex-direction: column;
     grid-gap: 10px;
-    background: rgb(var(--color-grayNH) / 20%);
+    background: rgb(var(--color-whiteG) / 20%);
     color: rgb(var(--color-brownNA));
     cursor: pointer;
+    border: 1px solid rgb(var(--color-blackG) / 10%);
 }
 /* Blog Page End */
 /* Footer Section  */
@@ -350,6 +359,9 @@ h3.footer_title {
     margin: .5rem 5px;
     color: rgb(var(--color-brownN));
     font: 700 20px/40px fontAwesome;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* Footer Section End */
 @media (max-width: 767px){

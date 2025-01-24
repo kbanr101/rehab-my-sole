@@ -3,7 +3,7 @@
         <div class="header-container custom-container">
             <div class="brand-logo logo">
                 <div class="mobile_hamburger" hidden><i class="fa-solid fa-bars"></i></div>
-                <a href="{{ url('/') }}" class="d-inline"><img src="{{ asset('assets/media/RehabMySole-logo.svg') }}" alt="RehabMySolo" class="img-fluid w-100" /></a>
+                <a href="{{ route('comingSoonPage') }}" class="d-inline"><img src="{{ asset('assets/media/RehabMySole-logo.svg') }}" alt="RehabMySolo" class="img-fluid w-100" /></a>
             </div>
             <div class="main-navigation">
                 {{-- New Nevbar Section --}}
@@ -27,7 +27,7 @@
                 {{-- New Nevbar Section End --}}
             </div>
             <div class="header-action">
-                <a href="#" class="defaultClass">Book us now</a>
+                <a href="{{ route('comingSoonPage') }}" class="defaultClass">Book us now</a>
             </div>
         </div>
     </header>
@@ -82,6 +82,7 @@
         margin: 0 0;
         padding: 0 0;
         list-style: none;
+        overflow: hidden;
     }
     .sublist a {
         display: block;
