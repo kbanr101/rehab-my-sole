@@ -2,27 +2,30 @@
 @section('content')
     <!--begin::App Main-->
     <main class="app-main">
-        <!-- Flash Messages -->
-        @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-
-        @if (session('error'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ session('error') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-
         <!--begin::App Content Header-->
         <div class="app-content-header">
+            <!--begin::Container-->
             <div class="container-fluid">
+                <!--begin::Row-->
                 <div class="row"></div>
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                <!--end::Row-->
             </div>
+            <!--end::Container-->
         </div>
+        <!--end::App Content Header-->
 
         <!--begin::App Content-->
         <div class="app-content">

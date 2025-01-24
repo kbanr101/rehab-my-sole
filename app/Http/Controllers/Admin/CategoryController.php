@@ -25,7 +25,7 @@ class CategoryController extends Controller
     {
         // Validate input
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|unique:categories,name||max:255',
             'slug' => 'required|string|unique:categories,slug|max:255',
             'status' => 'required|in:active,inactive',
         ]);
@@ -49,7 +49,7 @@ class CategoryController extends Controller
     {
         // Validate input
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|unique:categories,name,' . $category->id . '||max:255',
             'slug' => 'required|string|unique:categories,slug,' . $category->id . '|max:255',
             'status' => 'required|in:active,inactive',
         ]);
