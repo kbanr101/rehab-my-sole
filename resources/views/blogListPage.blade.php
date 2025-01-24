@@ -24,7 +24,8 @@
                         <div class="blogCard mb-4">
                             <div class="blogCard_Image mb-3">
                                 <img src="{{ asset('storage/' . $post->image) }}" alt="Blog card" class="img-fluid w-100" />
-                                <span class="like_Blog" data-post-id="{{ $post->id }}"><i class="fa-regular fa-heart"
+                                <span class="like_Blog like_Blog{{ $post->id }}" data-post-id="{{ $post->id }}"><i
+                                        class="fa-regular fa-heart"
                                         style="{{ $post->likes_count ? 'color:red;' : '' }}"></i></span>
                             </div>
                             <div class="blog_contents p-3">
