@@ -99,4 +99,5 @@
             </div>
         </div>
     </main>
+    <style>.card-header::after{display: none;}</style>
 @stop

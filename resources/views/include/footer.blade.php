@@ -47,7 +47,7 @@
 
             var $label = $(this).nextAll('label').first();
             var $icon = $(this).find('.like_Blog');
-            console.log($icon);
+            // console.log($icon);
             $.ajax({
                 type: 'POST',
                 url: '/post/' + postId + '/like',
@@ -59,11 +59,11 @@
                         $label.text(response.likes_count + ' Likes');
                         console.log(response.likes_count);
                         if (response.liked) {
-                            $icon.addClass('active');
-                            console.log($icon);
+                            $('.like_Blog').addClass('active')
                             console.log("Icon color changed to red."); // Debugging
                         } else {
-                            $icon.removeClass('active'); // Add red color if liked
+                            $('.like_Blog').removeClass('active')
+                            // $icon.removeClass('active'); // Add red color if liked
                             console.log("Icon color reset."); // Debugging
                         }
 

@@ -296,6 +296,9 @@ form.queryForm {
     text-overflow: ellipsis;
     overflow: hidden;
 }
+span.like_Blog.active svg path {
+    fill: red !important;
+}
 .blogCard_Image > img {
     height: clamp(200px, 100vh, 250px);
     object-fit: cover;
