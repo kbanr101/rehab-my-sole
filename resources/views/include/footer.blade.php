@@ -1,6 +1,6 @@
 @if (empty($transparentClass))
     <footer class="footer-container pt-5 pb-5">
-        <div class="container">
+        <div class="custom-container">
             <div class="row">
                 <div class="col-md-6">
                     <div class="footer_item mb-4">

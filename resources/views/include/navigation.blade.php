@@ -1,6 +1,6 @@
 @if (empty($transparentClass))
     <header class="main-header ">
-        <div class="header-container container">
+        <div class="header-container custom-container">
             <div class="brand-logo logo">
                 <div class="mobile_hamburger" hidden><i class="fa-solid fa-bars"></i></div>
                 <a href="{{ url('/') }}" class="d-inline"><img src="{{ asset('assets/media/RehabMySole-logo.svg') }}" alt="RehabMySolo" class="img-fluid w-100" /></a>
@@ -10,19 +10,19 @@
                 <ul class="navbar-block menubar">
                     {{-- <li style="display: none;" class="mobile_menu_bar"><i class="fa fa-times"></i></li> --}}
                     <li><a href="{{ route('aboutusPage') }}">About us</a></li>
-                    <li class="dropdown-list"><a href="#">Services</a>
+                    <li class="dropdown-list"><a href="{{ route('comingSoonPage') }}">Services</a>
                         <i class="drop-plus" hidden></i>
                         <ul class="sublist">
-                            <li><a href="#">Repair</a></li>
-                            <li><a href="#">Cleaning</a></li>
-                            <li><a href="#">Restoration</a></li>
-                            <li><a href="#">Customization</a></li>
+                            <li><a href="{{ route('comingSoonPage') }}">Repair</a></li>
+                            <li><a href="{{ route('comingSoonPage') }}">Cleaning</a></li>
+                            <li><a href="{{ route('comingSoonPage') }}">Restoration</a></li>
+                            <li><a href="{{ route('comingSoonPage') }}">Customization</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">How it works</a></li>
-                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="{{ route('comingSoonPage') }}">How it works</a></li>
+                    <li><a href="{{ route('comingSoonPage') }}">FAQ's</a></li>
                     <li><a href="{{ route('blogListPage') }}">Blogs</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="{{ route('comingSoonPage') }}">Contact us</a></li>
                 </ul>
                 {{-- New Nevbar Section End --}}
             </div>
@@ -71,13 +71,34 @@
         opacity: 0;
         position: absolute;
         z-index: 2;
-        background-color: rgb(var(--color-white));
+        background-color: rgb(var(--color-whiteG));
         width: 200px;
-        box-shadow: var(--box-shadow);
+        box-shadow: var(--box-shadow) rgb(var(--color-blackG)/30%);
         border-radius: 4px;
         top: 130%;
         transition: var(--transition);
         text-align: left;
+        border: 1px solid rgb(var(--color-blackG)/10%);
+        margin: 0 0;
+        padding: 0 0;
+        list-style: none;
+    }
+    .sublist a {
+        display: block;
+        font: 400 14px/22px var(--font-one);
+        padding: 4px 8px;
+        color: rgb(var(--color-grayNA));
+        transition: var(--transition);
+        transition: var(--transition);
+        border-bottom: 1px solid rgb(var(--color-blackG)/5%);
+    }
+    .sublist a:active,
+    .sublist a:hover {
+        color: rgb(var(--color-whiteG));
+        background: rgb(var(--color-grayNH));
+    }
+    .sublist a:active{
+        background: rgb(var(--color-grayNA));
     }
 
     ul.sublist.active-list {

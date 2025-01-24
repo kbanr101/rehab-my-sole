@@ -1,7 +1,7 @@
 @extends('include.master')
 @section('content')
 <section class="herobanner pt-5 pb-5 mt-5 mb-5">
-    <div class="container">
+    <div class="custom-container">
         <div class="centerContent text-center m-auto">
             <h3>An engaging heading. An engaging heading.</h3>
             <p>Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
@@ -22,7 +22,7 @@
     </div>
 </section>
 <section class="serviceSection pt-5 pb-5">
-    <div class="container">
+    <div class="custom-container">
         <div class="mainTitle text-center m-auto pb-5">
             <h3>Choose a Service</h3>
             <p class="m-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores qui amet, esse omnis illum sed nihil, debitis dolorum quae pariatur harum asperiores quidem saepe quas, necessitatibus earum quod itaque. Molestias expedita eveniet aliquid cupiditate? Consectetur cumque error ipsam?</p>

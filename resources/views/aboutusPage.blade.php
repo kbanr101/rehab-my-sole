@@ -1,7 +1,7 @@
 @extends('include.master')
 @section('content')
 <div class="pageNavigaton pt-4 pb-4">
-    <div class="container">
+    <div class="custom-container">
         <div class="pageContainer">
             <div class="pageItem">
                 <h3>About us</h3>
@@ -11,7 +11,7 @@
     </div>
 </div>
 <section class="serviceSection pt-2 pb-5">
-    <div class="container">
+    <div class="custom-container">
         {{-- <div class="mainTitle text-center m-auto pb-5">
         <h3>Our Service</h3>
         <p class="m-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores qui amet, esse omnis illum sed nihil, debitis dolorum quae pariatur harum asperiores quidem saepe quas, necessitatibus earum quod itaque. Molestias expedita eveniet aliquid cupiditate? Consectetur cumque error ipsam?</p>

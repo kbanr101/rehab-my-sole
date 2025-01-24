@@ -6,19 +6,19 @@
 
 
 @section('content')
-    <div class="pageNavigaton pt-4 pb-4" id="selected-content">
-        <div class="container">
+<div class="blogPlay">
+    <span id="read-selected-content" aria-label="Read Content"><i class="fa-solid fa-play"></i></span>
+    <span id="stop-reading" aria-label="Stop Reading"><i class="fa-solid fa-pause"></i></span>
+</div>
+<div class="pageNavigaton pt-4 pb-4" id="selected-content">
+        <div class="custom-container">
             <div class="pageContainer">
                 <div class="pageItem">
                     <h3>{{ $post->title }}</h3>
                 </div>
                 <div class="pageItem">
                     <div class="pageItem_right">
-                        <p><span class="like_Blog" data-post-id="{{ $post->id }}"><i class="fa-regular fa-heart"
-                                    style="{{ $post->likes_count ? 'color:red;' : '' }}"></i></span><label>{{ $post->likes_count }}
-                                Likes</label>
-                            <button id="read-selected-content" class="btn btn-primary">Read Content</button>
-                            <button id="stop-reading" class="btn btn-secondary">Stop Reading</button>
+                        <p><span class="like_Blog" data-post-id="{{ $post->id }}"><i class="fa-regular fa-heart" style="{{ $post->likes_count ? 'color:red;' : '' }}"></i></span><label>{{ $post->likes_count }} Likes</label>
                         <p><span>{{ \Carbon\Carbon::parse($post->created_at)->format('l,') }}</span><label>{{ \Carbon\Carbon::parse($post->created_at)->format('M d, Y') }}</label>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <section class="serviceSection pt-2 pb-5">
-        <div class="container">
+        <div class="custom-container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="blogDiscriptions" id="text-to-speak">
