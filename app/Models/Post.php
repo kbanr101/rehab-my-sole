@@ -19,6 +19,7 @@ class Post extends Model
         'seo_description',
         'short_description',
         'seo_keywords',
+        'category_id'
     ];
 
     public function user()
@@ -28,5 +29,9 @@ class Post extends Model
     public function likes()
     {
         return $this->hasMany(Likes::class, 'post_id');
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

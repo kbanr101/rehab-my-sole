@@ -34,8 +34,27 @@
                                 <input type="hidden" name="id" value="{{ $post->id }}">
                                 <div class="card-body">
                                     <div class="row g-3">
+
+                                        <!-- Category -->
+                                        <div class="col-md-4">
+                                            <label class="form-label">Select Category</label>
+                                            <select class="form-control @error('category_id') is-invalid @enderror"
+                                                name="category_id" required>
+                                                <option value="" disabled>Select a category</option>
+                                                @foreach ($category as $cat)
+                                                    <option value="{{ $cat->id }}"
+                                                        {{ (old('category_id') ?? $post->category_id) == $cat->id ? 'selected' : '' }}>
+                                                        {{ $cat->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @error('category_id')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
                                         <!-- Title -->
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label class="form-label">Title</label>
                                             <input type="text" class="form-control @error('title') is-invalid @enderror"
                                                 name="title" value="{{ old('title', $post->title) }}" required />
@@ -45,7 +64,7 @@
                                         </div>
 
                                         <!-- Slug -->
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <label class="form-label">Slug Name</label>
                                             <input type="text" name="slug"
                                                 class="form-control @error('slug') is-invalid @enderror"

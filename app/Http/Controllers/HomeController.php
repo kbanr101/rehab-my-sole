@@ -28,7 +28,7 @@ class HomeController extends Controller
             $query->where('ip_address', $ipAddress);
         }])
             ->orderBy('created_at', 'desc')
-            ->paginate(3);
+            ->paginate(9);
         //->get();
         return view('blogListPage', compact('posts'));
     }

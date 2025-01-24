@@ -6,24 +6,30 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
+use App\Models\Category;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->paginate(3);
+        $posts = Post::with('category') // Eager load the category relationship
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+        // dd($posts);
         return view('admin.post.index', compact('posts'));
     }
 
 
     public function create()
     {
-        return view('admin.post.create');
+        $category = Category::select('name', 'id')->where('status', 'active')->get();
+        return view('admin.post.create', compact('category'));
     }
 
     public function store(Request $request)
     {
         $validated = $request->validate([
+
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:posts',
             'description' => 'required|string',
@@ -32,6 +38,7 @@ class PostController extends Controller
             'seo_title' => 'nullable|string|max:255',
             'seo_description' => 'nullable|string',
             'seo_keywords' => 'nullable|string',
+            'category_id' => 'required|exists:categories,id',
         ]);
 
         if ($request->hasFile('image')) {
@@ -68,7 +75,8 @@ class PostController extends Controller
     public function edit($slug)
     {
         $post = Post::where('slug', $slug)->first();
-        return view('admin.post.edit', compact('post'));
+        $category = Category::select('name', 'id')->where('status', 'active')->get();
+        return view('admin.post.edit', compact('post', 'category'));
     }
 
     public function update(Request $request)
@@ -82,7 +90,7 @@ class PostController extends Controller
             'seo_description' => 'nullable|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'seo_keywords' => 'nullable|string',
-
+            'category_id' => 'required|exists:categories,id',
         ]);
 
         $post = Post::findOrFail($request->id);
@@ -94,6 +102,7 @@ class PostController extends Controller
         $post->seo_description = $validated['seo_description'];
         $post->short_description = $validated['short_description'];
         $post->seo_keywords = $validated['seo_keywords'];
+        $post->category_id = $validated['category_id'];
 
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();

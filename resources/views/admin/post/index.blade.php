@@ -48,6 +48,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Category</th>
                                             <th>Title</th>
                                             <th>Short Description</th>
                                             {{-- <th>Slug</th> --}}
@@ -60,6 +61,7 @@
                                             <tr>
                                                 <td>{{ $posts->firstItem() + $key }}</td>
                                                 <!-- Correct numbering with pagination -->
+                                                <td>{{ $post->category['name'] }}</td>
                                                 <td>{{ $post->title }}</td>
                                                 <td>{{ $post->short_description }}</td>
                                                 {{-- <td>{{ $post->slug }}</td> --}}
@@ -99,5 +101,9 @@
             </div>
         </div>
     </main>
-    <style>.card-header::after{display: none;}</style>
+    <style>
+        .card-header::after {
+            display: none;
+        }
+    </style>
 @stop
