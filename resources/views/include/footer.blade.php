@@ -27,7 +27,8 @@
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                             <li><a href="https://www.facebook.com/rehabmysole/"><i class="fab fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa-regular fa-paper-plane"></i></a></li>
-                            <li><a href="https://www.instagram.com/rehab_my_sole/"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.instagram.com/rehab_my_sole/"><i class="fab fa-instagram"></i></a>
+                            </li>
                         </ul>
                     </div>
                     <div class="footer_item mb-4">
@@ -46,7 +47,7 @@
             var postId = $(this).data('post-id');
 
             var $label = $(this).nextAll('label').first();
-            var $icon = $(this).find('.like_Blog');
+            var $icon = $(this).find('.like_Blog' + postId);
             // console.log($icon);
             $.ajax({
                 type: 'POST',
@@ -59,10 +60,10 @@
                         $label.text(response.likes_count + ' Likes');
                         console.log(response.likes_count);
                         if (response.liked) {
-                            $('.like_Blog').addClass('active')
+                            $('.like_Blog' + postId).addClass('active')
                             console.log("Icon color changed to red."); // Debugging
                         } else {
-                            $('.like_Blog').removeClass('active')
+                            $('.like_Blog' + postId).removeClass('active')
                             // $icon.removeClass('active'); // Add red color if liked
                             console.log("Icon color reset."); // Debugging
                         }

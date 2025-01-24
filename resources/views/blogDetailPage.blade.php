@@ -21,7 +21,7 @@
                             </div>
                             <div class="pageItem">
                                 <div class="pageItem_right">
-                                    <p><span class="like_Blog {{ $post->likes_count ? 'active' : '' }}"
+                                    <p><span class="like_Blog like_Blog{{ $post->id }} {{ $post->likes_count ? 'active' : '' }}"
                                             data-post-id="{{ $post->id }}">
                                             <i class="fa-regular fa-heart " style=""></i>
                                         </span><label>{{ $post->likes_count }} Likes</label>
@@ -56,7 +56,8 @@
                             <div class="blogCard_Image mb-3">
                                 <img src="{{ asset('storage/' . $newPost->image) }}" alt="Blog card"
                                     class="img-fluid w-100" />
-                                <span class="like_Blog" data-post-id="{{ $newPost->id }}"><i class="fa-regular fa-heart"
+                                <span class="like_Blog like_Blog{{ $newPost->id }}" data-post-id="{{ $newPost->id }}"><i
+                                        class="fa-regular fa-heart"
                                         style="{{ $newPost->likes_count ? 'color:red;' : '' }}"></i></span>
                             </div>
                             <div class="blog_contents p-3">
