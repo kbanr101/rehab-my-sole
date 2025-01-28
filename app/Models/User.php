@@ -22,6 +22,13 @@ class User extends Authenticatable
         'email',
         'password',
         'is_admin',
+        'is_verified',
+        'otp',
+        'role',
+        'longitude',
+        'latitude',
+        'profile_picture'
+
     ];
 
     /**
