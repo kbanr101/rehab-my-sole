@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\CategoryController;
 //     return view('welcome');
 // });
 Route::get('/', [HomeController::class, 'index']);
+Route::get('home', [HomeController::class, 'home']);
 Route::get('/blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.details');
 
 
@@ -51,7 +52,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/admin/contact_delete/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
 
 
-    // category 
+    // category
     Route::resource('categories', CategoryController::class);
     // Route::resource('categories', CategoryController::class)->parameters([
     //     'categories' => 'category:slug', // Use slug as the parameter
