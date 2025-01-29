@@ -5,8 +5,7 @@
                 <div class="col-md-6">
                     <div class="footer_item mb-4">
                         <h3 class="footer_title">RehabMySole</h3>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, architecto? Lorem ipsum dolor
-                            sit amet consectetur adipisicing elit. Nobis, tempora.</p><br>
+                        <p>Your shoes deserve the best care. At RehabMySole, we combine expertise, passion, and precision to ensure every step you take is in style and comfort.</p><br>
                         <a href="#">More about us</a>
                     </div>
                 </div>

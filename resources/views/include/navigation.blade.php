@@ -27,7 +27,7 @@
                 {{-- New Nevbar Section End --}}
             </div>
             <div class="header-action">
-                <a href="{{ route('comingSoonPage') }}" class="defaultClass">Book us now</a>
+                <a href="{{ route('comingSoonPage') }}" class="defaultBtnClass">Book us now</a>
             </div>
         </div>
     </header>
