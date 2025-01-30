@@ -32,9 +32,10 @@ class ContactController extends Controller
                 'email' => $validatedData['email'],
             ]);
 
-            $email = "vineetk@mtriplet.com";
 
-            Mail::to($email)->send(new ContactCreated($validatedData['name'], $validatedData['email']));
+            $emailReceiver = env('EMAIL_RECIVER');
+
+            Mail::to($emailReceiver)->send(new ContactCreated($validatedData['name'], $validatedData['email']));
 
             return response()->json([
                 'success' => true,
