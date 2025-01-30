@@ -42,7 +42,7 @@ body{margin: 0 0;padding: 0 0}
     --color-blackG: 0 0 0;
     /* White Color Palet End  */
     --transition: 0.3s all ease-in-out;
-    --box-shadow: 0 4px 4px 0;
+    --box-shadow: 0 0px 10px -2px;
 }
 .custom-container{max-width: 1240px;display: block;padding: 0 15px;margin: auto;}
 a{outline: none !important; text-decoration: none;}
@@ -103,8 +103,8 @@ header.main-header.transparentClass {
 .main-header{
     box-shadow: var(--box-shadow) rgb(var(--color-whiteD) / 25%);
 }
-button.defaultClass,
-a.defaultClass {
+button.defaultBtnClass,
+a.defaultBtnClass {
     padding: 0 24px;
     text-decoration: none;
     color: rgb(var(--color-whiteG));
@@ -117,15 +117,27 @@ a.defaultClass {
     box-shadow: none;
     border: 1px solid;
 }
-button.defaultClass:hover,
-a.defaultClass:hover{
+button.trBtnClass:hover,a.trBtnClass:hover,
+button.defaultBtnClass:hover,
+a.defaultBtnClass:hover{
     background-color: rgb(var(--color-brownNH));
     border-color: rgb(var(--color-brownNH));
 }
-button.defaultClass:active,
-a.defaultClass:active{
+button.trBtnClass:active,a.trBtnClass:active,
+button.defaultBtnClass:active,
+a.defaultBtnClass:active{
     background-color: rgb(var(--color-brownNA));
     border-color: rgb(var(--color-brownNA));
+}
+button.trBtnClass,a.trBtnClass {
+    background-color: rgb(var(--color-whiteG));
+    color: rgb(var(--color-brownN));
+    border-width: 1.5px;
+    font-weight: 500;
+}
+button.trBtnClass:active,a.trBtnClass:active,
+button.trBtnClass:hover,a.trBtnClass:hover{
+    color: rgb(var(--color-whiteG));
 }
 /* default Titles */
 .mainTitle > h3{
@@ -220,16 +232,32 @@ a.defaultClass:active{
 }
 /* Video section End */
 /* Service Card */
+.serviceCard {
+    border-radius: 10px;
+    box-shadow: var(--box-shadow) rgb(var(--color-blackG) / 20%);
+}
+.serviceImage > img {border-radius: 10px;}
 .serviceCard p{
     font: 400 14px/20px var(--font-one);
     color: rgb(var(--color-whiteDH));
-    text-align: center;
+    margin: 0 0 5px;
+    border-radius: 10px;
+}
+.serviceCard .price_track {
+    font: 500 14px/22px var(--font-one);
+    color: rgb(var(--color-grayD));
+    padding: 5px 0 10px;
+}
+.serviceCard h4{
+    font: 500 24px/32px var(--font-one);
+    color: rgb(var(--color-blackG));
 }
 /* Service Card End */
 /* Join Now */
 section.joinForm.pt-5.pb-5 {
     background: rgb(var(--color-grayLH));
 }
+.accordian-container,
 form.queryForm {
     max-width: 500px;
     margin: auto;
@@ -250,6 +278,63 @@ form.queryForm {
 }
 .form-group > input::placeholder {color: rgb(var(--color-grayLA));}
 /* Join Now End */
+/* How to work Section  */
+.workSection{background: rgb(var(--color-brownL));}
+.workFigure-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.workFigure-content > ul{
+    list-style: none;
+    margin: 0 0;
+    padding: 0 0;
+}
+.workFigure-content > ul li{
+    margin-bottom: 2rem;
+    font: 400 16px/24px var(--font-one);
+    color: rgb(var(--color-whiteD));
+}
+.workFigure-content li h4 > span,
+.workFigure-content li h4 {
+    font: 600 18px/26px var(--font-one);
+    color: rgb(var(--color-grayD));
+}
+.faqs-item h2 > button,
+.workFigure-content li h4 > span {
+    color: rgb(var(--color-grayDA));
+    width: 26px;
+    height: 26px;
+    border-radius: 50px;
+    background: rgb(var(--color-brownLA));
+    text-align: center;
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+/* How to work Section End */
+/* Faqs Section  */
+.faqs-item h2 {
+    font: 500 16px/24px var(--font-one);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5px;
+    margin-bottom: 0;
+}
+.faqs-item h2 > button {
+    outline: none;
+    border: none;
+    height: 30px;
+    width: 30px;
+}
+.faqs-item .faqs-collapse {
+    font: 400 16px/24px var(--font-one);
+    color: rgb(var(--color-whiteDA));
+    padding: 0 1rem 0 10px;
+}
+/* Faqs Section End */
 /* Blog Page Start */
 /* ##blog title */
 .blog_contents h3{
@@ -368,7 +453,7 @@ h3.footer_title {
 }
 /* Footer Section End */
 @media (max-width: 767px){
-    button.defaultClass, a.defaultClass {
+    button.defaultBtnClass, a.defaultBtnClass {
         padding: 0 10px;
         font-size: 13px;
     }
