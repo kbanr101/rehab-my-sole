@@ -17,16 +17,18 @@ class AuthController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|unique:users',
                 'password' => 'required|string|min:8',
+                'phone_number' => 'required|string|unique:users',
             ]);
 
             $otp = rand(1000, 9999);
 
-            // Create user
+            // Create user with phone_number
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'otp' => $otp,
+                'phone_number' => $request->phone_number, // Save phone_number
             ]);
 
             // Send OTP via email (or SMS)

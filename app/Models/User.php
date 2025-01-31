@@ -29,7 +29,8 @@ class User extends Authenticatable
         'latitude',
         'profile_picture',
         'google_id',
-        'facebook_id'
+        'facebook_id',
+        'phone_number'
 
     ];
 
