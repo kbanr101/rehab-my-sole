@@ -66,7 +66,7 @@
                                                 <td>{{ $post->short_description }}</td>
                                                 {{-- <td>{{ $post->slug }}</td> --}}
                                                 <td>
-                                                    <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image"
+                                                    <img src="{{ asset($post->image) }}" alt="Post Image"
                                                         style="width:50px;height:50px">
                                                 </td>
                                                 <td>

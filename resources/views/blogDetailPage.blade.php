@@ -54,8 +54,7 @@
                     <div class="col-md-4">
                         <div class="blogCard mb-4">
                             <div class="blogCard_Image mb-3">
-                                <img src="{{ asset('storage/' . $newPost->image) }}" alt="Blog card"
-                                    class="img-fluid w-100" />
+                                <img src="{{ asset($newPost->image) }}" alt="Blog card" class="img-fluid w-100" />
                                 <span class="like_Blog like_Blog{{ $newPost->id }}" data-post-id="{{ $newPost->id }}"><i
                                         class="fa-regular fa-heart"
                                         style="{{ $newPost->likes_count ? 'color:red;' : '' }}"></i></span>

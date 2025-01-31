@@ -42,8 +42,14 @@ class PostController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
+            // $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
+            // $validated['image'] = $request->file('image')->storeAs('blogs', $imageName, 'public');
+
             $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
-            $validated['image'] = $request->file('image')->storeAs('blogs', $imageName, 'public');
+            $request->file('image')->move(public_path('blogs'), $imageName);
+
+            // Store the relative path in the database
+            $validated['image'] = 'blogs/' . $imageName;
         }
 
         $validated['user_id'] = auth()->id(); // Set the logged-in user's ID
@@ -106,7 +112,10 @@ class PostController extends Controller
 
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
-            $post->image = $request->file('image')->storeAs('blogs', $imageName, 'public');
+            $request->file('image')->move(public_path('blogs'), $imageName);
+
+            // Store the relative path in the database
+            $post->image = 'blogs/' . $imageName;
         }
 
         $post->save();

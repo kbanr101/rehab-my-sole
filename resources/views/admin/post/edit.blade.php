@@ -81,8 +81,8 @@
                                                 class="form-control @error('image') is-invalid @enderror" />
                                             <small class="form-text text-muted">Leave blank to keep the current
                                                 image.</small>
-                                            <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image"
-                                                class="mt-2" style="width:100px;height:auto;">
+                                            <img src="{{ asset($post->image) }}" alt="Post Image" class="mt-2"
+                                                style="width:100px;height:auto;">
                                             @error('image')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
