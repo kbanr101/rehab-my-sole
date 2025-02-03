@@ -6,16 +6,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Likes;
+use App\Models\Category;
+use Jorenvh\Share\ShareFacade as Share;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         // $posts = Post::paginate(3);
         // return view('index', compact('posts'));
         $transparentClass = "transparentClass comming-soon";
         return view('comingSoonPage', compact('transparentClass'));
     }
-    public function home(){
+    public function home()
+    {
         $posts = Post::paginate(3);
         return view('index', compact('posts'));
     }
@@ -27,14 +31,54 @@ class HomeController extends Controller
     public function blogList(Request $request)
     {
         // $posts = Post::orderBy('created_at', 'desc')->paginate(3);
-        $ipAddress = $request->ip();
-        $posts = Post::withCount(['likes as likes_count' => function ($query) use ($ipAddress) {
-            $query->where('ip_address', $ipAddress);
-        }])
-            ->orderBy('created_at', 'desc')
-            ->paginate(9);
+        // $ipAddress = $request->ip();
+        // $posts = Post::withCount(['likes as likes_count' => function ($query) use ($ipAddress) {
+        //     $query->where('ip_address', $ipAddress);
+        // }])
+        //     ->orderBy('created_at', 'desc')
+        //     ->paginate(9);
         //->get();
-        return view('blogListPage', compact('posts'));
+
+        $ipAddress = $request->ip();
+        $category_id = $request->input('category_id');
+        $categories = Category::where('status', 'active')->get();
+
+        $postsQuery = Post::withCount([
+            'likes as likes_count' => function ($query) use ($ipAddress) {
+                $query->where('ip_address', $ipAddress);
+            }
+        ])->orderBy('created_at', 'desc');
+
+        // Filter by category if it's selected
+        if ($category_id) {
+            $postsQuery->where('category_id', $category_id);
+        }
+
+        $posts = $postsQuery->paginate(9);
+
+        return view('blogListPage', compact('posts', 'categories'));
+    }
+
+    public function ajaxBlog(Request $request)
+    {
+        $ipAddress = $request->ip();
+        $category_id = $request->input('category_id');
+        $categories = Category::where('status', 'active')->get();
+
+        $postsQuery = Post::withCount([
+            'likes as likes_count' => function ($query) use ($ipAddress) {
+                $query->where('ip_address', $ipAddress);
+            }
+        ])->orderBy('created_at', 'desc');
+
+        // Filter by category if it's selected
+        if ($category_id) {
+            $postsQuery->where('category_id', $category_id);
+        }
+
+        $posts = $postsQuery->paginate(9);
+
+        return view('postAjax', compact('posts', 'categories'));
     }
 
 
@@ -69,7 +113,18 @@ class HomeController extends Controller
             $nextPostSlug =  $randomPost->slug;
         }
 
-        return view('blogDetailPage', compact('post', 'recentPost', 'nextPostSlug'));
+        $shareButtons = Share::page(
+            url("/blogDetailPage/$post->slug"), // Dynamic blog post URL
+            $post->title // Blog post title as description
+        )
+            ->facebook()
+            ->twitter()
+            //->linkedin();
+            ->telegram();
+        //->whatsapp()
+        // ->instagram();
+
+        return view('blogDetailPage', compact('post', 'recentPost', 'nextPostSlug', 'shareButtons'));
     }
     public function aboutus()
     {

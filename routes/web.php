@@ -70,9 +70,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::get('about-us', [HomeController::class, 'aboutus'])->name('aboutusPage');
 Route::get('blog-list', [HomeController::class, 'blogList'])->name('blogListPage');
+Route::post('filter-results', [HomeController::class, 'ajaxBlog'])->name('filter-results');
 Route::get('blog-detail/{slug}', [HomeController::class, 'blogDetails'])->name('blogDetailPage');
 Route::get('coming-soon', [HomeController::class, 'comingSoon'])->name('comingSoonPage');
 Route::post('/post/{id}/like', [HomeController::class, 'like']);
+
 Route::get('/voice', function () {
     return view('voice');
 });

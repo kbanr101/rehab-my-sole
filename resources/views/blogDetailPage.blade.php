@@ -26,8 +26,11 @@
                             </div>
                             <div class="pageItem">
                                 <div class="pageItem_right">
-                                    <p><span>{{ \Carbon\Carbon::parse($post->created_at)->format('l,') }}</span><label>{{ \Carbon\Carbon::parse($post->created_at)->format('M d, Y') }}</label></p>
-                                    <p><span class="like_Blog like_Blog{{ $post->id }} {{ $post->likes_count ? 'active':'' }}" data-post-id="{{ $post->id }}"><i class="fa-regular fa-heart " style=""></i></span><label>{{ $post->likes_count }} Likes</label></p>
+                                    <p><span>{{ \Carbon\Carbon::parse($post->created_at)->format('l,') }}</span><label>{{ \Carbon\Carbon::parse($post->created_at)->format('M d, Y') }}</label>
+                                    </p>
+                                    <p><span class="like_Blog like_Blog{{ $post->id }} {{ $post->likes_count ? 'active' : '' }}"
+                                            data-post-id="{{ $post->id }}"><i class="fa-regular fa-heart "
+                                                style=""></i></span><label>{{ $post->likes_count }} Likes</label></p>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +40,8 @@
                     </div>
                     <div class="blogTopNavigation">
                         <span></span>
-                        <a href="{{ route('blogDetailPage', $nextPostSlug) }}">Next story <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="{{ route('blogDetailPage', $nextPostSlug) }}">Next story <i
+                                class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -47,23 +51,39 @@
                         </div>
                         <ul class="soacial-media d-flex m-0 p-0">
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="https://www.facebook.com/rehabmysole/"><i class="fab fa-facebook"></i></a></li>
+                            <li><a
+                                    href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url('/blogDetailPage/' . $post->slug)) }}&text={{ $post->title }}&description={{ $post->description }}"><i
+                                        class="fab fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa-regular fa-paper-plane"></i></a></li>
                             <li><a href="https://www.instagram.com/rehab_my_sole/"><i class="fab fa-instagram"></i></a></li>
+
+                            {{-- {!! $shareButtons !!} --}}
                         </ul>
                         <div class="blogTopNavigation">
                             <h3>Recent Stories</h3>
-                            <a href="{{ route('blogListPage') }}"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.4458 3.79004L13.2334 1.19416C16.7282 0.0292268 18.627 1.93715 17.4712 5.43196L14.8754 13.2196C13.1325 18.4572 10.2707 18.4572 8.52783 13.2196L7.75732 10.9081L5.4458 10.1376C0.208172 8.39475 0.208172 5.54203 5.4458 3.79004Z" stroke="#292D32" stroke-width="1.37591" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+                            <a href="{{ route('blogListPage') }}"><svg width="19" height="18" viewBox="0 0 19 18"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5.4458 3.79004L13.2334 1.19416C16.7282 0.0292268 18.627 1.93715 17.4712 5.43196L14.8754 13.2196C13.1325 18.4572 10.2707 18.4572 8.52783 13.2196L7.75732 10.9081L5.4458 10.1376C0.208172 8.39475 0.208172 5.54203 5.4458 3.79004Z"
+                                        stroke="#292D32" stroke-width="1.37591" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg></a>
                         </div>
                         @foreach ($recentPost as $newPost)
-                            <div class="blogCard recentPost mb-4" style="--data-image-url: url('{{ asset($newPost->image) }}')">
+                            <div class="blogCard recentPost mb-4"
+                                style="--data-image-url: url('{{ asset($newPost->image) }}')">
                                 <div class="blogCard_Image mb-3">
-                                    <img src="{{ asset($newPost->image) }}" alt="Blog card" class="img-fluid w-100 d-none" />
-                                    <span class="like_Blog like_Blog{{ $newPost->id }}" data-post-id="{{ $newPost->id }}"><i class="fa-regular fa-heart" style="{{ $newPost->likes_count ? 'color:red;' : '' }}"></i></span>
+                                    <img src="{{ asset($newPost->image) }}" alt="Blog card"
+                                        class="img-fluid w-100 d-none" />
+                                    <span class="like_Blog like_Blog{{ $newPost->id }}"
+                                        data-post-id="{{ $newPost->id }}"><i class="fa-regular fa-heart"
+                                            style="{{ $newPost->likes_count ? 'color:red;' : '' }}"></i></span>
                                 </div>
                                 <div class="blog_contents p-3">
-                                    <h3><a href="{{ route('blogDetailPage', $newPost->slug) }}">{{ $newPost->title }}</a></h3>
-                                    <span class="blog_date">{{ \Carbon\Carbon::parse($newPost->created_at)->format('d M Y') }}</span>
+                                    <h3><a href="{{ route('blogDetailPage', $newPost->slug) }}">{{ $newPost->title }}</a>
+                                    </h3>
+                                    <span
+                                        class="blog_date">{{ \Carbon\Carbon::parse($newPost->created_at)->format('d M Y') }}</span>
                                     {{-- <p class="moreText active">{!! Str::limit($newPost->short_description, 50) !!}</p>
                                     <div class="blog_action">
                                         <span class="moreBtn">See more</span>
@@ -83,59 +103,59 @@
     </section>
 @endsection
 @section('script')
-<script>
-    $(document).ready(function() {
-        $('.like_Blog').on('click', function() {
-            var postId = $(this).data('post-id');
+    <script>
+        $(document).ready(function() {
+            $('.like_Blog').on('click', function() {
+                var postId = $(this).data('post-id');
 
-            var $label = $(this).nextAll('label').first();
-            var $icon = $(this).find('.like_Blog' + postId);
-            // console.log($icon);
-            $.ajax({
-                type: 'POST',
-                url: '/post/' + postId + '/like',
-                data: {
-                    '_token': '{{ csrf_token() }}'
-                },
-                success: function(response) {
-                    if (response.success) {
-                        $label.text(response.likes_count + ' Likes');
-                        console.log(response.likes_count);
-                        if (response.liked) {
-                            $('.like_Blog' + postId).addClass('active')
-                            console.log("Icon color changed to red."); // Debugging
-                        } else {
-                            $('.like_Blog' + postId).removeClass('active')
-                            // $icon.removeClass('active'); // Add red color if liked
-                            console.log("Icon color reset."); // Debugging
+                var $label = $(this).nextAll('label').first();
+                var $icon = $(this).find('.like_Blog' + postId);
+                // console.log($icon);
+                $.ajax({
+                    type: 'POST',
+                    url: '/post/' + postId + '/like',
+                    data: {
+                        '_token': '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $label.text(response.likes_count + ' Likes');
+                            console.log(response.likes_count);
+                            if (response.liked) {
+                                $('.like_Blog' + postId).addClass('active')
+                                console.log("Icon color changed to red."); // Debugging
+                            } else {
+                                $('.like_Blog' + postId).removeClass('active')
+                                // $icon.removeClass('active'); // Add red color if liked
+                                console.log("Icon color reset."); // Debugging
+                            }
+
                         }
-
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
                     }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error:', error);
-                }
+                });
             });
         });
-    });
-</script>
+    </script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const button = document.getElementById('read-selected-content');
-        const content = document.getElementById('selected-content');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.getElementById('read-selected-content');
+            const content = document.getElementById('selected-content');
 
-        button.addEventListener('click', function() {
-            const text = content.textContent || content
-                .innerText; // Get the text from the selected section
-            const speech = new SpeechSynthesisUtterance(text); // Create a speech instance
-            window.speechSynthesis.speak(speech); // Speak the text
+            button.addEventListener('click', function() {
+                const text = content.textContent || content
+                    .innerText; // Get the text from the selected section
+                const speech = new SpeechSynthesisUtterance(text); // Create a speech instance
+                window.speechSynthesis.speak(speech); // Speak the text
+            });
         });
-    });
-</script>
-<script>
-    document.getElementById('stop-reading').addEventListener('click', function() {
-        window.speechSynthesis.cancel(); // Stop any ongoing speech
-    });
-</script>
+    </script>
+    <script>
+        document.getElementById('stop-reading').addEventListener('click', function() {
+            window.speechSynthesis.cancel(); // Stop any ongoing speech
+        });
+    </script>
 @endsection

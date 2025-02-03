@@ -8,6 +8,7 @@
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "jorenvanhocht/laravel-share": "^4.2",
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^3.3",
         "laravel/socialite": "^5.17",
