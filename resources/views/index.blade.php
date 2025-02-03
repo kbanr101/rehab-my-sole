@@ -222,3 +222,27 @@
     </div>
 </section>
 @endsection
+@section('script')
+<script>
+    const playButton = document.getElementById('playButton');
+    const videoPopup = document.getElementById('videoPopup');
+    const closeButton = document.getElementById('closeButton');
+    const video = document.getElementById('video');
+    const thumbnail = document.getElementById('thumbnail');
+
+    function openPopup() {
+        videoPopup.style.display = 'flex';
+        video.play();
+    }
+
+    function closePopup() {
+        videoPopup.style.display = 'none';
+        video.pause();
+        video.currentTime = 0;
+    }
+
+    playButton.addEventListener('click', openPopup);
+    thumbnail.addEventListener('click', openPopup);
+    closeButton.addEventListener('click', closePopup);
+</script>
+@endsection

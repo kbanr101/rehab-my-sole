@@ -5,26 +5,4 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <!-- End Google Tag Manager (noscript) -->
-<script>
-    const playButton = document.getElementById('playButton');
-    const videoPopup = document.getElementById('videoPopup');
-    const closeButton = document.getElementById('closeButton');
-    const video = document.getElementById('video');
-    const thumbnail = document.getElementById('thumbnail');
-
-    function openPopup() {
-        videoPopup.style.display = 'flex';
-        video.play();
-    }
-
-    function closePopup() {
-        videoPopup.style.display = 'none';
-        video.pause();
-        video.currentTime = 0;
-    }
-
-    playButton.addEventListener('click', openPopup);
-    thumbnail.addEventListener('click', openPopup);
-    closeButton.addEventListener('click', closePopup);
-</script>
 

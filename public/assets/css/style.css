@@ -47,26 +47,69 @@ body{margin: 0 0;padding: 0 0}
 .custom-container{max-width: 1240px;display: block;padding: 0 15px;margin: auto;}
 a{outline: none !important; text-decoration: none;}
 /* page Navigaton */
-.pageItem_right,
-.pageContainer {
-    display: flex;
+/* breadcrumbs */
+ul.breadcrumbs {
+    margin: 1rem 0;
+    padding: 0 0;
+    list-style: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+}
+ul.breadcrumbs li {
+    position: relative;
+    display: inline-block;
+}
+ul.breadcrumbs li a {
+    color: rgb(var(--color-whiteD));
+}
+ul.breadcrumbs li a:active {
+    color: rgb(var(--color-whiteDA));
+}
+ul.breadcrumbs li:last-child a {color: rgb(var(--color-whiteDA));}
+ul.breadcrumbs li a:hover {
+    color: rgb(var(--color-whiteDH));
+}
+.breadcrumbs li:not(.breadcrumbs li:last-child)::after {
+    content: '\f105';
+    font: 100 12px/normal 'FontAwesome';
+    color: rgb(var(--color-grayD));
+    margin: 0 5px;
+}
+/* breadcrumbs End */
+#sideBlogList {
+    position: sticky;
+    top: 0;
+}
+.pageItem_right, .pageContainer {
+    /* display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgb(var(--color-grayN) / 25%);
-    grid-gap: 10px;
+    grid-gap: 10px; */
+}
+.pageItem_right {
+    display: flex;
+    border-bottom: 1px solid rgb(var(--color-grayN) / 25%);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    white-space: nowrap;
+    margin-top: 1rem;
 }
 .pageItem_right > p:first-child {
-    border-right: 2px solid rgb(var(--color-grayLA));
     padding-right: 10px;
 }
 .pageItem_right p > span {
-    display: block;
+    padding-right: 10px;
 }
-.pageNavigaton p{
+.pageItem p{
     font: 500 16px/24px var(--font-one);
     color: rgb(var(--color-whiteDH));
 }
-.pageNavigaton h3{
+.pageItem h3{
     font: 700 32px/40px var(--font-one);
     color: rgb(var(--color-grayD));
 }
@@ -336,7 +379,34 @@ form.queryForm {
 }
 /* Faqs Section End */
 /* Blog Page Start */
+.blogList-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+/* .soacial-media{mar} */
+.soacial-media li {
+    list-style: none;
+}
+.soacial-media li > a {
+    height: 35px;
+    width: 35px;
+    border: 1px solid rgb(var(--color-grayN));
+    text-align: center;
+    line-height: 35px;
+    color: rgb(var(--color-grayN));
+    display: inline-block;
+    border-radius: 50px;
+    margin-right: 10px;
+}
 /* ##blog title */
+.blogTopNavigation h3 {
+    font: 700 20px/24px var(--font-one);
+    color: rgb(var(--color-brownD));
+    margin-bottom: 0;
+}
+.blog_contents h3 > a,
 .blog_contents h3{
     font: 500 18px/26px var(--font-one);
     color: rgb(var(--color-blackG));
@@ -374,6 +444,7 @@ form.queryForm {
     justify-content: center;
     align-items: center;
 }
+.blog_contents h3 > a,
 .moreText.active {
     -webkit-line-clamp: 2;
     display: -webkit-box;
@@ -399,6 +470,43 @@ span.like_Blog.active svg path {
     border: 1px solid rgb(var(--color-blackG) / 5%);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    position: relative;
+}
+.recentPost{
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.recentPost .blog_contents .blog_date,
+.recentPost .blog_contents h3 > a{
+    color: rgb(var(--color-whiteG));
+}
+.recentPost .blog_contents h3 > a {
+    color: rgb(var(--color-whiteG));
+    margin-top: 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.recentPost:before, .recentPost:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: var(--data-image-url);
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+}
+.recentPost:before{
+    background: rgb(var(--color-blackG) / 30%);
+    z-index: -1;
 }
 .blogPlay {
     position: fixed;
