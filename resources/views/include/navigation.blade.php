@@ -1,5 +1,5 @@
-@if (empty($transparentClass))
-    <header class="main-header ">
+{{-- @if (empty($transparentClass)) --}}
+    <header class="main-header {{ empty($transparentClass) ? 'solidHeader' : 'transparent' }}">
         <div class="header-container custom-container">
             <div class="brand-logo logo">
                 <div class="mobile_hamburger" hidden><i class="fa-solid fa-bars"></i></div>
@@ -32,7 +32,7 @@
             </div>
         </div>
     </header>
-@endif
+{{-- @endif --}}
 <style>
     ul.navbar-block.menubar {
         display: inline-block;

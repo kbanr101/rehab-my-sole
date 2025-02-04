@@ -648,11 +648,7 @@ form#contactForm {
 .aboutBox .aboutBox-item > img {height: 250px;object-fit: cover;width: 100%;border-radius: 10px;}
 .aboutBox .aboutBox-item:nth-child(3) > img, .aboutBox .aboutBox-item:nth-child(2) > img {height: 200px;}
 /* meetBlock */
-.meetBlock .meetBlock-item {
-    flex: 0 0 calc(100% / 4 - 8px);
-    margin: 0rem 0 1rem;
-    text-align: center;
-}
+.meetBlock .meetBlock-item {flex: 0 0 calc(100% / 4 - 8px);margin: 0rem 0 1rem;text-align: center;}
 .meetFigure >img{width: 200px;height: 200px;object-fit: cover;border-radius: 50%;margin: 0 auto;}
 .meetFigure > h4{font: 700 20px/28px var(--font-one);color: rgb(var(--color-grayN));margin: 0.5rem auto 5px;}
 .meetFigure > span{font: 500 16px/24px var(--font-one);color: rgb(var(--color-whiteDA));}

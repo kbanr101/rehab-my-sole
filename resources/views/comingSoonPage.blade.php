@@ -1,7 +1,7 @@
 @extends('include.master')
 @section('content')
     <div class="comingDoon pt-4">
-        <header class="main-headers">
+        {{-- <header class="main-headers">
             <div class="custom-container">
                 <div class="logo">
                     <a href="{{ url('/') }}" class="d-inline-block"><img src="{{ asset('assets/media/RehabMySole-logo.svg') }}" alt="RehabMySolo" class="img-fluid w-100" /></a>
@@ -11,7 +11,7 @@
                     <a href="{{ route('aboutusPage') }}">About us</a>
                 </div>
             </div>
-        </header>
+        </header> --}}
         <div class="formContainer pt-5 mt-4">
             <div class="formInner">
                 <div class="commingTitle">
@@ -74,10 +74,10 @@
         }
 
         .custom-container a {
-            color: #fff;
+            /* color: #fff;
             text-decoration: none;
             font: 500 16px/normal var(--font-one);
-            outline: none;
+            outline: none; */
         }
 
         .formContainer {
