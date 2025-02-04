@@ -1,3 +1,5 @@
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 @extends('include.master')
 @section('content')
     <div class="pageNavigaton">
@@ -77,31 +79,27 @@
 
 
         $(document).ready(function() {
-            $('.like_Blog').on('click', function() {
+            $('#post-list-results').on('click', '.like_Blog', function() {
                 var postId = $(this).data('post-id');
-
                 var $label = $(this).nextAll('label').first();
-                var $icon = $(this).find('.like_Blog' + postId);
-                // console.log($icon);
+                var $icon = $(this); // The clicked icon
+
                 $.ajax({
                     type: 'POST',
                     url: '/post/' + postId + '/like',
                     data: {
-                        '_token': '{{ csrf_token() }}'
+                        '_token': $('meta[name="csrf-token"]').attr(
+                            'content') // Correct way to pass CSRF token
                     },
                     success: function(response) {
                         if (response.success) {
-                            $label.text(response.likes_count + ' Likes');
+                            $label.text(response.likes_count + ' Likes'); // Update like count
                             console.log(response.likes_count);
-                            if (response.liked) {
-                                $('.like_Blog' + postId).addClass('active')
-                                console.log("Icon color changed to red."); // Debugging
-                            } else {
-                                $('.like_Blog' + postId).removeClass('active')
-                                // $icon.removeClass('active'); // Add red color if liked
-                                console.log("Icon color reset."); // Debugging
-                            }
 
+                            // Toggle active class for like button
+                            $icon.toggleClass('active', response.liked);
+                            console.log(response.liked ? "Icon color changed to red." :
+                                "Icon color reset.");
                         }
                     },
                     error: function(xhr, status, error) {
@@ -110,6 +108,7 @@
                 });
             });
         });
+
 
         $(document).ready(function() {
             loadPosts("", "");
