@@ -25,10 +25,6 @@
                             <span class="default-btn Blog_id" id='{{ $cat->name }}'
                                 data-cat-id="{{ $cat->id }}">{{ $cat->name }}</span>
                         @endforeach
-                        {{-- <span class="default-btn" id='btn-repairs'>Repairs</span>
-                        <span class="default-btn" id='btn-cleaning'>Cleaning</span>
-                        <span class="default-btn" id='btn-restoration'>Restoration</span>
-                        <span class="default-btn" id='btn-customization'>Customization</span> --}}
                     </div>
                 </div>
                 <div class="blogList-item">
@@ -39,10 +35,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row my-shuffle-container">
-                <div id="post-list-results">
+            <div id="post-list-results">
 
-                </div>
+            </div>
+            <div class="row my-shuffle-container">
+
 
             </div>
     </section>
