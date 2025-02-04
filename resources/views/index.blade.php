@@ -145,13 +145,7 @@
                         <p class="moreText active">{!! Str::limit($post->description, 50) !!}</p>
                         <div class="blog_action">
                             <span class="moreBtn">See more</span>
-                            <a href="#"><svg width="19" height="18" viewBox="0 0 19 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M5.4458 3.79004L13.2334 1.19416C16.7282 0.0292268 18.627 1.93715 17.4712 5.43196L14.8754 13.2196C13.1325 18.4572 10.2707 18.4572 8.52783 13.2196L7.75732 10.9081L5.4458 10.1376C0.208172 8.39475 0.208172 5.54203 5.4458 3.79004Z"
-                                        stroke="#292D32" stroke-width="1.37591" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg></a>
+                            <a href="#"><svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.4458 3.79004L13.2334 1.19416C16.7282 0.0292268 18.627 1.93715 17.4712 5.43196L14.8754 13.2196C13.1325 18.4572 10.2707 18.4572 8.52783 13.2196L7.75732 10.9081L5.4458 10.1376C0.208172 8.39475 0.208172 5.54203 5.4458 3.79004Z" stroke="#292D32" stroke-width="1.37591" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
                         </div>
                     </div>
                 </div>

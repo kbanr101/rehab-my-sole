@@ -114,72 +114,6 @@
             margin-bottom: 1.5rem;
         }
 
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group>input::placeholder {
-            color: rgb(211 211 211 / 0.5);
-        }
-
-        .form-group>input {
-            outline: none;
-            font: 400 14px/40px var(--font-one);
-            border-radius: 4px;
-            padding: 0 15px;
-            background-color: transparent;
-            color: rgb(255 255 255 / 0.8);
-            width: 100%;
-            border: 1px solid rgb(211 211 211 / 0.5);
-            max-width: 500px;
-            box-sizing: border-box;
-        }
-
-        .form-group>label {
-            display: block;
-            font: 400 13px/normal var(--font-one);
-            color: rgb(255 255 255 / 0.8);
-            margin-bottom: 8px;
-            position: relative;
-        }
-
-        .form-group>label::after {
-            content: '\f621';
-            color: maroon;
-            margin: 0 5px;
-            font-size: 8px;
-            line-height: 0;
-            font-family: 'FontAwesome';
-            display: inline;
-            top: -8px;
-            position: relative;
-        }
-
-        form#contactForm {
-            max-width: 500px;
-            margin: auto;
-        }
-
-        .form-group>button {
-            width: 100%;
-            border: 1px solid #9F4D0F;
-            color: #9F4D0F;
-            background-color: white;
-            border-radius: 4px;
-            box-shadow: none !important;
-            outline: none;
-            font: 500 14px/40px var(--font-one);
-            display: block;
-            cursor: pointer;
-            transition: 0.3s all ease-in-out;
-            margin-top: 2rem;
-        }
-
-        .form-group>button:hover {
-            color: white;
-            background-color: #9F4D0F;
-        }
-
         footer#footer {
             position: relative;
             bottom: 0;
@@ -198,38 +132,28 @@
         }
 
         footer#footer ul li a {
-    width: 30px;
-    height: 30px;
-    line-height: 35px;
-    text-align: center;
-    color: rgb(255 255 255 / 0.8);
-    display: inline-block;
-    border-radius: 50px;
-    border: 1px solid white;
-    background-color: transparent;
-    margin-bottom: 0.5rem;
-    transition: 0.3s all ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+            width: 30px;
+            height: 30px;
+            line-height: 35px;
+            text-align: center;
+            color: rgb(255 255 255 / 0.8);
+            display: inline-block;
+            border-radius: 50px;
+            border: 1px solid white;
+            background-color: transparent;
+            margin-bottom: 0.5rem;
+            transition: 0.3s all ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         footer#footer ul li a:hover {
             color: #000;
             background-color: rgb(255 255 255 / 0.8);
         }
 
-        #responseMessage {
-            max-width: 500px;
-            margin: 2rem auto 1.5rem;
-            background-color: darkslategrey;
-            box-sizing: border-box;
-            color: white !important;
-            font: 400 12px/normal var(--font-one);
-            text-align: center;
-            border-radius: 4px;
-            letter-spacing: 1px;
-        }
+
 
         @media(max-width: 767px) {
             .commingTitle h3 {
