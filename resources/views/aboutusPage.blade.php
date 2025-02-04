@@ -47,7 +47,7 @@
         </div>
     </div>
 </section>
-<section class="aboutMeet pt-4 pb-5">
+<section class="aboutMeet pt-4">
     <div class="custom-container">
         <div class="mainTitle text-center m-auto pb-5">
             <h3>Our Mission & Vision</h3>

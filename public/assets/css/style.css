@@ -146,6 +146,12 @@ header.main-header.transparentClass {
 .main-header{
     box-shadow: var(--box-shadow) rgb(var(--color-whiteD) / 25%);
 }
+.header-action {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.headeNote {font-size: 20px;cursor: pointer;}
 button.defaultBtnClass,
 a.defaultBtnClass {
     padding: 0 24px;
@@ -401,6 +407,13 @@ form.queryForm {
     margin-right: 10px;
 }
 /* ##blog title */
+.blog-search{position: relative;}
+.blog-search > span {
+    position: absolute;
+    top: 0;
+    line-height: 35px;
+    right: 6px;
+}
 .blogTopNavigation h3 {
     font: 700 20px/24px var(--font-one);
     color: rgb(var(--color-brownD));
@@ -628,13 +641,33 @@ form#contactForm {
     letter-spacing: 1px;
 }
 /* Comming Soon End */
+/* About Page */
+.meetBlock,
+.aboutBox {display: flex;align-items: center;width: 100%;gap: 10px;margin: 1rem 0 3rem;flex-wrap: wrap;justify-content: center;}
+.aboutBox .aboutBox-item {flex: 0 0 calc(100% / 4 - 8px);}
+.aboutBox .aboutBox-item > img {height: 250px;object-fit: cover;width: 100%;border-radius: 10px;}
+.aboutBox .aboutBox-item:nth-child(3) > img, .aboutBox .aboutBox-item:nth-child(2) > img {height: 200px;}
+/* meetBlock */
+.meetBlock .meetBlock-item {
+    flex: 0 0 calc(100% / 4 - 8px);
+    margin: 0rem 0 1rem;
+    text-align: center;
+}
+.meetFigure >img{width: 200px;height: 200px;object-fit: cover;border-radius: 50%;margin: 0 auto;}
+.meetFigure > h4{font: 700 20px/28px var(--font-one);color: rgb(var(--color-grayN));margin: 0.5rem auto 5px;}
+.meetFigure > span{font: 500 16px/24px var(--font-one);color: rgb(var(--color-whiteDA));}
+/* About Page End*/
+@media (max-width: 991px){
+    .meetBlock .meetBlock-item{flex: 0 0 auto;}
+}
 @media (max-width: 767px){
     button.defaultBtnClass, a.defaultBtnClass {
         padding: 0 10px;
         font-size: 13px;
     }
+    .aboutBox .aboutBox-item {flex: 0 0 calc(100% / 2 - 5px);}
+    .aboutBox .aboutBox-item > img{height: 200px !important;}
     .pageContainer{flex-direction: column;}
-
 }
 @media (max-width: 991px){
     .main-navigation{display: none;}

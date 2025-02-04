@@ -27,7 +27,7 @@
                 {{-- New Nevbar Section End --}}
             </div>
             <div class="header-action">
-                <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count">0</span></div>
+                <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span></div>
                 <a href="{{ route('comingSoonPage') }}" class="defaultBtnClass">Login</a>
             </div>
         </div>
