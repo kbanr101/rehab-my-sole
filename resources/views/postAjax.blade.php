@@ -1,3 +1,6 @@
+@if($posts->isEmpty())
+    <p>Post not available</p>
+@else
 @foreach ($posts as $post)
     <div class="mb-3 grid-col col-6 col-md-4 col-sm-4 picture-item" data-groups='["repairs"]'>
         <div class="blogCard mb-4">
@@ -26,3 +29,8 @@
         </div>
     </div>
 @endforeach
+@endif
+
+<div class="d-flex justify-content-center">
+    {{ $posts->links('pagination::bootstrap-4') }}
+</div>

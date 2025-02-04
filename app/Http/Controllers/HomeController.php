@@ -39,46 +39,44 @@ class HomeController extends Controller
         //     ->paginate(9);
         //->get();
 
-        $ipAddress = $request->ip();
-        $category_id = $request->input('category_id');
         $categories = Category::where('status', 'active')->get();
 
-        $postsQuery = Post::withCount([
-            'likes as likes_count' => function ($query) use ($ipAddress) {
-                $query->where('ip_address', $ipAddress);
-            }
-        ])->orderBy('created_at', 'desc');
 
-        // Filter by category if it's selected
-        if ($category_id) {
-            $postsQuery->where('category_id', $category_id);
-        }
-
-        $posts = $postsQuery->paginate(9);
-
-        return view('blogListPage', compact('posts', 'categories'));
+        return view('blogListPage', compact('categories'));
     }
 
     public function ajaxBlog(Request $request)
     {
         $ipAddress = $request->ip();
-        $category_id = $request->input('category_id');
-        $categories = Category::where('status', 'active')->get();
+        $category_id = $request->input('category');
+        $search = $request->input('search');
 
-        $postsQuery = Post::withCount([
-            'likes as likes_count' => function ($query) use ($ipAddress) {
-                $query->where('ip_address', $ipAddress);
-            }
-        ])->orderBy('created_at', 'desc');
+        $postsQuery = Post::with('category') // Include category relationship
+            ->withCount([
+                'likes as likes_count' => function ($query) use ($ipAddress) {
+                    $query->where('ip_address', $ipAddress);
+                }
+            ])
+            ->orderBy('created_at', 'desc');
 
-        // Filter by category if it's selected
-        if ($category_id) {
+
+        if (!empty($category_id)) {
             $postsQuery->where('category_id', $category_id);
+        }
+
+        if (!empty($search)) {
+            $postsQuery->where(function ($query) use ($search) {
+                $query->where('title', 'LIKE', "%$search%") // Search in post title
+                    ->orWhereHas('category', function ($q) use ($search) {
+                        $q->where('name', 'LIKE', "%$search%"); // Search in category name
+                    });
+            });
         }
 
         $posts = $postsQuery->paginate(9);
 
-        return view('postAjax', compact('posts', 'categories'));
+
+        return view('postAjax', compact('posts'));
     }
 
 

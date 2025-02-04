@@ -20,7 +20,7 @@
             <div class="blogList-header">
                 <div class="blogList-item">
                     <div class="shuffle_wrapper">
-                        <span class="default-btn active Blog_id" id='all' data-cat-id="all">All</span>
+                        <span class="default-btn active Blog_id" id='all' data-cat-id="">All</span>
                         @foreach ($categories as $cat)
                             <span class="default-btn Blog_id" id='{{ $cat->name }}'
                                 data-cat-id="{{ $cat->id }}">{{ $cat->name }}</span>
@@ -33,17 +33,17 @@
                 </div>
                 <div class="blogList-item">
                     <div class="blog-search">
-                        <input type="search" name="search" class="form-control"
+                        <input type="search" name="search" id="search" class="form-control"
                             placeholder="Search blogs, categories, keywords etc" />
-                        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <span class="search-icon search-submit"><i class="fa-solid fa-magnifying-glass"></i></span>
                     </div>
                 </div>
             </div>
-            <div class="row my-shuffle-container" id="post-list-results">
-                @include('postAjax')
-                <div class="d-flex justify-content-center">
-                    {{ $posts->links('pagination::bootstrap-4') }}
+            <div class="row my-shuffle-container">
+                <div id="post-list-results">
+
                 </div>
+
             </div>
     </section>
 @endsection
@@ -115,59 +115,51 @@
         });
 
         $(document).ready(function() {
+            loadPosts("", "");
 
             $('.Blog_id').on('click', function() {
                 var catId = $(this).data('cat-id');
+
+                loadPosts(catId, "");
+
+                let activeTab = catId === "latest" ? "#latestTab" : "#popularTab";
+                $('.nav-tabs a[href="' + activeTab + '"]').tab("show");
+
+            });
+
+            $('.search-submit').on('click', function() {
+                var search = $('#search').val();
+                console.log(search);
+                loadPosts("", search);
+
+            });
+
+
+            function loadPosts(category, search) {
                 let filterData = {
-                    category: catId,
+                    category: category,
+                    search: search,
                     '_token': '{{ csrf_token() }}'
                 };
-                $("#post-list-results").html('');
+
+
+                $("#post-list-results").html('<p>Loading...</p>');
+
                 $.ajax({
                     url: "/filter-results",
                     type: "POST",
                     data: filterData,
                     headers: {
-                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
-                            "content") // CSRF protection
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") // CSRF protection
                     },
                     success: function(response) {
                         $("#post-list-results").html(response);
-
-                        let activeTab = filterData.category === "latest" ? "#latestTab" :
-                            "#popularTab";
-                        $('.nav-tabs a[href="' + activeTab + '"]').tab(
-                            "show"); // Bootstrap example
                     },
                     error: function(xhr) {
                         console.error("Error fetching data:", xhr);
                     }
                 });
-            });
-            var catId = $(this).data('cat-id');
-            console.log(catId);
-            let filterData = {
-                category: catId,
-                '_token': '{{ csrf_token() }}'
-            };
-
-            $.ajax({
-                url: "/filter-results",
-                type: "POST",
-                data: filterData,
-                headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") // CSRF protection
-                },
-                success: function(response) {
-                    $("#post-list-results").html(response);
-
-                    let activeTab = filterData.category === "latest" ? "#latestTab" : "#popularTab";
-                    $('.nav-tabs a[href="' + activeTab + '"]').tab("show"); // Bootstrap example
-                },
-                error: function(xhr) {
-                    console.error("Error fetching data:", xhr);
-                }
-            });
+            }
         });
     </script>
 @endsection
