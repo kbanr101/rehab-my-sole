@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\ForgotPasswordController;
 use App\Http\Controllers\Api\SocialAuthController;
 use App\Http\Controllers\Api\GoogleController;
 use App\Http\Controllers\Api\AppleAuthController;
+use App\Http\Controllers\Api\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,10 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 Route::get('/login/apple', [AppleAuthController::class, 'redirectToApple']);
 Route::get('/apple/callback', [AppleAuthController::class, 'handleAppleCallback']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('slider', [SliderController::class, 'sliderList']);
 });
