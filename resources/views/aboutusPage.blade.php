@@ -106,6 +106,42 @@
         </div>
     </div>
 </section>
+<section class="serviceSection pt-5 pb-5">
+    <div class="custom-container">
+        <div class="mainTitle text-center m-auto pb-5">
+            <h3>FAQs</h3>
+            <p class="m-auto mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores qui amet, esse omnis illum sed nihil, debitis dolorum quae pariatur harum asperiores quidem saepe quas, necessitatibus earum quod itaque. Molestias expedita eveniet aliquid cupiditate? Consectetur cumque error ipsam?</p>
+        </div>
+        <div class="accordian-container">
+            <div id="faqs">
+                <div class="faqs-item">
+                    <h2><span>What kinds of shoes can you service?</span><button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><i class="fa-solid fa-plus"></i></button></h2>
+                    <div id="collapseOne" class="faqs-collapse collapse" data-bs-parent="#faqs">We work with all types of shoes, including sneakers, leather shoes, boots, and designer footwear.<br><hr></div>
+                </div>
+                <div class="faqs-item">
+                    <h2><span>How long does the process take?</span><button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><i class="fa-solid fa-plus"></i></button></h2>
+                    <div id="collapseTwo" class="faqs-collapse collapse" data-bs-parent="#faqs">Most orders are completed within 7-10 business days. Complex restorations may take longer.<br><hr></div>
+                </div>
+                <div class="faqs-item">
+                    <h2><span>Can you repair badly damaged shoes?</span><button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><i class="fa-solid fa-plus"></i></button></h2>
+                    <div id="collapseThree" class="faqs-collapse collapse" data-bs-parent="#faqs">Yes, we specialize in repairing shoes of all conditions. If we can’t fix it, no one can!<br><hr></div>
+                </div>
+                <div class="faqs-item">
+                    <h2><span>How do I send my shoes?</span><button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><i class="fa-solid fa-plus"></i></button></h2>
+                    <div id="collapseFour" class="faqs-collapse collapse" data-bs-parent="#faqs">We’ll email you a shipping label after your order is confirmed. Pack your shoes securely, attach the label, and ship them to us.<br><hr></div>
+                </div>
+                <div class="faqs-item">
+                    <h2><span>Do you offer warranties on your services?</span><button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"><i class="fa-solid fa-plus"></i></button></h2>
+                    <div id="collapseFive" class="faqs-collapse collapse" data-bs-parent="#faqs">Absolutely! We stand by our work and offer warranties for repairs and restorations.<br><hr></div>
+                </div>
+                <div class="faqs-item">
+                    <h2><span>Can I track my order?</span><button class="collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix"><i class="fa-solid fa-plus"></i></button></h2>
+                    <div id="collapseSix" class="faqs-collapse collapse" data-bs-parent="#faqs">Yes, you’ll receive tracking details for the return shipment once your shoes are ready.<br><hr></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="joinForm pt-5 pb-5">
     <div class="container pt-4 pb-4">
         <div class="mainTitle text-center m-auto pb-5">
