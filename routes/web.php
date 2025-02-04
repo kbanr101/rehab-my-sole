@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SliderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,6 +59,13 @@ Route::middleware(['auth', 'admin'])->group(function () {
     //     'categories' => 'category:slug', // Use slug as the parameter
     // ]);
 
+    // slidercontroller
+    Route::get('/admin/slider_list', [SliderController::class, 'index'])->name('slider_list');
+    Route::get('/admin/slider_create', [SliderController::class, 'create'])->name('slider_create');
+    Route::post('/admin/slider_create', [SliderController::class, 'store'])->name('slider.store');
+    Route::delete('/admin/slider_delete/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
+    Route::post('/admin/slider_update', [SliderController::class, 'update'])->name('slider.update');
+    Route::get('/admin/{id}', [SliderController::class, 'edit'])->name('slider.edit');
 
     // postcontroller
     Route::get('/admin/post_list', [PostController::class, 'index'])->name('post_list');

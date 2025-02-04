@@ -9,6 +9,35 @@
                 </a>
             </li>
 
+
+            <li class="nav-item">
+                <a href="#"
+                    class="nav-link {{ (Request::is('slider_create') ? 'active' : '' || Request::is('slider_list')) ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-box-seam-fill"></i>
+                    <p>
+                        Slider
+                        <i class="nav-arrow bi bi-chevron-right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+
+                    <li class="nav-item">
+                        <a href="{{ route('slider_create') }}"
+                            class="nav-link {{ Request::is('slider_create') ? 'active' : '' }}">
+                            <i class="nav-icon bi bi-circle"></i>
+                            <p>Create Slider</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('slider_list') }}"
+                            class="nav-link {{ Request::is('slider_list') ? 'active' : '' }}">
+                            <i class="nav-icon bi bi-circle"></i>
+                            <p>Slider List</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="nav-item">
                 <a href="#"
                     class="nav-link {{ (Request::is('post_create') ? 'active' : '' || Request::is('post_list')) ? 'active' : '' }}">
