@@ -20,9 +20,9 @@
             <div class="blogList-header">
                 <div class="blogList-item">
                     <div class="shuffle_wrapper">
-                        <span class="default-btn active Blog_id" id='all' data-cat-id="">All</span>
+                        <span class="default-btn  Blog_id active" id="all" data-cat-id="">All</span>
                         @foreach ($categories as $cat)
-                            <span class="default-btn Blog_id" id='{{ $cat->name }}'
+                            <span class="default-btn Blog_id" id="{{ $cat->name }}"
                                 data-cat-id="{{ $cat->id }}">{{ $cat->name }}</span>
                         @endforeach
                     </div>
@@ -115,20 +115,29 @@
             loadPosts("", "");
 
             $('.Blog_id').on('click', function() {
+
                 var catId = $(this).data('cat-id');
 
                 loadPosts(catId, "");
+
+                $('.Blog_id').removeClass('active');
+                $(this).addClass('active');
 
                 let activeTab = catId === "latest" ? "#latestTab" : "#popularTab";
                 $('.nav-tabs a[href="' + activeTab + '"]').tab("show");
 
             });
 
-            $('.search-submit').on('click', function() {
-                var search = $('#search').val();
-                console.log(search);
-                loadPosts("", search);
+            // $('.search-submit').on('click', function() {
+            //     var search = $('#search').val();
+            //     console.log(search);
+            //     loadPosts("", search);
 
+            // });
+
+            $("#search").on("input", function() {
+                var search = $(this).val().trim();
+                loadPosts("", search);
             });
 
 
