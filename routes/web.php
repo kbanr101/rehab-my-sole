@@ -76,6 +76,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/{slug}', [PostController::class, 'edit'])->name('posts.edit');
 });
 
+Route::get('login', [HomeController::class, 'loginPages'])->name('loginPages');
+Route::get('register', [HomeController::class, 'registerPages'])->name('registerPages');
+Route::get('forgot-password', [HomeController::class, 'forgotPages'])->name('forgotPage');
+Route::get('otp-verification', [HomeController::class, 'otpVerificationPages'])->name('otpVerificationPage');
 Route::get('about-us', [HomeController::class, 'aboutus'])->name('aboutusPage');
 Route::get('blog-list', [HomeController::class, 'blogList'])->name('blogListPage');
 Route::post('filter-results', [HomeController::class, 'ajaxBlog'])->name('filter-results');

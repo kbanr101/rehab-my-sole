@@ -28,6 +28,26 @@ class HomeController extends Controller
         $transparentClass = "transparentClass comming-soon";
         return view('comingSoonPage', compact('transparentClass'));
     }
+    public function loginPages()
+    {
+        $transparentClass = "transparentClass comming-soon";
+        return view('loginPage', compact('transparentClass'));
+    }
+    public function registerPages()
+    {
+        $transparentClass = "transparentClass comming-soon";
+        return view('registerPage', compact('transparentClass'));
+    }
+    public function forgotPages()
+    {
+        $transparentClass = "transparentClass comming-soon";
+        return view('forgotPage', compact('transparentClass'));
+    }
+    public function otpVerificationPages()
+    {
+        $transparentClass = "transparentClass comming-soon";
+        return view('otpVerificationPage', compact('transparentClass'));
+    }
     public function blogList(Request $request)
     {
         // $posts = Post::orderBy('created_at', 'desc')->paginate(3);

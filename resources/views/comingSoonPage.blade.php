@@ -53,7 +53,6 @@
         body {
             padding: 0 0;
             margin: 0 0;
-            height: 100vh;
         }
 
         .main-headers .custom-container {
@@ -95,7 +94,7 @@
             background-attachment: fixed;
             background-position: center;
             height: 100vh;
-            overflow: auto;
+            /* overflow: auto; */
         }
 
         .commingTitle h3 {

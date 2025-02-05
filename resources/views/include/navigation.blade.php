@@ -28,7 +28,7 @@
             </div>
             <div class="header-action">
                 <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span></div>
-                <a href="{{ route('comingSoonPage') }}" class="defaultBtnClass">Login</a>
+                <a href="{{ route('loginPages') }}" class="defaultBtnClass">Login</a>
             </div>
         </div>
     </header>
