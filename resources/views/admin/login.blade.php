@@ -30,7 +30,7 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Start Login</p>
-                <form action="{{ route('login') }}" method="post">
+                <form action="{{ route('admin.Postlogin') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" placeholder="Email" name="email" />

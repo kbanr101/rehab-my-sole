@@ -138,15 +138,24 @@ class AuthController extends Controller
         }
     }
 
+    public function testing()
+    {
+        return response()->json([
+            'status' => true,
+            'message' => 'Login successful.',
+        ], 200);
+    }
+
     public function login(Request $request)
     {
         try {
             $request->validate([
                 'email' => 'required|email',
                 'password' => 'required|string|min:8',
+                'role' => 'required'
             ]);
 
-            $user = User::where('email', $request->email)->first();
+            $user = User::where('email', $request->email)->where('role', $request->role)->first();
 
             if (!$user || !Hash::check($request->password, $user->password)) {
                 return response()->json([

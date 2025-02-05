@@ -23,6 +23,6 @@ class AdminMiddleware
             return $next($request);
         }
 
-        return redirect('/login')->with('error', 'Unauthorized access.');
+        return redirect('admin.login')->with('error', 'Unauthorized access.');
     }
 }

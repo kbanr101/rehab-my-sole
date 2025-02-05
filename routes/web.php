@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ContactController;
@@ -22,20 +23,17 @@ use App\Http\Controllers\Admin\SliderController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', [HomeController::class, 'index']);
-Route::get('home', [HomeController::class, 'home']);
-Route::get('/blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.details');
 
 
 Route::get('/admin', function () {
     return view('admin.login');
 });
 
-Route::get('/login', function () {
-    return view('admin.login');
-});
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
+// Route::get('/admin', function () {
+//     return view('admin.login');
+// });
+Route::get('/admin/login', [LoginController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [LoginController::class, 'login'])->name('admin.Postlogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //store contact details
@@ -76,10 +74,34 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/{slug}', [PostController::class, 'edit'])->name('posts.edit');
 });
 
-Route::get('login', [HomeController::class, 'loginPages'])->name('loginPages');
+
+
+//fronted route start 
+
+//userlogin controller start 
+
+
+
+Route::get('/login', [UserLoginController::class, 'index'])->name('login');
+Route::get('/register', [UserLoginController::class, 'index'])->name('register');
+Route::post('/login', [UserLoginController::class, 'login'])->name('login.submit');
+Route::get('/', [HomeController::class, 'index']);
+
+
+//Route::get('login', [HomeController::class, 'loginPages'])->name('loginPages');
 Route::get('register', [HomeController::class, 'registerPages'])->name('registerPages');
 Route::get('forgot-password', [HomeController::class, 'forgotPages'])->name('forgotPage');
 Route::get('otp-verification', [HomeController::class, 'otpVerificationPages'])->name('otpVerificationPage');
+
+
+
+Route::get('home', [HomeController::class, 'home']);
+Route::get('/blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.details');
+
+
+
+
+
 Route::get('about-us', [HomeController::class, 'aboutus'])->name('aboutusPage');
 Route::get('blog-list', [HomeController::class, 'blogList'])->name('blogListPage');
 Route::post('filter-results', [HomeController::class, 'ajaxBlog'])->name('filter-results');
