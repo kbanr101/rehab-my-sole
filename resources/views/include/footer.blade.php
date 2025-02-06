@@ -5,7 +5,7 @@
                 <div class="col-md-6">
                     <div class="footer_item mb-4">
                         <h3 class="footer_title">RehabMySole</h3>
-                        <p>Your shoes deserve the best care. At RehabMySole, we combine expertise, passion, and precision to ensure every step you take is in style and comfort.</p><br>
+                        <p>Sustainability • Simplicity • Genuine Care<br>Every step is a story—what’s yours?</p><br>
                         <a href="#">More about us</a>
                     </div>
                 </div>

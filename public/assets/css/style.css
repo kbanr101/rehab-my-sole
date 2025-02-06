@@ -61,15 +61,18 @@ header.main-header.transparent {
     position: fixed !important;
     background-color: rgb(var(--color-whiteG));
 }
-.headeNote > svg,
-.main-header.transparent .sublist li.dropdown-list:after,.main-header.transparent li.dropdown-list:after,
-.main-header.transparent .menubar>li>a{
-    color: rgb(var(--color-whiteG));
-}
 .main-header.fixed-header .headeNote > svg,
+.main-header.fixed-header.transparent .headeNote > svg,
+.main-header.fixed-header.transparent .sublist li.dropdown-list:after,.main-header.fixed-header.transparent li.dropdown-list:after,
 .main-header.fixed-header .sublist li.dropdown-list:after,.main-header.transparent li.dropdown-list:after,
+.main-header.fixed-header.transparent .menubar > li > a,
 .main-header.fixed-header .menubar>li>a{
     color: rgb(var(--color-blackG)) !important;
+}
+.main-header.transparent .headeNote > svg,
+.main-header.transparent .sublist li.dropdown-list:after,.main-header.transparent li.dropdown-list:after,
+.main-header.transparent .menubar > li > a{
+    color: rgb(var(--color-whiteG)) !important;
 }
 /* Transparent End */
 /* breadcrumbs */
@@ -611,14 +614,14 @@ h3.footer_title {
 }
 .loginPages {
     position: relative;
-    /* background: linear-gradient(0deg, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0.7)), url('./assets/media/background-landing.png'); */
-    background: linear-gradient(45deg, rgb(var(--color-brown)),rgb(var(--color-gray))), url('./assets/media/background-landing.png');
+    /* background: linear-gradient(0deg, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0.7)), url('assets/media/background-landing.png'); */
+    background: linear-gradient(45deg, rgb(var(--color-brown)/ 0.9),rgb(var(--color-gray) / 0.9)), url('../media/background-landing.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    height: 100vh;
-    overflow: auto;
+    /* height: 100vh; */
+    /* overflow: auto; */
     padding-top: 5rem !important;
 }
 .loginPagesTitle h3 {

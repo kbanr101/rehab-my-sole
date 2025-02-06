@@ -3,9 +3,8 @@
     <section class="herobanner pt-5 pb-5 mt-5 mb-5">
         <div class="custom-container">
             <div class="centerContent text-center m-auto">
-                <h3>Your Shoes Deserve a Second Chance</h3>
-                <p>From expert cleaning and professional repairs to custom designs and full restorations, we specialize in
-                    bringing every type of footwear back to life. Let us help you take the next step in style.</p>
+                <h3>Every Step Tells a Story</h3>
+                <p>Revive cherished memories with sustainable, personalized care—because your shoes deserve another journey.</p>
                 <a class="defaultBtnClass" href="#">Explore Our Services</a>
             </div>
         </div>
@@ -27,19 +26,17 @@
         <div class="custom-container">
             <div class="mainTitle text-center m-auto pb-5">
                 <h3>From Cleaning to Customization – We’ve Got Your Shoes Covered</h3>
-                <p class="m-auto">At RehabMySole, no pair of shoes is too far gone. From sneakers to stilettos, we offer
-                    services to make your footwear look, feel, and perform like new again.</p>
+                <p class="m-auto">At RehabMySole, no pair of shoes is too far gone. From sneakers to stilettos, we offer services to make your footwear look, feel, and perform like new again.</p>
             </div>
             <div class="row pb-3">
                 <div class="col-md-3">
                     <div class="serviceCard">
                         <div class="serviceImage">
-                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes"
-                                class="img-fluid w-100" />
+                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes" class="img-fluid w-100" />
                         </div>
                         <div class="serviceCard-detail p-3">
                             <h4>Cleaning</h4>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            <p>Revitalize, refresh, and rejuvenate your shoes with eco-friendly cleaning.</p>
                             <div class="price_track">Price From: <span>$300</span></div>
                             <div class="serviceCard-action">
                                 <a href="#" class="defaultBtnClass trBtnClass">Select</a>
@@ -50,12 +47,11 @@
                 <div class="col-md-3">
                     <div class="serviceCard">
                         <div class="serviceImage">
-                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes"
-                                class="img-fluid w-100" />
+                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes" class="img-fluid w-100" />
                         </div>
                         <div class="serviceCard-detail p-3">
                             <h4>Customization</h4>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            <p>Transform ordinary footwear into art through sustainable, personalized customization.</p>
                             <div class="price_track">Price From: <span>$300</span></div>
                             <div class="serviceCard-action">
                                 <a href="#" class="defaultBtnClass trBtnClass">Select</a>
@@ -66,12 +62,11 @@
                 <div class="col-md-3">
                     <div class="serviceCard">
                         <div class="serviceImage">
-                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes"
-                                class="img-fluid w-100" />
+                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes" class="img-fluid w-100" />
                         </div>
                         <div class="serviceCard-detail p-3">
                             <h4>Repair</h4>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            <p>Restore every worn detail meticulously with eco-conscious repair craftsmanship.</p>
                             <div class="price_track">Price From: <span>$300</span></div>
                             <div class="serviceCard-action">
                                 <a href="#" class="defaultBtnClass trBtnClass">Select</a>
@@ -82,12 +77,11 @@
                 <div class="col-md-3">
                     <div class="serviceCard">
                         <div class="serviceImage">
-                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes"
-                                class="img-fluid w-100" />
+                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes" class="img-fluid w-100" />
                         </div>
                         <div class="serviceCard-detail p-3">
                             <h4>Restoration</h4>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            <p>Revive cherished memories by restoring shoes with sustainable elegance.</p>
                             <div class="price_track">Price From: <span>$300</span></div>
                             <div class="serviceCard-action">
                                 <a href="#" class="defaultBtnClass trBtnClass">Select</a>
@@ -102,9 +96,8 @@
     <section class="workSection pt-5 pb-5">
         <div class="custom-container">
             <div class="mainTitle text-center m-auto pb-5">
-                <h3>How It Works – From Doorstep to Fresh Step</h3>
-                <p class="m-auto">At Rehab My Sole, giving your favorite shoes a second life is simple and hassle-free. Just
-                    follow these easy steps, and we’ll take care of the rest!</p>
+                <h3>Your Shoe Revival Journey</h3>
+                <p class="m-auto">Effortless steps from booking to doorstep.</p>
             </div>
             <div class="row mb-3">
                 <div class="col-md-6">
@@ -116,34 +109,21 @@
                     <div class="workFigure-content">
                         <ul>
                             <li>
-                                <h4><span>1</span>Explore Our Website</h4>
-                                <p>Start by visiting our website, where you’ll find all the information you need about our
-                                    services. Whether your shoes need a deep clean, repairs, restoration, or even
-                                    customization, we’ve got options for every need. Take your time to browse and choose the
-                                    service that’s perfect for your shoes.</p>
+                                <h4><span>1</span> Place Your Order</h4>
+                                <p>Browse our services and select the care your shoes need—whether it’s cleaning, customization, repair, or restoration.</p>
                             </li>
                             <li>
-                                <h4><span>2</span> Tailor Your Service</h4>
-                                <p>Once you’ve selected a service, let us know the specifics. Is it your trusty sneakers
-                                    that need a thorough clean? Or maybe your formal shoes require a complete restoration?
-                                    Share the details with us—because we know every pair of shoes tells its own story, and
-                                    we want to treat yours with the personalized care it deserves. </p>
+                                <h4><span>2</span> Schedule a Pickup</h4>
+                                <p>Enjoy doorstep convenience. Simply book a pickup time and we'll collect your shoes safely. </p>
                             </li>
                             <li>
-                                <h4><span>3</span> Secure Your Order</h4>
-                                <p>When everything is set, it’s time to check out. Use our secure payment gateway to
-                                    complete your order quickly and safely. You’ll receive a confirmation email with all the
-                                    details of your service.</p>
+                                <h4><span>3</span> Expert Restoration</h4>
+                                <p>Our skilled artisans breathe new life into every pair, using sustainable, precise craftsmanship.</p>
                             </li>
                             <li>
-                                <h4><span>4</span> Ship Your Shoes</h4>
-                                <p> We’ll make this step as convenient as possible! Once your order is confirmed, we’ll send
-                                    you a pre-paid shipping label. All you need to do is pack your shoes securely (don’t
-                                    worry, we’ll give you tips on how to do this) and drop them off at your nearest shipping
-                                    location. </p>
+                                <h4><span>4</span> Swift Delivery</h4>
+                                <p>Your revitalized shoes are returned promptly—ready to carry you forward on your next adventure.</p>
                             </li>
-                            {{-- <li><h4><span>5</span> Watch Us Work Our Magic</h4><p> As soon as your shoes reach us, our team of skilled cobblers and shoe care specialists will get to work. Whether it’s cleaning off stubborn stains, repairing damaged soles, restoring worn-out leather, or adding a custom flair, we’ll handle your shoes with the utmost care and precision.</p></li>
-                        <li><h4><span>6</span> Receive Your Refreshed Shoes</h4><p> Before you know it, your shoes will be on their way back to you, looking and feeling as good as new. Whether they’re ready to hit the streets, the office, or your next big adventure, your revitalized footwear will be ready to create more unforgettable moments.</p></li> --}}
                         </ul>
                     </div>
                 </div>
@@ -153,9 +133,8 @@
     <section class="serviceSection pt-5 pb-5">
         <div class="custom-container">
             <div class="mainTitle text-center m-auto pb-5">
-                <h3>Tips & Stories from the World of Shoe Care</h3>
-                <p class="m-auto mb-3">Our blog is your go-to resource for everything from DIY shoe care tips to the latest
-                    trends in customization and restoration.</p>
+                <h3>Blogs</h3>
+                <p class="m-auto mb-3">Every post tells a story—discover insights, tips, and inspiration for every step.</p>
                 <div class="serviceCard-action text-center">
                     <a href="{{ route('blogListPage') }}" class="defaultBtnClass trBtnClass">Explore Our Blog</a>
                 </div>
@@ -196,9 +175,7 @@
         <div class="custom-container">
             <div class="mainTitle text-center m-auto pb-5">
                 <h3>FAQs</h3>
-                <p class="m-auto mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores qui amet, esse
-                    omnis illum sed nihil, debitis dolorum quae pariatur harum asperiores quidem saepe quas, necessitatibus
-                    earum quod itaque. Molestias expedita eveniet aliquid cupiditate? Consectetur cumque error ipsam?</p>
+                <p class="m-auto mb-3">Every question is a stepping stone on our shared journey—discover heartfelt insights below.</p>
             </div>
             <div class="accordian-container">
                 <div id="faqs">
@@ -265,7 +242,7 @@
         <div class="container pt-4 pb-4">
             <div class="mainTitle text-center m-auto pb-5">
                 <h3>Contact us</h3>
-                <p class="m-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores qui amet.</p>
+                <p class="m-auto">Have a question? We're here to help.</p>
             </div>
             <form action="method" class="queryForm row">
                 <div class="form-group mb-3 col-md-6">
