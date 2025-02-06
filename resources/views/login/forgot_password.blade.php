@@ -8,7 +8,12 @@
                     <p>An OTP has been sent to your registered email ID. Please enter it below to proceed.</p>
                 </div>
                 <div id="responseMessage"></div>
-                <form id="contactForm" action="{{ route('submit.forgot_password') }}">
+                @if (session('error'))
+                    <div class="mb-4 text-red-600 text-sm text-center">
+                        {{ session('error') }}
+                    </div>
+                @endif
+                <form id="contactForm" action="{{ route('submit.forgot_password') }}" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="email">Enter your Email</label>

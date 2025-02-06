@@ -95,11 +95,16 @@ Route::post('register', [UserLoginController::class, 'registerCreate'])->name('r
 Route::get('verify_otp', [UserLoginController::class, 'otpView'])->name('verify_otp');
 Route::post('verify_otp', [UserLoginController::class, 'VerifyOtp'])->name('verify_otp');
 Route::post('resend_otp', [UserLoginController::class, 'resendOtp'])->name('resend_otp');
+
+
 Route::get('forgot_otp', [UserLoginController::class, 'forgotOtp'])->name('forgot_otp');
 Route::post('forgot_otp', [UserLoginController::class, 'forgotOtpSubmit'])->name('submit.forgot_otp');
 
 Route::post('forgot_password', [UserLoginController::class, 'forgotPasswordSubmit'])->name('submit.forgot_password');
 
+
+Route::get('change_password', [UserLoginController::class, 'changePassword'])->name('change_password');
+Route::post('change_password', [UserLoginController::class, 'changePasswordSubmit'])->name('submit.password');
 
 
 Route::get('forgot_password', [UserLoginController::class, 'forgotPassword'])->name('forgot_password');

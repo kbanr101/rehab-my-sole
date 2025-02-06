@@ -30,6 +30,8 @@ Route::post('/login', [AuthController::class, 'login']);
 
 
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendOtp']);
+Route::post('forgot-otp', [AuthController::class, 'forgotOtp']);
+
 Route::post('/verify-otp', [ForgotPasswordController::class, 'verifyOtp']);
 Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword']);
 

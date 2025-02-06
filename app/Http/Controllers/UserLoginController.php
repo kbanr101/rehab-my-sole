@@ -157,21 +157,19 @@ class UserLoginController extends Controller
 
             Alert::success('Forgot Password Otp Sent');
             session(['email' => $request->email]);
-            return redirect()->route('aboutusPage')->with('success', 'Login successful');
+            return redirect()->route('forgot_otp');
         } else {
-            Alert::error('Sign Up Failed', 'Invalid Credentials Details!');
+            Alert::error('Invalid Email', 'Invalid Credentials Details!');
 
-            return redirect()->back()->with('error', 'Invalid credentials. Please try again.');
+            return redirect()->back()->with('error', 'Invalid Email. Please try again.');
         }
-
-        $transparentClass = "transparentClass comming-soon";
-        return view('login.forgot_password', compact('transparentClass'));
     }
 
     public function forgotOtp()
     {
+        $email = session('email');
         $transparentClass = "transparentClass comming-soon";
-        return view('login.forgot_otp', compact('transparentClass'));
+        return view('login.forgot_otp', compact('transparentClass', 'email'));
     }
 
     public function forgotOtpSubmit(Request $request)
@@ -181,24 +179,45 @@ class UserLoginController extends Controller
             'otp' => 'required|string|size:4',
         ]);
 
+        $AuthController = new AuthController();
+        $response = $AuthController->forgotOtp($request);
+
+        $data = json_decode($response->getContent(), true);
+
+        if ($data['status']) {
+            Alert::success('Forgot Password Otp Sent');
+            return redirect()->route('change_password');
+        } else {
+            Alert::error('Invalid OTP', 'Please try again!');
+
+            return redirect()->back()->with('error', 'Invalid OTP. Please try again.');
+        }
+    }
+
+
+    public function changePasswordSubmit(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string|min:8|confirmed',
+            'password_confirmation' => 'required|string|min:8',
+        ]);
+
         $ForgotPasswordController = new ForgotPasswordController();
-        $response = $ForgotPasswordController->verifyOtp($request);
+        $response = $ForgotPasswordController->resetPassword($request);
 
         $data = json_decode($response->getContent(), true);
 
         if ($data['status']) {
 
 
-            Alert::success('Forgot Password Otp Sent');
+            Alert::success('Password has been reset successfully.');
             session(['email' => $request->email]);
-            return redirect()->route('aboutusPage')->with('success', 'Login successful');
+            return redirect()->route('login');
         } else {
-            Alert::error('Sign Up Failed', 'Invalid Credentials Details!');
+            Alert::error('Password Change Failed', 'Invalid Credentials Details!');
 
             return redirect()->back()->with('error', 'Invalid credentials. Please try again.');
         }
-
-        $transparentClass = "transparentClass comming-soon";
-        return view('login.forgot_password', compact('transparentClass'));
     }
 }

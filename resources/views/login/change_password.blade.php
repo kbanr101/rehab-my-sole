@@ -8,35 +8,8 @@
                     <p>We’re cooking up something exciting! Be the first to know when we go live—subscribe below!</p>
                 </div>
                 <div id="responseMessage"></div>
-                @if (session('error'))
-                    <div class="mb-4 text-red-600 text-sm text-center">
-                        {{ session('error') }}
-                    </div>
-                @endif
-                <form id="contactForm" method="post" action="{{ route('register.submit') }}">
+                <form id="contactForm" method="post" action="{{ route('submit.password') }}">
                     @csrf
-                    <div class="form-group">
-                        <label for="name">Enter your full name</label>
-                        <input type="text" id="name" placeholder="John" name="name">
-                        @error('name')
-                            <span style="color: red;" class="text-red-500 text-sm">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Enter your Email</label>
-                        <input type="text" id="email" placeholder="example@gmail.com" name="email">
-                        @error('email')
-                            <span style="color: red;" class="text-red-500 text-sm">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <input type="hidden" name="role" value="Customer">
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" placeholder="+1 123 4567 8901" name="phone_number">
-                        @error('phone_number')
-                            <span style="color: red;" class="text-red-500 text-sm">{{ $message }}</span>
-                        @enderror
-                    </div>
                     <div class="form-group">
                         <label for="password">Create a password</label>
                         <div class="showPassword">
@@ -47,6 +20,7 @@
                             @enderror
                         </div>
                     </div>
+                    <input type="hidden" name="email" value="{{ $email }}">
                     <div class="form-group">
                         <label for="password">Re-enter password</label>
                         <div class="showPassword">
@@ -60,7 +34,7 @@
                     </div>
                     @csrf
                     <div class="form-group">
-                        <button type="submit">Create an account</button>
+                        <button type="submit">Change Password</button>
                     </div>
                     <p class="extraLink text-center">Have an account? <a href="{{ route('login') }}">Login</a></p>
                     <div class="otherlink"><span>Or</span></div>

@@ -101,6 +101,47 @@ class AuthController extends Controller
         }
     }
 
+
+    public function forgotOtp(Request $request)
+    {
+        try {
+            $request->validate([
+                'email' => 'required|email',
+                'otp' => 'required|string|size:4',
+            ]);
+
+            $user = User::where('email', $request->email)->first();
+
+            if (!$user) {
+                return response()->json(['message' => 'User not found', 'status' => false,], 404);
+            }
+
+            if ($user->otp !== $request->otp) {
+                return response()->json(['message' => 'Invalid OTP', 'status' => false,], 400);
+            }
+
+
+            $user->update([
+                'is_verified' => true,
+                'otp' => null,
+            ]);
+
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Account verified successfully.',
+                'user' => $user,
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => 'An unexpected error occurred. Please try again later.',
+            ], 500);
+        }
+    }
+
+
+
     public function resendOtp(Request $request)
     {
         try {
