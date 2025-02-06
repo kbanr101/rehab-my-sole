@@ -22,7 +22,7 @@
                                 class="needs-validation">
                                 @csrf
 
-                                <input type="hidden" name="id" value="{{ $slider->id }}">
+                                <input type="hidden" name="id" value="{{ $slider ? $slider->id : '' }}">
 
                                 <div class="card-body">
                                     <div class="row g-3">
@@ -31,7 +31,8 @@
                                         <div class="col-md-12">
                                             <label class="form-label">Title</label>
                                             <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                                name="title" value="{{ old('title', $slider->title) }}" required />
+                                                name="title" value="{{ old('title', $slider ? $slider->title : '') }}"
+                                                required />
                                             @error('title')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -44,7 +45,7 @@
                                                 class="form-control @error('image') is-invalid @enderror" />
                                             <small class="form-text text-muted">Leave blank to keep current image.</small>
 
-                                            @if ($slider->image)
+                                            @if ($slider && $slider->image)
                                                 <img src="{{ asset($slider->image) }}" alt="Slider Image" class="mt-2"
                                                     style="width:100px;height:auto;">
                                             @endif
@@ -57,7 +58,7 @@
                                         <!-- Description -->
                                         <div class="col-md-12">
                                             <label class="form-label">Description</label>
-                                            <textarea class="form-control textarea @error('description') is-invalid @enderror" name="description">{{ old('description', $slider->description) }}</textarea>
+                                            <textarea class="form-control textarea @error('description') is-invalid @enderror" name="description">{{ old('description', $slider ? $slider->description : '') }}</textarea>
                                             @error('description')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror

@@ -13,6 +13,11 @@
                     @endif
                 </div>
                 <div id="responseMessage"></div>
+                @if (session('error'))
+                    <div class="mb-4 text-red-600 text-sm text-center">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 <form id="contactForm" action="{{ route('verify_otp') }}" method="post">
                     @csrf
                     <div class="form-group">
