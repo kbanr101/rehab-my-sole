@@ -4,28 +4,36 @@
         <div class="formContainer pt-5 mt-4">
             <div class="formInner">
                 <div class="loginPagesTitle">
-                    <h3>Log in</h3>
+                    <h3>Create an account</h3>
                     <p>We’re cooking up something exciting! Be the first to know when we go live—subscribe below!</p>
                 </div>
                 <div id="responseMessage"></div>
-                @if (session('error'))
-                    <div class="mb-4 text-red-600 text-sm text-center">
-                        {{ session('error') }}
-                    </div>
-                @endif
-                <form id="contactForm" action="{{ route('login.submit') }}" method="post">
+                <form id="contactForm" method="post" action="{{ route('register.submit') }}">
                     @csrf
                     <div class="form-group">
+                        <label for="name">Enter your full name</label>
+                        <input type="text" id="name" placeholder="John" name="name">
+                        @error('name')
+                            <span style="color: red;" class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="email">Enter your Email</label>
-                        <input type="email" id="email" name="email" value="{{ old('email') }}"
-                            placeholder="Enter your email">
+                        <input type="text" id="email" placeholder="example@gmail.com" name="email">
                         @error('email')
                             <span style="color: red;" class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                     </div>
                     <input type="hidden" name="role" value="Customer">
                     <div class="form-group">
-                        <label for="password">Enter your password</label>
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" placeholder="+1 123 4567 8901" name="phone_number">
+                        @error('phone_number')
+                            <span style="color: red;" class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Create a password</label>
                         <div class="showPassword">
                             <input type="password" id="password" placeholder="Enter your password" name="password">
                             <span id="showPass"><i class="fa-solid fa-eye"></i></span>
@@ -34,13 +42,22 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="password">Re-enter password</label>
+                        <div class="showPassword">
+                            <input type="password" id="password" placeholder="Enter your password"
+                                name="password_confirmation">
+                            <span id="showPass"><i class="fa-solid fa-eye"></i></span>
+                            @error('password_confirmation')
+                                <span style="color: red;" class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
                     @csrf
                     <div class="form-group">
-                        <button type="submit">Log in</button>
+                        <button type="submit">Create an account</button>
                     </div>
-                    <p class="extraLink text-center">Don’t have an account? <a href="{{ route('register') }}">Create an
-                            account</a></p>
-                    <p class="extraLink text-center"><a href="{{ route('forgot_password') }}">Forgot Password</a></p>
+                    <p class="extraLink text-center">Have an account? <a href="{{ route('login') }}">Login</a></p>
                     <div class="otherlink"><span>Or</span></div>
                     <div class="loginOption text-center pb-5">
                         <label>Continue to log in with</label>
@@ -54,5 +71,4 @@
             </div>
         </div>
     </div>
-    @include('sweetalert::alert')
 @endsection

@@ -83,14 +83,26 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 
 Route::get('/login', [UserLoginController::class, 'index'])->name('login');
-Route::get('/register', [UserLoginController::class, 'index'])->name('register');
+//Route::get('/register', [UserLoginController::class, 'index'])->name('register');
 Route::post('/login', [UserLoginController::class, 'login'])->name('login.submit');
 Route::get('/', [HomeController::class, 'index']);
 
 
 //Route::get('login', [HomeController::class, 'loginPages'])->name('loginPages');
-Route::get('register', [HomeController::class, 'registerPages'])->name('registerPages');
-Route::get('forgot-password', [HomeController::class, 'forgotPages'])->name('forgotPage');
+Route::get('register', [UserLoginController::class, 'register'])->name('register');
+Route::post('register', [UserLoginController::class, 'registerCreate'])->name('register.submit');
+
+Route::get('verify_otp', [UserLoginController::class, 'otpView'])->name('verify_otp');
+Route::post('verify_otp', [UserLoginController::class, 'VerifyOtp'])->name('verify_otp');
+Route::post('resend_otp', [UserLoginController::class, 'resendOtp'])->name('resend_otp');
+Route::get('forgot_otp', [UserLoginController::class, 'forgotOtp'])->name('forgot_otp');
+Route::post('forgot_otp', [UserLoginController::class, 'forgotOtpSubmit'])->name('submit.forgot_otp');
+
+Route::post('forgot_password', [UserLoginController::class, 'forgotPasswordSubmit'])->name('submit.forgot_password');
+
+
+
+Route::get('forgot_password', [UserLoginController::class, 'forgotPassword'])->name('forgot_password');
 Route::get('otp-verification', [HomeController::class, 'otpVerificationPages'])->name('otpVerificationPage');
 
 

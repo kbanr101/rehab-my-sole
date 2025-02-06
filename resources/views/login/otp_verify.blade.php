@@ -6,20 +6,27 @@
                 <div class="loginPagesTitle">
                     <h3>OTP Verification</h3>
                     <p>An email containing an OTP was sent to your email. Input the code below</p>
+                    @if (session('success'))
+                        <div class="mb-4 text-red-600 text-sm text-center">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                 </div>
                 <div id="responseMessage"></div>
-                <form id="contactForm">
+                <form id="contactForm" action="{{ route('verify_otp') }}" method="post">
+                    @csrf
                     <div class="form-group">
                         <label for="otp">Enter OTP</label>
                         <input type="text" id="otp" placeholder="Enter OTP" name="otp">
                     </div>
+                    <input type="hidden" name="email" value="{{ $email }}">
                     <div class="form-group">
                         <button type="submit">Verify</button>
                     </div>
                 </form>
-                <form id="resendOtpForm" method="POST" action="">
+                <form id="resendOtpForm" method="POST" action="{{ route('resend_otp') }}">
                     @csrf
-                    <input type="hidden" name="email" value="">
+                    <input type="hidden" name="email" value="{{ $email }}">
                     <p class="extraLink text-center">
                         Didn’t receive an email?
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">Resend OTP</button>

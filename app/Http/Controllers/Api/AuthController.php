@@ -16,8 +16,10 @@ class AuthController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|unique:users',
-                'password' => 'required|string|min:8',
                 'phone_number' => 'required|string|unique:users',
+                'password' => 'required|string|min:8|confirmed',
+                'password_confirmation' => 'required|string|min:8',
+                'role' => 'required|string|in:Provider,Customer,Admin',
             ]);
 
             $otp = rand(1000, 9999);
@@ -28,7 +30,8 @@ class AuthController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'otp' => $otp,
-                'phone_number' => $request->phone_number, // Save phone_number
+                'phone_number' => $request->phone_number,
+                'role' => $request->role,
             ]);
 
             // Send OTP via email (or SMS)
@@ -39,6 +42,7 @@ class AuthController extends Controller
 
             return response()->json([
                 'status' => true,
+                'email' => $request->email,
                 'message' => 'Signup successful. Please verify your account with the OTP sent to your email.',
             ], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
@@ -62,7 +66,7 @@ class AuthController extends Controller
         try {
             $request->validate([
                 'email' => 'required|email',
-                'otp' => 'required|string',
+                'otp' => 'required|string|size:4',
             ]);
 
             $user = User::where('email', $request->email)->first();
@@ -84,9 +88,9 @@ class AuthController extends Controller
             $token = $user->createToken('auth_token')->plainTextToken;
 
             return response()->json([
+                'status' => true,
                 'message' => 'Account verified successfully.',
-                'access_token' => $token,
-                'token_type' => 'Bearer',
+                'token' => $token,
                 'user' => $user,
             ], 200);
         } catch (\Exception $e) {

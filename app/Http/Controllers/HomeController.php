@@ -33,11 +33,7 @@ class HomeController extends Controller
         $transparentClass = "transparentClass comming-soon";
         return view('loginPage', compact('transparentClass'));
     }
-    public function registerPages()
-    {
-        $transparentClass = "transparentClass comming-soon";
-        return view('registerPage', compact('transparentClass'));
-    }
+
     public function forgotPages()
     {
         $transparentClass = "transparentClass comming-soon";
