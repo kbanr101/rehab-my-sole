@@ -56,7 +56,7 @@ class PostController extends Controller
 
         Post::create($validated);
 
-        return redirect()->route('post_list')->with('success', 'Post created successfully!');
+        return redirect()->route('post.list')->with('success', 'Post created successfully!');
     }
 
 
@@ -120,6 +120,6 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect()->route('post_list')->with('success', 'Post updated successfully.');
+        return redirect()->route('post.list')->with('success', 'Post updated successfully.');
     }
 }

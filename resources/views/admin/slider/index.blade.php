@@ -39,7 +39,7 @@
                         <div class="card mb-4">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h3 class="card-title">Slider List</h3>
-                                <a href="{{ route('slider_create') }}" class="btn btn-primary btn-sm">Add Slider</a>
+                                <a href="{{ route('slider.create') }}" class="btn btn-primary btn-sm">Add Slider</a>
                             </div>
 
                             <!-- /.card-header -->

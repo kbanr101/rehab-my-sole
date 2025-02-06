@@ -58,20 +58,22 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // ]);
 
     // slidercontroller
-    Route::get('/admin/slider_list', [SliderController::class, 'index'])->name('slider_list');
-    Route::get('/admin/slider_create', [SliderController::class, 'create'])->name('slider_create');
+    Route::get('/admin/slider/slider_list', [SliderController::class, 'index'])->name('slider.list');
+    Route::get('/admin/slider_create', [SliderController::class, 'create'])->name('slider.create');
     Route::post('/admin/slider_create', [SliderController::class, 'store'])->name('slider.store');
     Route::delete('/admin/slider_delete/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
     Route::post('/admin/slider_update', [SliderController::class, 'update'])->name('slider.update');
     Route::get('/admin/{id}', [SliderController::class, 'edit'])->name('slider.edit');
 
     // postcontroller
-    Route::get('/admin/post_list', [PostController::class, 'index'])->name('post_list');
-    Route::get('/admin/post_create', [PostController::class, 'create'])->name('post_create');
-    Route::post('/admin/post_create', [PostController::class, 'store'])->name('posts.store');
-    Route::delete('/admin/post_delete/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
-    Route::post('/admin/post_update', [PostController::class, 'update'])->name('posts.update');
-    Route::get('/admin/{slug}', [PostController::class, 'edit'])->name('posts.edit');
+
+
+    Route::get('/admin/post/post_list', [PostController::class, 'index'])->name('post.list');
+    Route::get('/admin/post/post_create', [PostController::class, 'create'])->name('post.create');
+    Route::post('/admin/post/post_create', [PostController::class, 'store'])->name('posts.store');
+    Route::delete('/admin/post/post_delete/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+    Route::post('/admin/post/post_update', [PostController::class, 'update'])->name('posts.update');
+    Route::get('/admin/post/{slug}', [PostController::class, 'edit'])->name('posts.edit');
 });
 
 

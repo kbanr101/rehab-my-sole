@@ -14,7 +14,7 @@
                 </div>
                 <div id="responseMessage"></div>
                 @if (session('error'))
-                    <div class="mb-4 text-red-600 text-sm text-center">
+                    <div class="mb-4 text-red-600 text-sm text-center ">
                         {{ session('error') }}
                     </div>
                 @endif

@@ -39,7 +39,7 @@
                         <div class="card mb-4">
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h3 class="card-title">Post List</h3>
-                                <a href="{{ route('post_create') }}" class="btn btn-primary btn-sm">Add Post</a>
+                                <a href="{{ route('post.create') }}" class="btn btn-primary btn-sm">Add Post</a>
                             </div>
 
                             <!-- /.card-header -->

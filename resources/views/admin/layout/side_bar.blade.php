@@ -12,7 +12,7 @@
 
             <li class="nav-item">
                 <a href="#"
-                    class="nav-link {{ (Request::is('slider_create') ? 'active' : '' || Request::is('slider_list')) ? 'active' : '' }}">
+                    class="nav-link {{ (Request::is('slider.create') ? 'active' : '' || Request::is('slider.list')) ? 'active' : '' }}">
                     <i class="nav-icon bi bi-box-seam-fill"></i>
                     <p>
                         Slider
@@ -22,15 +22,15 @@
                 <ul class="nav nav-treeview">
 
                     <li class="nav-item">
-                        <a href="{{ route('slider_create') }}"
-                            class="nav-link {{ Request::is('slider_create') ? 'active' : '' }}">
+                        <a href="{{ route('slider.create') }}"
+                            class="nav-link {{ Request::is('slider.create') ? 'active' : '' }}">
                             <i class="nav-icon bi bi-circle"></i>
                             <p>Create Slider</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('slider_list') }}"
-                            class="nav-link {{ Request::is('slider_list') ? 'active' : '' }}">
+                        <a href="{{ route('slider.list') }}"
+                            class="nav-link {{ Request::is('slider.list') ? 'active' : '' }}">
                             <i class="nav-icon bi bi-circle"></i>
                             <p>Slider List</p>
                         </a>
@@ -40,7 +40,7 @@
 
             <li class="nav-item">
                 <a href="#"
-                    class="nav-link {{ (Request::is('post_create') ? 'active' : '' || Request::is('post_list')) ? 'active' : '' }}">
+                    class="nav-link {{ (Request::is('post.create') ? 'active' : '' || Request::is('post.list')) ? 'active' : '' }}">
                     <i class="nav-icon bi bi-box-seam-fill"></i>
                     <p>
                         Blog
@@ -56,15 +56,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('post_create') }}"
-                            class="nav-link {{ Request::is('post_create') ? 'active' : '' }}">
+                        <a href="{{ route('post.create') }}"
+                            class="nav-link {{ Request::is('post.create') ? 'active' : '' }}">
                             <i class="nav-icon bi bi-circle"></i>
                             <p>Create Post</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('post_list') }}"
-                            class="nav-link {{ Request::is('post_list') ? 'active' : '' }}">
+                        <a href="{{ route('post.list') }}"
+                            class="nav-link {{ Request::is('post.list') ? 'active' : '' }}">
                             <i class="nav-icon bi bi-circle"></i>
                             <p>Post List</p>
                         </a>

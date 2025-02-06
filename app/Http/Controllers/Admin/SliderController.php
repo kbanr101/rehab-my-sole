@@ -42,7 +42,7 @@ class SliderController extends Controller
             'image' => $image,
             'description' => $request->description,
         ]);
-        return redirect()->route('slider_list')->with('success', 'Slider added successfully!');
+        return redirect()->route('slider.list')->with('success', 'Slider added successfully!');
     }
 
     public function destroy($id)
@@ -91,6 +91,6 @@ class SliderController extends Controller
 
         $slider->save();
 
-        return redirect()->route('slider_list')->with('success', 'Slider updated successfully.');
+        return redirect()->route('slider.list')->with('success', 'Slider updated successfully.');
     }
 }
