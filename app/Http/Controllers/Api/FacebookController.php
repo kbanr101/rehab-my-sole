@@ -8,7 +8,7 @@ use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Str;
 
-class SocialAuthController extends Controller
+class FacebookController extends Controller
 {
     // Redirect to Facebook login
     public function redirectToFacebook()

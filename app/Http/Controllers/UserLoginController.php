@@ -16,7 +16,6 @@ class UserLoginController extends Controller
     public function index()
     {
 
-        // return view('login.login');
 
         $transparentClass = "transparentClass comming-soon";
         return view('login.login', compact('transparentClass'));
@@ -192,6 +191,13 @@ class UserLoginController extends Controller
 
             return redirect()->back()->with('error', 'Invalid OTP. Please try again.');
         }
+    }
+
+    public function changePassword()
+    {
+        $email = session('email');
+        $transparentClass = "transparentClass comming-soon";
+        return view('login.change_password', compact('transparentClass', 'email'));
     }
 
 

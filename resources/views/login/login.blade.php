@@ -45,9 +45,10 @@
                     <div class="loginOption text-center pb-5">
                         <label>Continue to log in with</label>
                         <ul>
-                            <li><a href="#"><i class="fa-brands fa-google"></i></a></li>
+                            <li><a href="{{ route('google.login') }}"><i class="fa-brands fa-google"></i></a></li>
                             <li><a href="#"><i class="fa-brands fa-apple"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
+                            <li><a href="{{ route('facebook.login') }}"><i class="fa-brands fa-square-facebook"></i></a>
+                            </li>
                         </ul>
                     </div>
                 </form>

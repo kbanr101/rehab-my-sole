@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserLoginController;
+use App\Http\Controllers\FacebookLoginController;
+use App\Http\Controllers\GoogleLoginController;
+
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ContactController;
@@ -108,9 +111,20 @@ Route::post('forgot_password', [UserLoginController::class, 'forgotPasswordSubmi
 Route::get('change_password', [UserLoginController::class, 'changePassword'])->name('change_password');
 Route::post('change_password', [UserLoginController::class, 'changePasswordSubmit'])->name('submit.password');
 
-
 Route::get('forgot_password', [UserLoginController::class, 'forgotPassword'])->name('forgot_password');
 Route::get('otp-verification', [HomeController::class, 'otpVerificationPages'])->name('otpVerificationPage');
+
+//facebook login 
+
+Route::get('/auth/facebook', [FacebookLoginController::class, 'redirectToFacebook'])->name('facebook.login');
+Route::get('/auth/facebook/callback', [FacebookLoginController::class, 'handleFacebookCallback']);
+
+//google login
+Route::get('/auth/google', [GoogleLoginController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);
+
+
+
 
 
 

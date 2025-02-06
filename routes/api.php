@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ForgotPasswordController;
 
-use App\Http\Controllers\Api\SocialAuthController;
+use App\Http\Controllers\Api\FacebookController;
 use App\Http\Controllers\Api\GoogleController;
 use App\Http\Controllers\Api\AppleAuthController;
 use App\Http\Controllers\Api\SliderController;
@@ -35,8 +35,8 @@ Route::post('forgot-otp', [AuthController::class, 'forgotOtp']);
 Route::post('/verify-otp', [ForgotPasswordController::class, 'verifyOtp']);
 Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword']);
 
-Route::get('/auth/facebook', [SocialAuthController::class, 'redirectToFacebook']);
-Route::get('/auth/facebook/callback', [SocialAuthController::class, 'handleFacebookCallback']);
+Route::get('/auth/facebook', [FacebookController::class, 'redirectToFacebook']);
+Route::get('/auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
