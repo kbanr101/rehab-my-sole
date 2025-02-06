@@ -3,7 +3,7 @@
     <div class="header-container custom-container">
         <div class="brand-logo logo">
             <div class="mobile_hamburger" hidden><i class="fa-solid fa-bars"></i></div>
-            <a href="{{ route('comingSoonPage') }}" class="d-inline"><img
+            <a href="{{ url('/') }}" class="d-inline"><img
                     src="{{ asset('assets/media/RehabMySole-logo.svg') }}" alt="RehabMySolo" class="img-fluid w-100" /></a>
         </div>
         <div class="main-navigation">

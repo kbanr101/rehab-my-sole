@@ -31,13 +31,12 @@
                 </div>
                 <div class="blogList-item">
                     <div class="blog-search">
-                        <input type="search" name="search" id="search" class="form-control"
-                            placeholder="Search blogs, categories, keywords etc" />
+                        <input type="search" name="search" id="search" class="form-control" placeholder="Search blogs, categories, keywords etc" />
                         <span class="search-icon search-submit"><i class="fa-solid fa-magnifying-glass"></i></span>
                     </div>
                 </div>
             </div>
-            <div id="post-list-results">
+            <div class="row" id="post-list-results">
 
             </div>
             <div class="row my-shuffle-container">
@@ -45,9 +44,19 @@
 
             </div>
     </section>
+    <!-- AddToAny BEGIN -->
+    {{-- <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+        <a class="a2a_button_facebook"></a>
+        <a class="a2a_button_email"></a>
+        <a class="a2a_button_whatsapp"></a>
+        <a class="a2a_button_linkedin"></a>
+        </div>
+        <script defer src="https://static.addtoany.com/menu/page.js"></script>
+        <!-- AddToAny END --> --}}
 @endsection
 @section('script')
-    {{-- <script src="assets/js/jquery-1.12.4.min.js"></script> --}}
+{{-- <script src="assets/js/jquery-1.12.4.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Shuffle/6.1.0/shuffle.min.js"></script>
     <script>
         const page = window.location.pathname.split("/").pop();

@@ -13,16 +13,16 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // $posts = Post::paginate(3);
-        // return view('index', compact('posts'));
-        $transparentClass = "transparentClass comming-soon";
-        return view('comingSoonPage', compact('transparentClass'));
-    }
-    public function home()
-    {
         $posts = Post::paginate(3);
         return view('index', compact('posts'));
+        // $transparentClass = "transparentClass comming-soon";
+        // return view('comingSoonPage', compact('transparentClass'));
     }
+    // public function home()
+    // {
+    //     $posts = Post::paginate(3);
+    //     return view('index', compact('posts'));
+    // }
     public function comingSoon()
     {
         $transparentClass = "transparentClass comming-soon";
