@@ -26,10 +26,11 @@ class ContactController extends Controller
                 'email' => 'required|email|max:255',
             ]);
 
-
+            $message = $request->message ? $request->message : '';
             Contacts::create([
                 'name' => $validatedData['name'],
                 'email' => $validatedData['email'],
+                'description' => $message,
             ]);
 
 

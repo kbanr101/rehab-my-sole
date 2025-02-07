@@ -25,7 +25,8 @@
                         <ul class="footer_social">
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                             <li><a href="https://www.facebook.com/rehabmysole/"><i class="fab fa-facebook"></i></a></li>
-                            <li><a href="https://www.linkedin.com/company/rehab-my-sole/"><i class="fa-brands fa-linkedin"></i></a></li>
+                            <li><a href="https://www.linkedin.com/company/rehab-my-sole/"><i
+                                        class="fa-brands fa-linkedin"></i></a></li>
                             <li><a href="https://www.instagram.com/rehab_my_sole/"><i class="fab fa-instagram"></i></a>
                             </li>
                         </ul>
@@ -39,4 +40,3 @@
         {{-- Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}) --}}
     </footer>
 @endif
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
