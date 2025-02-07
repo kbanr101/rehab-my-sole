@@ -4,7 +4,8 @@
         <div class="custom-container">
             <div class="centerContent text-center m-auto">
                 <h3>Every Step Tells a Story</h3>
-                <p>Revive cherished memories with sustainable, personalized care—because your shoes deserve another journey.</p>
+                <p>Revive cherished memories with sustainable, personalized care—because your shoes deserve another journey.
+                </p>
                 <a class="defaultBtnClass" href="#">Explore Our Services</a>
             </div>
         </div>
@@ -26,13 +27,15 @@
         <div class="custom-container">
             <div class="mainTitle text-center m-auto pb-5">
                 <h3>From Cleaning to Customization – We’ve Got Your Shoes Covered</h3>
-                <p class="m-auto">At RehabMySole, no pair of shoes is too far gone. From sneakers to stilettos, we offer services to make your footwear look, feel, and perform like new again.</p>
+                <p class="m-auto">At RehabMySole, no pair of shoes is too far gone. From sneakers to stilettos, we offer
+                    services to make your footwear look, feel, and perform like new again.</p>
             </div>
             <div class="row pb-3">
                 <div class="col-md-3">
                     <div class="serviceCard">
                         <div class="serviceImage">
-                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes" class="img-fluid w-100" />
+                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes"
+                                class="img-fluid w-100" />
                         </div>
                         <div class="serviceCard-detail p-3">
                             <h4>Cleaning</h4>
@@ -47,7 +50,8 @@
                 <div class="col-md-3">
                     <div class="serviceCard">
                         <div class="serviceImage">
-                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes" class="img-fluid w-100" />
+                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes"
+                                class="img-fluid w-100" />
                         </div>
                         <div class="serviceCard-detail p-3">
                             <h4>Customization</h4>
@@ -62,7 +66,8 @@
                 <div class="col-md-3">
                     <div class="serviceCard">
                         <div class="serviceImage">
-                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes" class="img-fluid w-100" />
+                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes"
+                                class="img-fluid w-100" />
                         </div>
                         <div class="serviceCard-detail p-3">
                             <h4>Repair</h4>
@@ -77,7 +82,8 @@
                 <div class="col-md-3">
                     <div class="serviceCard">
                         <div class="serviceImage">
-                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes" class="img-fluid w-100" />
+                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes"
+                                class="img-fluid w-100" />
                         </div>
                         <div class="serviceCard-detail p-3">
                             <h4>Restoration</h4>
@@ -110,19 +116,23 @@
                         <ul>
                             <li>
                                 <h4><span>1</span> Place Your Order</h4>
-                                <p>Browse our services and select the care your shoes need—whether it’s cleaning, customization, repair, or restoration.</p>
+                                <p>Browse our services and select the care your shoes need—whether it’s cleaning,
+                                    customization, repair, or restoration.</p>
                             </li>
                             <li>
                                 <h4><span>2</span> Schedule a Pickup</h4>
-                                <p>Enjoy doorstep convenience. Simply book a pickup time and we'll collect your shoes safely. </p>
+                                <p>Enjoy doorstep convenience. Simply book a pickup time and we'll collect your shoes
+                                    safely. </p>
                             </li>
                             <li>
                                 <h4><span>3</span> Expert Restoration</h4>
-                                <p>Our skilled artisans breathe new life into every pair, using sustainable, precise craftsmanship.</p>
+                                <p>Our skilled artisans breathe new life into every pair, using sustainable, precise
+                                    craftsmanship.</p>
                             </li>
                             <li>
                                 <h4><span>4</span> Swift Delivery</h4>
-                                <p>Your revitalized shoes are returned promptly—ready to carry you forward on your next adventure.</p>
+                                <p>Your revitalized shoes are returned promptly—ready to carry you forward on your next
+                                    adventure.</p>
                             </li>
                         </ul>
                     </div>
@@ -146,18 +156,19 @@
                         <div class="blogCard mb-4">
                             <div class="blogCard_Image mb-3">
                                 <img src="{{ asset($post->image) }}" alt="Blog card" class="img-fluid w-100" />
-                                <span class="like_Blog"><i class="fa-regular fa-heart"></i></span>
+                                <span class="like_Blog like_Blog{{ $post->id }}" data-post-id="{{ $post->id }}"><i class="fa-regular fa-heart" style="{{ $post->likes_count ? 'color:red;' : '' }}"></i></span>
                             </div>
                             <div class="blog_contents p-3">
                                 <h3><a href="{{ route('blogDetailPage', $post->slug) }}">{{ $post->title }}</a></h3>
                                 <span class="blog_date">
                                     <p>{{ \Carbon\Carbon::parse($post->created_at)->format('d M Y') }}</p>
                                 </span>
-                                <p class="moreText active">{!! Str::limit($post->description, 50) !!}</p>
+                                <p class="moreText active">{!! Str::limit($post->short_description, 50) !!}</p>
                                 <div class="blog_action">
                                     <span class="moreBtn"></span>
-                                    <a href="{{ route('blogDetailPage', $post->slug) }}"><svg width="19" height="18" viewBox="0 0 19 18"
-                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <a href="{{ route('blogDetailPage', $post->slug) }}"><svg width="19"
+                                            height="18" viewBox="0 0 19 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M5.4458 3.79004L13.2334 1.19416C16.7282 0.0292268 18.627 1.93715 17.4712 5.43196L14.8754 13.2196C13.1325 18.4572 10.2707 18.4572 8.52783 13.2196L7.75732 10.9081L5.4458 10.1376C0.208172 8.39475 0.208172 5.54203 5.4458 3.79004Z"
                                                 stroke="#292D32" stroke-width="1.37591" stroke-linecap="round"
@@ -175,7 +186,8 @@
         <div class="custom-container">
             <div class="mainTitle text-center m-auto pb-5">
                 <h3>FAQs</h3>
-                <p class="m-auto mb-3">Every question is a stepping stone on our shared journey—discover heartfelt insights below.</p>
+                <p class="m-auto mb-3">Every question is a stepping stone on our shared journey—discover heartfelt insights
+                    below.</p>
             </div>
             <div class="accordian-container">
                 <div id="faqs">
