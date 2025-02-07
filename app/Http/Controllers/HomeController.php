@@ -13,7 +13,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(3);
+        $posts = Post::orderBy('created_at', 'desc')->take(3)->get();
+
         return view('index', compact('posts'));
         // $transparentClass = "transparentClass comming-soon";
         // return view('comingSoonPage', compact('transparentClass'));
@@ -33,7 +34,10 @@ class HomeController extends Controller
         $transparentClass = "transparentClass comming-soon";
         return view('loginPage', compact('transparentClass'));
     }
-    public function contactus(){return view('contactus');}
+    public function contactus()
+    {
+        return view('contactus');
+    }
 
     public function forgotPages()
     {
