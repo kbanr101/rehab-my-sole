@@ -36,9 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row" id="post-list-results">
-
-            </div>
+            <div class="row" id="post-list-results"></div>
             {{-- <div class="row my-shuffle-container">
 
 
@@ -56,37 +54,7 @@
         <!-- AddToAny END --> --}}
 @endsection
 @section('script')
-{{-- <script src="assets/js/jquery-1.12.4.min.js"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Shuffle/6.1.0/shuffle.min.js"></script>
     <script>
-        const page = window.location.pathname.split("/").pop();
-
-        if (page === 'blog-list') {
-            const Shuffle = window.Shuffle;
-            const element = document.querySelector('.my-shuffle-container');
-            const shuffleInstance = new Shuffle(element, {
-                itemSelector: '.picture-item'
-            });
-
-            const filters = ['all', 'repairs', 'cleaning', 'restoration', 'customization'];
-
-            filters.forEach(filter => {
-                $(`#btn-${filter}`).on("click", function() {
-                    shuffleInstance.filter(filter === 'all' ? '' : filter);
-                    $(".filter, [id^='btn-']").removeClass("active");
-                    $(this).addClass("active");
-                });
-            });
-
-            $(".filter").on("click", function() {
-                const filterCategory = $(this).data("filter_category");
-                shuffleInstance.filter(filterCategory ? filterCategory : null);
-                $(".filter, [id^='btn-']").removeClass("active");
-                $(this).addClass("active");
-            });
-        }
-
-
         $(document).ready(function() {
             $('#post-list-results').on('click', '.like_Blog', function() {
                 var postId = $(this).data('post-id');

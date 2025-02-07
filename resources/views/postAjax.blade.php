@@ -2,12 +2,11 @@
     <p>Post not available</p>
 @else
 @foreach ($posts as $post)
-    <div class="mb-3 grid-col col-6 col-md-4 col-sm-4 picture-item" data-groups='["repairs"]'>
+    <div class="col-md-4">
         <div class="blogCard mb-4">
             <div class="blogCard_Image mb-3">
                 <img src="{{ asset($post->image) }}" alt="Blog card" class="img-fluid w-100" />
-                <span class="like_Blog like_Blog{{ $post->id }}" data-post-id="{{ $post->id }}"><i
-                        class="fa-regular fa-heart" style="{{ $post->likes_count ? 'color:red;' : '' }}"></i></span>
+                <span class="like_Blog like_Blog{{ $post->id }}" data-post-id="{{ $post->id }}"><i class="fa-regular fa-heart" style="{{ $post->likes_count ? 'color:red;' : '' }}"></i></span>
             </div>
             <div class="blog_contents p-3">
                 <h3><a href="{{ route('blogDetailPage', $post->slug) }}">{{ $post->title }}</a></h3>
@@ -16,7 +15,7 @@
                 </span>
                 <p class="moreText active">{!! Str::limit($post->short_description, 50) !!}</p>
                 <div class="blog_action">
-                    <span class="moreBtn">See more</span>
+                    <span class="moreBtn"></span>
                     <a href="{{ route('blogDetailPage', $post->slug) }}"><svg width="19" height="18"
                             viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path

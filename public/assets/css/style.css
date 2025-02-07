@@ -421,6 +421,7 @@ input:-webkit-autofill:focus{background: transparent;
     display: flex;
     width: 100%;
     justify-content: space-between;
+    margin: 0 auto 2rem;
     align-items: center;
 }
 /* .soacial-media{mar} */
@@ -581,7 +582,7 @@ span.like_Blog.active svg path {
     display: flex;
     flex-direction: column;
     grid-gap: 10px;
-    background: rgb(var(--color-whiteG) / 20%);
+    background: rgb(var(--color-whiteG));
     color: rgb(var(--color-brownNA));
     cursor: pointer;
     border: 1px solid rgb(var(--color-blackG) / 10%);
