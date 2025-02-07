@@ -643,6 +643,7 @@ h3.footer_title {
     background-position: center;
     /* height: 100vh; */
     /* overflow: auto; */
+    min-height: 100vh;
     padding-top: 5rem !important;
 }
 .loginPagesTitle h3 {

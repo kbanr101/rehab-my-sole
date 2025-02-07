@@ -51,9 +51,7 @@
                         </div>
                         <ul class="soacial-media d-flex m-0 p-0">
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a
-                                    href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url('/blogDetailPage/' . $post->slug)) }}&text={{ $post->title }}&description={{ $post->description }}"><i
-                                        class="fab fa-facebook"></i></a></li>
+                            <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url('/blogDetailPage/' . $post->slug)) }}&text={{ $post->title }}&description={{ $post->description }}"><i class="fab fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa-regular fa-paper-plane"></i></a></li>
                             <li><a href="https://www.instagram.com/rehab_my_sole/"><i class="fab fa-instagram"></i></a></li>
 

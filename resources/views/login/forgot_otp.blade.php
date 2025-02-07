@@ -38,7 +38,6 @@
                     </p>
                 </form>
                 <div class="loginOption text-center pb-5"></div>
-
             </div>
         </div>
     </div>
