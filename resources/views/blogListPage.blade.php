@@ -31,7 +31,7 @@
                 </div>
                 <div class="blogList-item">
                     <div class="blog-search">
-                        <input type="search" name="search" id="search" class="form-control" placeholder="Search blogs, categories, keywords etc" />
+                        <input type="text" name="search" id="search" class="form-control" placeholder="Search blogs, categories, keywords etc" />
                         <span class="search-icon search-submit"><i class="fa-solid fa-magnifying-glass"></i></span>
                     </div>
                 </div>
@@ -39,10 +39,10 @@
             <div class="row" id="post-list-results">
 
             </div>
-            <div class="row my-shuffle-container">
+            {{-- <div class="row my-shuffle-container">
 
 
-            </div>
+            </div> --}}
     </section>
     <!-- AddToAny BEGIN -->
     {{-- <div class="a2a_kit a2a_kit_size_32 a2a_default_style">

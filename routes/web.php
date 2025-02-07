@@ -81,9 +81,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 
 
-//fronted route start 
+//fronted route start
 
-//userlogin controller start 
+//userlogin controller start
 
 
 
@@ -114,7 +114,7 @@ Route::post('change_password', [UserLoginController::class, 'changePasswordSubmi
 Route::get('forgot_password', [UserLoginController::class, 'forgotPassword'])->name('forgot_password');
 Route::get('otp-verification', [HomeController::class, 'otpVerificationPages'])->name('otpVerificationPage');
 
-//facebook login 
+//facebook login
 
 Route::get('/auth/facebook', [FacebookLoginController::class, 'redirectToFacebook'])->name('facebook.login');
 Route::get('/auth/facebook/callback', [FacebookLoginController::class, 'handleFacebookCallback']);
@@ -135,6 +135,7 @@ Route::get('/blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.d
 
 
 
+Route::get('contact-us', [HomeController::class, 'contactus'])->name('contactus');
 Route::get('about-us', [HomeController::class, 'aboutus'])->name('aboutusPage');
 Route::get('blog-list', [HomeController::class, 'blogList'])->name('blogListPage');
 Route::post('filter-results', [HomeController::class, 'ajaxBlog'])->name('filter-results');

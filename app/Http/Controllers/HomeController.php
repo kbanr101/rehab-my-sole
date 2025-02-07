@@ -33,6 +33,7 @@ class HomeController extends Controller
         $transparentClass = "transparentClass comming-soon";
         return view('loginPage', compact('transparentClass'));
     }
+    public function contactus(){return view('contactus');}
 
     public function forgotPages()
     {

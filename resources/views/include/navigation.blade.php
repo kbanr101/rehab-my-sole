@@ -23,7 +23,7 @@
                 <li><a href="{{ route('comingSoonPage') }}">How it works</a></li>
                 <li><a href="{{ route('comingSoonPage') }}">FAQ's</a></li>
                 <li><a href="{{ route('blogListPage') }}">Blogs</a></li>
-                <li><a href="{{ route('comingSoonPage') }}">Contact us</a></li>
+                <li><a href="{{ route('contactus') }}">Contact us</a></li>
             </ul>
             {{-- New Nevbar Section End --}}
         </div>
