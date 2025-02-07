@@ -336,7 +336,7 @@ section.joinForm.pt-5.pb-5 {
 }
 .accordian-container,
 form.queryForm {
-    max-width: 500px;
+    max-width: 670px;
     margin: auto;
 }
 .form-group > label{
@@ -444,17 +444,37 @@ input:-webkit-autofill:focus{background: transparent;
     position: absolute;
     top: 0;
     line-height: 35px;
-    right: 6px;
+    right: 0px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    color: rgb(var(--color-grayLA));
 }
 .blogTopNavigation h3 {
     font: 700 20px/24px var(--font-one);
     color: rgb(var(--color-brownD));
     margin-bottom: 0;
 }
-.blog_contents h3 > a,
-.blog_contents h3{
+.blog_contents h3 > a, .blog_contents h3 {
     font: 500 18px/26px var(--font-one);
     color: rgb(var(--color-blackG));
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.blog-search input#search {
+    color: rgb(var(--color-grayLA));
+    font: 400 14px/35px var(--font-one);
+    min-width: 300px;
+    padding: 0 35px 0 10px;
+}
+.default-btn {padding: 4px 8px;cursor: pointer;}
+.default-btn:hover, .default-btn.active {
+    border-bottom: 1px solid rgb(var(--color-brownNH));
+    color: rgb(var(--color-brownNH));
 }
 .blogCard_Image {position: relative;}
 .blog_contents p,
@@ -776,6 +796,9 @@ form#contactForm {
 /* About Page End*/
 @media (max-width: 991px){
     .meetBlock .meetBlock-item{flex: 0 0 auto;}
+    .main-navigation{display: none;}
+    .meetFigure >img{width: 150px; height: 150px;}
+    .aboutBox .aboutBox-item:nth-child(3) > img, .aboutBox .aboutBox-item:nth-child(2) > img {height: 250px !important;}
 }
 @media (max-width: 767px){
     .header-container{min-height: 60px;}
@@ -787,7 +810,12 @@ form#contactForm {
     .aboutBox .aboutBox-item {flex: 0 0 calc(100% / 2 - 5px);}
     .aboutBox .aboutBox-item > img{height: 200px !important;}
     .pageContainer{flex-direction: column;}
+    .joinForms .mainTitle{text-align: left !important;}
+    .blogList-header{flex-direction: column;gap: 20px;}
 }
-@media (max-width: 991px){
-    .main-navigation{display: none;}
+@media (max-width: 576px){
+    .meetFigure > span{font-size: 12px;line-height: 20px;}
+    .meetFigure > h4{font-size: 16px;line-height: 24px;}
+    .meetFigure >img{width: 100px; height: 100px;}
+    .meetBlock .meetBlock-item{ flex: 0 calc(100% / 2 - 5px); }
 }
