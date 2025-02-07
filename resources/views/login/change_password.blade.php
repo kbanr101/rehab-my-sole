@@ -19,7 +19,7 @@
                         <label for="password">Create a password</label>
                         <div class="showPassword">
                             <input type="password" id="password" placeholder="Enter your password" name="password">
-                            <span id="showPass"><i class="fa-solid fa-eye"></i></span>
+                            <span id="showPass" onclick="togglePassword(this)"><i class="fa-solid fa-eye"></i></span>
                             @error('password')
                                 <span style="color: red;" class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror
@@ -31,7 +31,7 @@
                         <div class="showPassword">
                             <input type="password" id="password" placeholder="Enter your password"
                                 name="password_confirmation">
-                            <span id="showPass"><i class="fa-solid fa-eye"></i></span>
+                                <span id="showPass" onclick="togglePassword(this)"><i class="fa-solid fa-eye"></i></span>
                             @error('password_confirmation')
                                 <span style="color: red;" class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror

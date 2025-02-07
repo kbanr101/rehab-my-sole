@@ -10,3 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+function togglePassword(element) {
+    const input = element.previousElementSibling; // Get the input field before the toggle
+    input.type = input.type === 'password' ? 'text' : 'password';
+    element.innerHTML = input.type === 'password' ? "<i class='fa-solid fa-eye'></i>" : "<i class='fa-solid fa-eye-slash'></i>";
+}
