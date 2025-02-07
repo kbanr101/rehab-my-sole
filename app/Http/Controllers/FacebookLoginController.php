@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class FacebookLoginController extends Controller
 {
