@@ -94,8 +94,6 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/logout', [UserLoginController::class, 'logout'])->name('user.logout');
 
-
-//Route::get('login', [HomeController::class, 'loginPages'])->name('loginPages');
 Route::get('register', [UserLoginController::class, 'register'])->name('register');
 Route::post('register', [UserLoginController::class, 'registerCreate'])->name('register.submit');
 
@@ -114,7 +112,6 @@ Route::get('change_password', [UserLoginController::class, 'changePassword'])->n
 Route::post('change_password', [UserLoginController::class, 'changePasswordSubmit'])->name('submit.password');
 
 Route::get('forgot_password', [UserLoginController::class, 'forgotPassword'])->name('forgot_password');
-Route::get('otp-verification', [HomeController::class, 'otpVerificationPages'])->name('otpVerificationPage');
 
 //facebook login
 

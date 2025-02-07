@@ -32,7 +32,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendOtp']);
 Route::post('forgot-otp', [AuthController::class, 'forgotOtp']);
 
-Route::post('/verify-otp', [ForgotPasswordController::class, 'verifyOtp']);
+//Route::post('/verify-otp-forgot', [ForgotPasswordController::class, 'verifyOtpForgot']);
 Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword']);
 
 Route::get('/auth/facebook', [FacebookController::class, 'redirectToFacebook']);

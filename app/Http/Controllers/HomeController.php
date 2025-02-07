@@ -14,58 +14,22 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->take(3)->get();
-
         return view('index', compact('posts'));
-        // $transparentClass = "transparentClass comming-soon";
-        // return view('comingSoonPage', compact('transparentClass'));
     }
-    // public function home()
-    // {
-    //     $posts = Post::paginate(3);
-    //     return view('index', compact('posts'));
-    // }
     public function comingSoon()
     {
         $transparentClass = "transparentClass comming-soon";
         return view('comingSoonPage', compact('transparentClass'));
     }
-    public function loginPages()
-    {
-        $transparentClass = "transparentClass comming-soon";
-        return view('loginPage', compact('transparentClass'));
-    }
     public function contactus()
     {
         return view('contactus');
     }
-
-    public function forgotPages()
-    {
-        $transparentClass = "transparentClass comming-soon";
-        return view('forgotPage', compact('transparentClass'));
-    }
-    public function otpVerificationPages()
-    {
-        $transparentClass = "transparentClass comming-soon";
-        return view('otpVerificationPage', compact('transparentClass'));
-    }
     public function blogList(Request $request)
     {
-        // $posts = Post::orderBy('created_at', 'desc')->paginate(3);
-        // $ipAddress = $request->ip();
-        // $posts = Post::withCount(['likes as likes_count' => function ($query) use ($ipAddress) {
-        //     $query->where('ip_address', $ipAddress);
-        // }])
-        //     ->orderBy('created_at', 'desc')
-        //     ->paginate(9);
-        //->get();
-
         $categories = Category::where('status', 'active')->get();
-
-
         return view('blogListPage', compact('categories'));
     }
-
     public function ajaxBlog(Request $request)
     {
         $ipAddress = $request->ip();
@@ -79,8 +43,6 @@ class HomeController extends Controller
                 }
             ])
             ->orderBy('created_at', 'desc');
-
-
         if (!empty($category_id)) {
             $postsQuery->where('category_id', $category_id);
         }
@@ -93,14 +55,9 @@ class HomeController extends Controller
                     });
             });
         }
-
         $posts = $postsQuery->paginate(9);
-
-
         return view('postAjax', compact('posts'));
     }
-
-
     public function blogDetails(Request $request,  $slug)
     {
         // dd($request->ip());
