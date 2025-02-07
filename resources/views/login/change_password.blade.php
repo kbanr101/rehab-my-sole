@@ -7,9 +7,8 @@
                     <h3>Create an account</h3>
                     <p>We’re cooking up something exciting! Be the first to know when we go live—subscribe below!</p>
                 </div>
-                <div id="responseMessage"></div>
                 @if (session('error'))
-                    <div class="mb-4 text-red-600 text-sm text-center">
+                    <div id="responseMessage" class="mb-4 text-red-600 text-sm text-center">
                         {{ session('error') }}
                     </div>
                 @endif

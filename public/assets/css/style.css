@@ -112,6 +112,7 @@ ul.breadcrumbs li a:hover {
     position: sticky;
     top: 0;
 }
+#post-list-results{min-height: 90vh;}
 .pageItem_right, .pageContainer {
     /* display: flex;
     justify-content: space-between;
@@ -740,10 +741,10 @@ form#contactForm {
 }
 /* Comming Soon End */
 /* New login */
-.extraLink, .extraLink > a {
+.extraLink, .extraLink > a, .extraLink > button {
     margin: 1rem auto 1.5rem;
     font: 500 16px/24px var(--font-one);
-    color: rgb(var(--color-whiteNH));
+    color: rgb(var(--color-whiteNH)) !important;
 }
 .otherlink > span:before, .otherlink > span:after {
     height: 1px;
