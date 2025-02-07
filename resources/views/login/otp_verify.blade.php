@@ -7,14 +7,13 @@
                     <h3>OTP Verification</h3>
                     <p>An email containing an OTP was sent to your email. Input the code below</p>
                     @if (session('success'))
-                        <div class="mb-4 text-red-600 text-sm text-center">
+                        <div id="responseMessage" class="mb-4 text-red-600 text-sm text-center">
                             {{ session('success') }}
                         </div>
                     @endif
                 </div>
-                <div id="responseMessage"></div>
                 @if (session('error'))
-                    <div class="mb-4 text-red-600 text-sm text-center">
+                    <div id="responseMessage" class="mb-4 text-red-600 text-sm text-center">
                         {{ session('error') }}
                     </div>
                 @endif
