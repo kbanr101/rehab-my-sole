@@ -226,4 +226,11 @@ class UserLoginController extends Controller
             return redirect()->back()->with('error', 'Invalid credentials. Please try again.');
         }
     }
+
+    public function logout()
+    {
+        session()->flush();
+        Alert::success('Logout successfully.');
+        return redirect('/login')->with('success', 'Logged out successfully.');
+    }
 }

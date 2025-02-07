@@ -92,6 +92,8 @@ Route::get('/login', [UserLoginController::class, 'index'])->name('login');
 Route::post('/login', [UserLoginController::class, 'login'])->name('login.submit');
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/logout', [UserLoginController::class, 'logout'])->name('user.logout');
+
 
 //Route::get('login', [HomeController::class, 'loginPages'])->name('loginPages');
 Route::get('register', [UserLoginController::class, 'register'])->name('register');

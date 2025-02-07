@@ -11,10 +11,17 @@ use Illuminate\Support\Str;
 class FacebookController extends Controller
 {
     // Redirect to Facebook login
-    public function redirectToFacebook()
+    public function redirectToFacebook(Request $request)
     {
+        config([
+            'services.facebook.redirect' => config('services.facebook.api_redirect')
+        ]);
+
+        // Generate the Facebook login URL
+        $facebookUrl = Socialite::driver('facebook')->stateless()->redirect()->getTargetUrl();
+
         return response()->json([
-            'url' => Socialite::driver('facebook')->stateless()->redirect()->getTargetUrl(),
+            'url' => $facebookUrl,
         ]);
     }
 

@@ -11,8 +11,15 @@ use Illuminate\Http\Request;
 
 class FacebookLoginController extends Controller
 {
-    public function redirectToFacebook()
+    public function redirectToFacebook(Request $request)
     {
+
+        config([
+            'services.facebook.redirect' => $request->is('api/*')
+                ? config('services.facebook.api_redirect')
+                : config('services.facebook.web_redirect')
+        ]);
+
         return Socialite::driver('facebook')->redirect();
     }
 

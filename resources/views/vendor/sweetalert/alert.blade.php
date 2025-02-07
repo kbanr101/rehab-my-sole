@@ -27,7 +27,7 @@
                             form.method = 'POST';
                             form.innerHTML = `
                             @csrf
-                            @method('DELETE')
+                            undefined
                         `;
                             document.body.appendChild(form);
                             form.submit();
@@ -37,8 +37,20 @@
             });
 
             @if (Session::has('alert.config'))
-                Swal.fire({!! Session::pull('alert.config') !!});
+                Swal.fire({
+                    ...{!! Session::pull('alert.config') !!},
+                    customClass: {
+                        popup: 'small-swal'
+                    }
+                });
             @endif
         </script>
+        <style>
+            .small-swal {
+                width: 300px !important;
+                padding: 10px !important;
+                font-size: 14px !important;
+            }
+        </style>
     @endif
 @endif

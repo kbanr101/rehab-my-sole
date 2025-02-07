@@ -3,8 +3,8 @@
     <div class="header-container custom-container">
         <div class="brand-logo logo">
             <div class="mobile_hamburger" hidden><i class="fa-solid fa-bars"></i></div>
-            <a href="{{ url('/') }}" class="d-inline"><img
-                    src="{{ asset('assets/media/RehabMySole-logo.svg') }}" alt="RehabMySolo" class="img-fluid w-100" /></a>
+            <a href="{{ url('/') }}" class="d-inline"><img src="{{ asset('assets/media/RehabMySole-logo.svg') }}"
+                    alt="RehabMySolo" class="img-fluid w-100" /></a>
         </div>
         <div class="main-navigation">
             {{-- New Nevbar Section --}}
@@ -28,8 +28,19 @@
             {{-- New Nevbar Section End --}}
         </div>
         <div class="header-action">
-            <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span></div>
-            <a href="{{ route('login') }}" class="defaultBtnClass">Login</a>
+
+            @php
+                $user = session('user');
+            @endphp
+            @if ($user)
+                <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span>
+                </div>
+                <a href="{{ route('user.logout') }}" class="defaultBtnClass">{{ $user['name'] }}</a>
+            @else
+                <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span>
+                </div>
+                <a href="{{ route('login') }}" class="defaultBtnClass">Login</a>
+            @endif
         </div>
     </div>
 </header>

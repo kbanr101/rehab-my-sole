@@ -13,9 +13,17 @@ class GoogleController extends Controller
 {
     public function redirectToGoogle()
     {
-        return response()->json([
-            'url' => Socialite::driver('google')->stateless()->redirect()->getTargetUrl(),
+
+        config([
+            'services.google.redirect' => config('services.google.api_redirect')
         ]);
+
+        // Generate Google login URL
+        $googleUrl = Socialite::driver('google')->stateless()->redirect()->getTargetUrl();
+
+        return response()->json([
+            'url' => $googleUrl,
+        ], 200);
     }
 
     /**

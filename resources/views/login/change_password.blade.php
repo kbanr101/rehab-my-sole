@@ -31,7 +31,7 @@
                         <div class="showPassword">
                             <input type="password" id="password" placeholder="Enter your password"
                                 name="password_confirmation">
-                                <span id="showPass" onclick="togglePassword(this)"><i class="fa-solid fa-eye"></i></span>
+                            <span id="showPass" onclick="togglePassword(this)"><i class="fa-solid fa-eye"></i></span>
                             @error('password_confirmation')
                                 <span style="color: red;" class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror
@@ -56,4 +56,5 @@
             </div>
         </div>
     </div>
+    @include('sweetalert::alert')
 @endsection

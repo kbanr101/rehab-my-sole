@@ -11,8 +11,15 @@ use Illuminate\Http\Request;
 
 class GoogleLoginController extends Controller
 {
-    public function redirectToGoogle()
+    public function redirectToGoogle(Request $request)
     {
+        //return Socialite::driver('google')->redirect();
+        config([
+            'services.google.redirect' => $request->is('api/*')
+                ? config('services.google.api_redirect')
+                : config('services.google.web_redirect')
+        ]);
+
         return Socialite::driver('google')->redirect();
     }
     public function handleGoogleCallback()
