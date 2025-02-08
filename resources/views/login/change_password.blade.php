@@ -12,7 +12,7 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                <form id="contactForm" method="post" action="{{ route('submit.password') }}">
+                <form id="contactForm" class="contactForm" method="post" action="{{ route('submit.password') }}">
                     @csrf
                     <div class="form-group">
                         <label for="password">Create a password</label>

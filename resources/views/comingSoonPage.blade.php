@@ -19,7 +19,7 @@
                     <p>We're cooking up something exciting! Be the first to know when we go live-subscribe below!</p>
                 </div>
                 <div id="responseMessage"></div>
-                <form id="contactForm">
+                <form id="contactForm" class="contactForm">
                     <div class="form-group">
                         <label for="name">Enter your full name</label>
                         <input type="text" id="name" placeholder="Enter your full name" name="name">
