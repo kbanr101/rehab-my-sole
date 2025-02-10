@@ -44,7 +44,7 @@
                     <li class="user-footer">
                         <a href="{{ route('password') }}" class="btn btn-default btn-flat">Change
                             Password</a>
-                        <a href="{{ route('logout') }}" class="btn btn-default btn-flat float-end">Sign out</a>
+                        <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat float-end">Sign out</a>
                     </li>
                     <!--end::Menu Footer-->
                 </ul>

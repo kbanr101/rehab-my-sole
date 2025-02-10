@@ -72,6 +72,34 @@
                 </ul>
             </li>
 
+            {{-- <li class="nav-item">
+                <a href="#"
+                    class="nav-link {{ (Request::is('post.create') ? 'active' : '' || Request::is('post.list')) ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-box-seam-fill"></i>
+                    <p>
+                        CataLog
+                        <i class="nav-arrow bi bi-chevron-right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('productcategory.index') }}"
+                            class="nav-link {{ Request::is('productcategory*') ? 'active' : '' }}">
+                            <i class="nav-icon bi bi-circle"></i>
+                            <p>Product Category</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('productsubcategory.index') }}"
+                            class="nav-link {{ Request::is('productsubcategory*') ? 'active' : '' }}">
+                            <i class="nav-icon bi bi-circle"></i>
+                            <p>Product Sub Category</p>
+                        </a>
+                    </li>
+                </ul>
+            </li> --}}
+
+
 
             <li class="nav-item">
                 <a href="{{ route('contact') }}" class="nav-link {{ Request::is('contact') ? 'active' : '' }}">
@@ -80,7 +108,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('logout') }}" class="nav-link">
+                <a href="{{ route('admin.logout') }}" class="nav-link">
                     {{-- <i class="nav-icon bi bi-circle"></i> --}}
                     <i class="nav-icon bi bi-box-arrow-in-right"></i>
                     <p>Logout</p>
