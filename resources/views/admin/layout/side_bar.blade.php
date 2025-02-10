@@ -71,7 +71,6 @@
                     </li>
                 </ul>
             </li>
-
             {{-- <li class="nav-item">
                 <a href="#"
                     class="nav-link {{ (Request::is('post.create') ? 'active' : '' || Request::is('post.list')) ? 'active' : '' }}">
@@ -100,7 +99,13 @@
             </li> --}}
 
 
-
+            <li class="nav-item">
+                <a href="{{ route('servicepurchase.index') }}"
+                    class="nav-link {{ Request::is('servicepurchase') ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-table"></i>
+                    <p>Service Purchase</p>
+                </a>
+            </li>
             <li class="nav-item">
                 <a href="{{ route('contact') }}" class="nav-link {{ Request::is('contact') ? 'active' : '' }}">
                     <i class="nav-icon bi bi-table"></i>
