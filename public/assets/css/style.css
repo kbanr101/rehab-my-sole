@@ -662,10 +662,10 @@ h3.footer_title {
     margin-bottom: 1.5rem;
 }
 .showPassword {position: relative;}
-#contactForm .form-group {margin-bottom: 1rem;}
-#contactForm .form-group input::placeholder {color: rgb(211 211 211 / 0.5);}
-#contactForm .form-group input:hover {border-color: rgb(var(--color-whiteD));}
-#contactForm .form-group input {
+#contactForm.contactForm .form-group {margin-bottom: 1rem;}
+#contactForm.contactForm .form-group input::placeholder {color: rgb(211 211 211 / 0.5);}
+#contactForm.contactForm .form-group input:hover {border-color: rgb(var(--color-whiteD));}
+#contactForm.contactForm .form-group input {
     outline: none;
     font: 400 14px/40px var(--font-one);
     border-radius: 4px;
@@ -677,14 +677,14 @@ h3.footer_title {
     max-width: 500px;
     box-sizing: border-box;
 }
-#contactForm .form-group label {
+#contactForm.contactForm .form-group label {
     display: block;
     font: 400 13px/normal var(--font-one);
     color: rgb(255 255 255 / 0.8);
     margin-bottom: 8px;
     position: relative;
 }
-#contactForm .form-group label::after {
+#contactForm.contactForm .form-group label::after {
     content: '\f621';
     color: maroon;
     margin: 0 5px;
@@ -695,11 +695,11 @@ h3.footer_title {
     top: -8px;
     position: relative;
 }
-form#contactForm {
+form#contactForm.contactForm {
     max-width: 500px;
     margin: auto;
 }
-#contactForm .form-group button {
+#contactForm.contactForm .form-group button {
     width: 100%;
     border: 1px solid #9F4D0F;
     color: #9F4D0F;
@@ -713,7 +713,7 @@ form#contactForm {
     transition: 0.3s all ease-in-out;
     margin-top: 2rem;
 }
-#contactForm .form-group button:hover {
+#contactForm.contactForm .form-group button:hover {
     color: white;
     background-color: #9F4D0F;
 }

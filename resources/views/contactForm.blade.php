@@ -1,5 +1,5 @@
 <div class="container pt-4 pb-4">
-    <div class="mainTitle text-center m-auto pb-5">
+    <div class="mainTitle text-center m-auto pb-4">
         <h3>Contact us</h3>
         <p class="m-auto">Have a question? We're here to help.</p>
     </div>

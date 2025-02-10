@@ -17,7 +17,7 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                <form id="contactForm" action="{{ route('verify_otp') }}" method="post">
+                <form id="contactForm" class="contactForm" action="{{ route('verify_otp') }}" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="otp">Enter OTP</label>
