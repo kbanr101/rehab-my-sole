@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\ProductSubCategoryController;
 use App\Http\Controllers\Admin\ServicePurchaseController;
 
 use App\Http\Controllers\Admin\SliderController;
+
+use App\Http\Controllers\ImageUploadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,6 +69,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('admin/productcategory', ProductCategoryController::class);
     Route::resource('admin/productsubcategory', ProductSubCategoryController::class);
     Route::resource('admin/servicepurchase', ServicePurchaseController::class);
+
+
     // slidercontroller
     Route::get('/admin/slider/slider_list', [SliderController::class, 'index'])->name('slider.list');
     Route::get('/admin/slider_create', [SliderController::class, 'create'])->name('slider.create');
@@ -152,3 +156,6 @@ Route::post('/post/{id}/like', [HomeController::class, 'like']);
 Route::get('/voice', function () {
     return view('voice');
 });
+
+Route::get('/image-upload', [ImageUploadController::class, 'index']);
+Route::post('/image-upload', [ImageUploadController::class, 'store'])->name('image.upload');

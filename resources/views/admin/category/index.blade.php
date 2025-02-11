@@ -60,15 +60,8 @@
                                                 <td>{{ ucfirst($category->status) }}</td>
                                                 <td>
                                                     <a href="{{ route('categories.edit', $category->slug) }}"
-                                                        class="btn btn-primary btn-sm">Edit</a>
+                                                        class="btn btn-primary btn-sm">View</a>
 
-                                                    {{-- <form action="{{ route('categories.destroy', $category->id) }}"
-                                                        method="POST" style="display:inline;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm"
-                                                            onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
-                                                    </form> --}}
                                                 </td>
                                             </tr>
                                         @endforeach

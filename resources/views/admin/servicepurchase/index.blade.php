@@ -56,7 +56,8 @@
                                                 <td>{{ $val->first_name }}</td>
                                                 <td>{{ $val->last_name }}</td>
                                                 <td>{{ ucfirst($val->status) }}</td>
-
+                                                <td><a href="{{ route('servicepurchase.show', $val->id) }}">View Details</a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
