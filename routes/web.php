@@ -11,7 +11,13 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductCategoryController;
+use App\Http\Controllers\Admin\ProductSubCategoryController;
+use App\Http\Controllers\Admin\ServicePurchaseController;
+
 use App\Http\Controllers\Admin\SliderController;
+
+use App\Http\Controllers\ImageUploadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +43,7 @@ Route::get('/admin', function () {
 // });
 Route::get('/admin/login', [LoginController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [LoginController::class, 'login'])->name('admin.Postlogin');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
 //store contact details
 Route::post('/contact', [ContactController::class, 'store'])->name('contact_submit');
@@ -55,10 +61,15 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 
     // category
-    Route::resource('categories', CategoryController::class);
+    Route::resource('admin/categories', CategoryController::class);
     // Route::resource('categories', CategoryController::class)->parameters([
     //     'categories' => 'category:slug', // Use slug as the parameter
     // ]);
+
+    Route::resource('admin/productcategory', ProductCategoryController::class);
+    Route::resource('admin/productsubcategory', ProductSubCategoryController::class);
+    Route::resource('admin/servicepurchase', ServicePurchaseController::class);
+
 
     // slidercontroller
     Route::get('/admin/slider/slider_list', [SliderController::class, 'index'])->name('slider.list');
@@ -146,3 +157,6 @@ Route::post('/post/{id}/like', [HomeController::class, 'like']);
 Route::get('/voice', function () {
     return view('voice');
 });
+
+Route::get('/image-upload', [ImageUploadController::class, 'index']);
+Route::post('/image-upload', [ImageUploadController::class, 'store'])->name('image.upload');

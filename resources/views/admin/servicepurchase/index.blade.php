@@ -33,10 +33,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card mb-4">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h3 class="card-title">Category List</h3>
-                                <a href="{{ route('categories.create') }}" class="btn btn-primary btn-sm">Add Category</a>
-                            </div>
+
 
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -44,24 +41,22 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Name</th>
-                                            <th>Slug</th>
+
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($categories as $key => $category)
+                                        @foreach ($service_list as $key => $val)
                                             <tr>
-                                                <td>{{ $categories->firstItem() + $key }}</td>
+                                                <td>{{ $service_list->firstItem() + $key }}</td>
                                                 <!-- Correct numbering with pagination -->
-                                                <td>{{ $category->name }}</td>
-                                                <td>{{ $category->slug }}</td>
-                                                <td>{{ ucfirst($category->status) }}</td>
-                                                <td>
-                                                    <a href="{{ route('categories.edit', $category->slug) }}"
-                                                        class="btn btn-primary btn-sm">View</a>
-
+                                                <td>{{ $val->first_name }}</td>
+                                                <td>{{ $val->last_name }}</td>
+                                                <td>{{ ucfirst($val->status) }}</td>
+                                                <td><a href="{{ route('servicepurchase.show', $val->id) }}">View Details</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -70,7 +65,7 @@
                                 <br>
                                 <!-- Render Pagination Links -->
                                 <div class="d-flex justify-content-center">
-                                    {{ $categories->links('pagination::bootstrap-4') }}
+                                    {{ $service_list->links('pagination::bootstrap-4') }}
                                 </div>
                             </div>
                         </div>
