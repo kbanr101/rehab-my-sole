@@ -33,12 +33,16 @@
                 $user = session('user');
             @endphp
             @if ($user)
-                <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span>
+                <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span></div>
+                <div class="userControl dropContainer">
+                    <label class="defaultBtnClass dropBtn"><i class="fa-regular fa-user"></i></label>
+                    <div class="userDropcontent">
+                        <span class="d-block">Hi <i><b>{{ $user['name'] }}</b></i></span>
+                        <span class="d-block"><a href="{{ route('user.logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;Logout</a></span>
+                    </div>
                 </div>
-                <a href="{{ route('user.logout') }}" class="defaultBtnClass">{{ $user['name'] }}</a>
             @else
-                <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span>
-                </div>
+                <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span></div>
                 <a href="{{ route('login') }}" class="defaultBtnClass">Login</a>
             @endif
         </div>
@@ -46,6 +50,42 @@
 </header>
 {{-- @endif --}}
 <style>
+    .dropContainer {
+        position: relative;
+    }
+    .userDropcontent {
+        position: absolute;
+        width: 100%;
+        top: 150%;
+        min-width: 150px;
+        border-radius: 5px;
+        right: 0;
+        background: rgb(var(--color-whiteG));
+        box-shadow: var(--box-shadow) rgb(var(--color-blackG) / 20%);
+        padding: 8px;
+        border: 1px solid rgb(var(--color-blackG) / 15%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+    }
+    .userControl > label {
+        border-radius: 50px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        padding: 0 0;
+        background-color: rgb(var(--color-brownNH));
+    }
+    .dropContainer.active > .userDropcontent{
+        visibility: visible;
+        opacity: 1;
+        top: 110%;
+    }
+    .userDropcontent a {
+        color: rgb(var(--color-brownDA));
+        padding: 10px 0px 5px;
+        display: block;
+    }
     ul.navbar-block.menubar {
         display: inline-block;
         list-style: none;

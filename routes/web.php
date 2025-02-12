@@ -136,6 +136,7 @@ Route::get('/blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.d
 
 Route::get('contact-us', [HomeController::class, 'contactus'])->name('contactus');
 Route::get('about-us', [HomeController::class, 'aboutus'])->name('aboutusPage');
+Route::get('personalize', [HomeController::class, 'personalize'])->name('personalize');
 Route::get('blog-list', [HomeController::class, 'blogList'])->name('blogListPage');
 Route::post('filter-results', [HomeController::class, 'ajaxBlog'])->name('filter-results');
 Route::get('blog-detail/{slug}', [HomeController::class, 'blogDetails'])->name('blogDetailPage');

@@ -1,15 +1,13 @@
 @extends('include.master')
 @section('content')
-    {{-- <div class="pageNavigaton pt-4 pb-4">
-    <div class="custom-container">
-        <div class="pageContainer">
-            <div class="pageItem">
-                <h3>About us</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab iste, eius quidem iusto numquam dolorem aspernatur eos voluptatibus ducimus. Totam tenetur iste ut magnam.</p>
-            </div>
+    <div class="pageNavigaton">
+        <div class="custom-container">
+            <ul class="breadcrumbs">
+                <li><a href="{{ url('/') }}"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
+                <li><a href="{{ route('aboutusPage') }}">About us</a></li>
+            </ul>
         </div>
     </div>
-</div> --}}
     <section class="serviceSection pt-4 mt-4 pb-5">
         <div class="custom-container">
             <div class="mainTitle text-center x2_title m-auto pb-5">

@@ -42,7 +42,7 @@
                             <p>Revitalize, refresh, and rejuvenate your shoes with eco-friendly cleaning.</p>
                             <div class="price_track">Price From: <span>$300</span></div>
                             <div class="serviceCard-action">
-                                <a href="#" class="defaultBtnClass trBtnClass">Select</a>
+                                <a href="{{ route('personalize') }}" class="defaultBtnClass trBtnClass">Select</a>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                             <p>Transform ordinary footwear into art through sustainable, personalized customization.</p>
                             <div class="price_track">Price From: <span>$300</span></div>
                             <div class="serviceCard-action">
-                                <a href="#" class="defaultBtnClass trBtnClass">Select</a>
+                                <a href="{{ route('personalize') }}" class="defaultBtnClass trBtnClass">Select</a>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                             <p>Restore every worn detail meticulously with eco-conscious repair craftsmanship.</p>
                             <div class="price_track">Price From: <span>$300</span></div>
                             <div class="serviceCard-action">
-                                <a href="#" class="defaultBtnClass trBtnClass">Select</a>
+                                <a href="{{ route('personalize') }}" class="defaultBtnClass trBtnClass">Select</a>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                             <p>Revive cherished memories by restoring shoes with sustainable elegance.</p>
                             <div class="price_track">Price From: <span>$300</span></div>
                             <div class="serviceCard-action">
-                                <a href="#" class="defaultBtnClass trBtnClass">Select</a>
+                                <a href="{{ route('personalize') }}" class="defaultBtnClass trBtnClass">Select</a>
                             </div>
                         </div>
                     </div>

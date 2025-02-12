@@ -181,6 +181,7 @@ header.main-header.transparentClass {
     gap: 20px;
 }
 .headeNote {font-size: 20px;cursor: pointer;}
+label.defaultBtnClass,
 button.defaultBtnClass,
 a.defaultBtnClass {
     padding: 0 24px;
@@ -194,8 +195,9 @@ a.defaultBtnClass {
     border-color: rgb(var(--color-brownN));
     box-shadow: none;
     border: 1px solid;
+    cursor: pointer;
 }
-button.trBtnClass:hover,a.trBtnClass:hover,
+button.trBtnClass:hover,a.trBtnClass:hover,label.trBtnClass:hover,
 button.defaultBtnClass:hover,
 a.defaultBtnClass:hover{
     background-color: rgb(var(--color-brownNH));
@@ -207,13 +209,14 @@ a.defaultBtnClass:active{
     background-color: rgb(var(--color-brownNA));
     border-color: rgb(var(--color-brownNA));
 }
-button.trBtnClass,a.trBtnClass {
+button.trBtnClass,a.trBtnClass,label.trBtnClass {
     background-color: rgb(var(--color-whiteG));
     color: rgb(var(--color-brownN));
     border-width: 1.5px;
     font-weight: 500;
 }
 button.trBtnClass:active,a.trBtnClass:active,
+label.trBtnClass:hover,label.trBtnClass:active,
 button.trBtnClass:hover,a.trBtnClass:hover{
     color: rgb(var(--color-whiteG));
 }
@@ -330,6 +333,37 @@ button.trBtnClass:hover,a.trBtnClass:hover{
     font: 500 24px/32px var(--font-one);
     color: rgb(var(--color-blackG));
 }
+.Personalize_form{
+    background-color: rgb(var(--color-grayL));
+    padding: 2rem;
+}
+.fileupload {
+    min-height: 150px;
+    border: 1px solid rgb(var(--color-blackG)/20%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.Personalize_form .form-group textarea{
+    border: 1px solid rgb(var(--color-blackG)/20%);
+}
+.form-group label[for="imageUpload"]{
+    line-height: 40px;
+    margin: 1rem auto;;
+}
+.Personalize_form .form-group label[for="imageUpload"]{
+    background-color: rgb(var(--color-grayL));
+}
+.Personalize_form .form-group label[for="imageUpload"]:hover{
+    background: rgb(var(--color-brownN));
+}
+.Personalize_form .form-group textarea,
+.Personalize_form .form-group select,
+.Personalize_form .form-group input{
+    background: rgb(var(--color-grayL));
+}
 /* Service Card End */
 /* Join Now */
 section.joinForm.pt-5.pb-5 {
@@ -340,17 +374,21 @@ form.queryForm {
     max-width: 670px;
     margin: auto;
 }
-.form-group > label{
+.form-group label{
     display: block;
     color: rgb(var(--color-grayN));
     font: 500 13px/normal var(--font-one);
     margin-bottom: 0.5rem;
 }
+.form-title {
+    font: 600 20px/28px var(--font-one);
+    color: rgb(var(--color-grayD));
+}
 input:-webkit-autofill,
 input:-webkit-autofill:focus{background: transparent;
     transition: background-color 0s 600000s, color 0s 600000s !important;
 }
-.form-group > input {
+.form-group input {
     border-radius: 4px;
     font: 500 14px/40px var(--font-one);
     color: rgb(var(--color-brownDA));
@@ -358,7 +396,7 @@ input:-webkit-autofill:focus{background: transparent;
     outline: none !important;
     box-shadow: none !important;
 }
-.form-group > input::placeholder {color: rgb(var(--color-grayLA));}
+.form-group input::placeholder {color: rgb(var(--color-grayLA));}
 /* Join Now End */
 /* How to work Section  */
 .workSection{background: rgb(var(--color-brownL));}

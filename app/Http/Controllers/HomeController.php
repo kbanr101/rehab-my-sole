@@ -25,6 +25,10 @@ class HomeController extends Controller
     {
         return view('contactus');
     }
+    public function personalize()
+    {
+        return view('personalize');
+    }
     public function blogList(Request $request)
     {
         $categories = Category::where('status', 'active')->get();
