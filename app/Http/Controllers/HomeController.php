@@ -25,10 +25,7 @@ class HomeController extends Controller
     {
         return view('contactus');
     }
-    public function personalize()
-    {
-        return view('personalize');
-    }
+
     public function payment()
     {
         return view('payment');

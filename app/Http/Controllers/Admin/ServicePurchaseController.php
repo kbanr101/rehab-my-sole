@@ -13,7 +13,6 @@ class ServicePurchaseController extends Controller
     {
         $service_list = ServicePurchase::with('user')->orderBy('created_at', 'desc')
             ->paginate(10);
-        // dd($service_list);
         return view('admin.servicepurchase.index', compact('service_list'));
     }
 

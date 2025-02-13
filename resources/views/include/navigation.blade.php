@@ -10,6 +10,7 @@
             {{-- New Nevbar Section --}}
             <ul class="navbar-block menubar">
                 {{-- <li style="display: none;" class="mobile_menu_bar"><i class="fa fa-times"></i></li> --}}
+                <li><a href="{{ url('/') }}">Home</a></li>
                 <li><a href="{{ route('aboutusPage') }}">About us</a></li>
                 <li class="dropdown-list"><a href="{{ route('comingSoonPage') }}">Services</a>
                     <i class="drop-plus" hidden></i>
@@ -33,16 +34,19 @@
                 $user = session('user');
             @endphp
             @if ($user)
-                <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span></div>
+                <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span>
+                </div>
                 <div class="userControl dropContainer">
                     <label class="defaultBtnClass dropBtn"><i class="fa-regular fa-user"></i></label>
                     <div class="userDropcontent">
                         <span class="d-block">Hi <i><b>{{ $user['name'] }}</b></i></span>
-                        <span class="d-block"><a href="{{ route('user.logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;Logout</a></span>
+                        <span class="d-block"><a href="{{ route('user.logout') }}"><i
+                                    class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;Logout</a></span>
                     </div>
                 </div>
             @else
-                <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span></div>
+                <div class="headeNote"><i class="fa-regular fa-bell"></i><span class="headeNote-count d-none">0</span>
+                </div>
                 <a href="{{ route('login') }}" class="defaultBtnClass">Login</a>
             @endif
         </div>
@@ -53,6 +57,7 @@
     .dropContainer {
         position: relative;
     }
+
     .userDropcontent {
         position: absolute;
         width: 100%;
@@ -68,7 +73,8 @@
         visibility: hidden;
         transition: var(--transition);
     }
-    .userControl > label {
+
+    .userControl>label {
         border-radius: 50px;
         width: 40px;
         height: 40px;
@@ -76,16 +82,19 @@
         padding: 0 0;
         background-color: rgb(var(--color-brownNH));
     }
-    .dropContainer.active > .userDropcontent{
+
+    .dropContainer.active>.userDropcontent {
         visibility: visible;
         opacity: 1;
         top: 110%;
     }
+
     .userDropcontent a {
         color: rgb(var(--color-brownDA));
         padding: 10px 0px 5px;
         display: block;
     }
+
     ul.navbar-block.menubar {
         display: inline-block;
         list-style: none;

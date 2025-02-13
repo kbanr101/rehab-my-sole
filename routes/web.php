@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\FacebookLoginController;
 use App\Http\Controllers\GoogleLoginController;
+use App\Http\Controllers\ServiceBookController;
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PostController;
@@ -14,6 +15,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\ProductSubCategoryController;
 use App\Http\Controllers\Admin\ServicePurchaseController;
+
+
 
 use App\Http\Controllers\Admin\SliderController;
 
@@ -150,7 +153,11 @@ Route::get('about-us', [HomeController::class, 'aboutus'])->name('aboutusPage');
 Route::get('checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('payment', [HomeController::class, 'payment'])->name('payment');
 Route::get('successful', [HomeController::class, 'successful'])->name('successful');
-Route::get('personalize', [HomeController::class, 'personalize'])->name('personalize');
+
+Route::get('personalize', [ServiceBookController::class, 'index'])->name('personalize');
+Route::post('personalize', [ServiceBookController::class, 'store'])->name('personalize');
+
+
 Route::get('blog-list', [HomeController::class, 'blogList'])->name('blogListPage');
 Route::post('filter-results', [HomeController::class, 'ajaxBlog'])->name('filter-results');
 Route::get('blog-detail/{slug}', [HomeController::class, 'blogDetails'])->name('blogDetailPage');
