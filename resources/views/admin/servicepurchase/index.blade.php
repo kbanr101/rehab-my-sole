@@ -58,7 +58,9 @@
                                                 <td>{{ $val['user']['email'] }}</td>
                                                 <td>{{ $val['user']['phone_number'] }}</td>
                                                 <td>{{ ucfirst($val->status) }}</td>
-                                                <td><a href="{{ route('servicepurchase.show', $val->id) }}">View Details</a>
+                                                <td>
+                                                    <a href="{{ route('servicepurchase.show', $val->id) }}"
+                                                        class="btn btn-warning btn-sm">View Details</a>
                                                 </td>
                                             </tr>
                                         @endforeach
