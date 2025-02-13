@@ -10,7 +10,7 @@
             </ul>
         </div>
     </div> --}}
-    <section class="serviceSection pt-5 pb-5">
+    <section class="serviceSection pt-4 pb-5">
         <div class="custom-container">
             <div class="checkout_form">
                 <div class="row">

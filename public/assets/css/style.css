@@ -987,6 +987,7 @@ label[for="sideCheckbox"] + span {padding-left: 10px;}
     .aboutBox .aboutBox-item:nth-child(3) > img, .aboutBox .aboutBox-item:nth-child(2) > img {height: 250px !important;}
 }
 @media (max-width: 767px){
+    .Personalize_form{padding: 10px;}
     .header-container{min-height: 60px;}
     .logo img{max-width: 45px;}
     button.defaultBtnClass, a.defaultBtnClass {

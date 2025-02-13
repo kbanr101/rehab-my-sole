@@ -9,9 +9,9 @@
             </ul>
         </div>
     </div>
-    <section class="serviceSection pt-5 pb-5">
+    <section class="serviceSection pt-3 pb-5">
         <div class="custom-container">
-            <div class="mainTitle text-left m-auto pb-5">
+            <div class="mainTitle text-left m-auto pb-4">
                 <h3>Shoe cleaning checkout</h3>
                 <p class="mb-3">Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
             </div>
