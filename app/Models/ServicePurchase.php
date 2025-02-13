@@ -25,4 +25,8 @@ class ServicePurchase extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function order()
+    {
+        return $this->hasOne(ServiceOrder::class, 'service_purchase_id');
+    }
 }

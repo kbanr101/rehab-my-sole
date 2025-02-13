@@ -19,24 +19,42 @@ class ServicePurchaseController extends Controller
     public function show($id)
     {
 
-        $details = ServicePurchase::with('user')->where('id', $id)->first();
+        $details = ServicePurchase::with(['user', 'order'])->find($id);
+
+
+        //dd($details);
         return view('admin.servicepurchase.details', compact('details'));
     }
 
-    public function edit($id)
+    public function store(Request $request)
     {
-        return view('admin.servicepurchase.create', compact('details'));
-    }
+        try {
+            $request->validate([
+                'delivery_amount' => 'required|numeric',
+                'discount_amount' => 'required|numeric',
+                'charge_amount' => 'required|numeric',
+                'user_id' => 'required|exists:users,id',
+                'service_purchase_id' => 'required|exists:service_purchases,id',
+            ]);
 
-    public function create(Request $request)
-    {
+            $total_amount = $request->charge_amount + $request->delivery_amount - $request->discount_amount;
 
-        $validated = $request->validate([
-            'name' => 'required|string|unique:categories,name||max:255',
-            'slug' => 'required|string|unique:categories,slug|max:255',
-            'status' => 'required|in:active,inactive',
-        ]);
+            ServiceOrder::create([
+                'user_id' => $request->user_id,
+                'service_purchase_id' => $request->service_purchase_id,
+                'charge_amount' => $request->charge_amount,
+                'discount' => $request->discount_amount,
+                'delivery_amount' => $request->delivery_amount,
+                'total_amount' => $total_amount,
+            ]);
 
-        ServiceOrder::create($validated);
+            // Redirect back with success message
+            return redirect()->back()->with('success', 'Charges Added Successfully.');
+        } catch (\Exception $e) {
+
+
+            // Redirect back with an error message
+            return redirect()->back()->with('error', 'Failed to add charges. Please try again.');
+        }
     }
 }

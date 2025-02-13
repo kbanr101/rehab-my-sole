@@ -4,6 +4,19 @@
         <div class="app-content-header">
             <div class="container-fluid">
                 <div class="row">
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -21,7 +34,6 @@
 
                             <div class="card-body">
                                 <div class="row g-3">
-                                    <!-- Category Images -->
                                     <div class="col-md-12">
                                         @php
                                             $image = explode('|', $details->image);
@@ -59,44 +71,98 @@
                                     </div>
 
 
+                                    <form method="post" action="{{ route('servicepurchase.store') }}">
+                                        @csrf
+                                        <div class="col-md-12">
+                                            <div class="row">
 
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <p><strong>First Name:</strong> <?php echo $details->first_name; ?></p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p><strong>Last Name:</strong> <?php echo $details->last_name; ?></p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p><strong>Email:</strong> <?php echo $details->email; ?></p>
-                                            </div>
+                                                <div class="col-md-4">
+                                                    <p><strong>First Name:</strong> <?php echo $details['user']['name']; ?></p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <p><strong>Email:</strong> <?php echo $details['user']['email']; ?></p>
+                                                </div>
 
-                                            <div class="col-md-4">
-                                                <p><strong>Phone Number</strong> <?php echo $details->phone; ?></p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p><strong>Service Name:</strong> <?php echo $details->service_name; ?></p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p><strong>Pic Date:</strong> <?php echo $details->pic_date; ?></p>
-                                            </div>
+                                                <div class="col-md-4">
+                                                    <p><strong>Phone Number</strong> <?php echo $details['user']['phone_number']; ?></p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <p><strong>Service Name:</strong> <?php echo $details->service_name; ?></p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <p><strong>Pic Date:</strong> <?php echo $details->pic_date; ?></p>
+                                                </div>
 
-                                            <div class="col-md-4">
-                                                <p><strong>Address</strong> <?php echo $details->address; ?></p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p><strong>City:</strong> <?php echo $details->city; ?></p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <p><strong>Number Shoes:</strong> <?php echo $details->number_shoes; ?></p>
-                                            </div>
+                                                <div class="col-md-4">
+                                                    <p><strong>Address</strong> <?php echo $details->address; ?></p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <p><strong>City:</strong> <?php echo $details->city; ?></p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <p><strong>Number Shoes:</strong> <?php echo $details->number_shoes; ?></p>
+                                                </div>
 
-                                            <div class="col-md-12">
-                                                <p><strong>Comments:</strong> <?php echo $details->comment; ?></p>
+                                                <div class="col-md-12">
+                                                    <p><strong>Comments:</strong> <?php echo $details->comment; ?></p>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label class="form-label">Cost of cleaning</label>
+                                                    <input type="number"
+                                                        class="form-control @error('charge_amount') is-invalid @enderror"
+                                                        name="charge_amount"
+                                                        value="{{ old('charge_amount', $details['order']['charge_amount'] ?? '') }}" />
+                                                    @error('charge_amount')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label class="form-label">Discount Amount</label>
+                                                    <input type="number"
+                                                        class="form-control @error('discount_amount') is-invalid @enderror"
+                                                        name="discount_amount"
+                                                        value="{{ old('discount_amount', $details['order']['discount'] ?? '') }}" />
+                                                    @error('discount_amount')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label class="form-label">Shipping Charge</label>
+                                                    <input type="number"
+                                                        class="form-control @error('delivery_amount') is-invalid @enderror"
+                                                        name="delivery_amount"
+                                                        value="{{ old('delivery_amount', $details['order']['delivery_amount'] ?? '') }}" />
+                                                    @error('delivery_amount')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                                @if ($details['order'])
+                                                    <div class="col-md-4">
+                                                        <label class="form-label">Total Amount</label>
+                                                        <input type="number"
+                                                            class="form-control @error('total_amount') is-invalid @enderror"
+                                                            name="total_amount"
+                                                            value="{{ old('total_amount', $details['order']['total_amount'] ?? '') }}" />
+                                                        @error('total_amount')
+                                                            <div class="invalid-feedback">{{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                @endif
+
                                             </div>
-                                        </div>
-                                    </div>
+                                        </div><br>
+                                        <input type="hidden" name="user_id" value="{{ $details['user']['id'] }}">
+                                        <input type="hidden" name="service_purchase_id" value="{{ $details['id'] }}">
+                                        <button class="btn btn-info" type="submit"
+                                            {{ $details['order'] ? 'disabled' : '' }}>
+                                            Submit Charge Amount
+                                        </button>
+
+
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -15,6 +15,7 @@ class ServiceOrder extends Model
         'delivery_amount',
         'charge_amount',
         'total_amount',
-        'status'
+        'status',
+        'discount'
     ];
 }

@@ -43,7 +43,8 @@
                                             <th>#</th>
 
                                             <th>First Name</th>
-                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Phone Number</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -53,8 +54,9 @@
                                             <tr>
                                                 <td>{{ $service_list->firstItem() + $key }}</td>
                                                 <!-- Correct numbering with pagination -->
-                                                <td>{{ $val->first_name }}</td>
-                                                <td>{{ $val->last_name }}</td>
+                                                <td>{{ $val['user']['name'] }}</td>
+                                                <td>{{ $val['user']['email'] }}</td>
+                                                <td>{{ $val['user']['phone_number'] }}</td>
                                                 <td>{{ ucfirst($val->status) }}</td>
                                                 <td><a href="{{ route('servicepurchase.show', $val->id) }}">View Details</a>
                                                 </td>
