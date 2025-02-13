@@ -15,7 +15,7 @@
                 <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores qui amet, esse omnis illum sed nihil, debitis dolorum quae pariatur harum asperiores quidem saepe quas, necessitatibus earum quod itaque. Molestias expedita eveniet aliquid cupiditate? Consectetur cumque error ipsam?</p>
             </div>
             <div class="Personalize_form">
-                <form method="POST">
+                <form method="GET" action="{{ route('personalize') }}">
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <h3 class="form-title">Basic Information</h3>
@@ -105,7 +105,8 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="defaultBtnClass" href="#">Send your request</button>
+                            {{-- <button type="submit" class="defaultBtnClass" href="#">Send your request</button> --}}
+                            <a class="defaultBtnClass" href="{{ route('checkout') }}">Send your request</a>
                         </div>
                     </div>
                 </form>

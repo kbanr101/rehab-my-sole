@@ -39,6 +39,8 @@
             @if (Session::has('alert.config'))
                 Swal.fire({
                     ...{!! Session::pull('alert.config') !!},
+                    timer: 30000,
+                    timerProgressBar: true,
                     customClass: {
                         popup: 'small-swal'
                     }

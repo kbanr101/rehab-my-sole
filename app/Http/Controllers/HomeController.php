@@ -29,6 +29,18 @@ class HomeController extends Controller
     {
         return view('personalize');
     }
+    public function payment()
+    {
+        return view('payment');
+    }
+    public function checkout()
+    {
+        return view('checkout');
+    }
+    public function successful()
+    {
+        return view('successful');
+    }
     public function blogList(Request $request)
     {
         $categories = Category::where('status', 'active')->get();
