@@ -48,12 +48,10 @@ class ServicePurchaseController extends Controller
                 'total_amount' => $total_amount,
             ]);
 
-            // Redirect back with success message
+
             return redirect()->back()->with('success', 'Charges Added Successfully.');
         } catch (\Exception $e) {
 
-
-            // Redirect back with an error message
             return redirect()->back()->with('error', 'Failed to add charges. Please try again.');
         }
     }

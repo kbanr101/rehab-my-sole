@@ -36,23 +36,34 @@
                         <div class="card card-info card-outline mb-4">
                             <!--begin::Header-->
                             <div class="card-header">
-                                <div class="card-title">Add Slider</div>
+                                <div class="card-title">Add Service</div>
                             </div>
                             <!--end::Header-->
                             <!--begin::Form-->
-                            <form action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data"
+                            <form action="{{ route('servicelist.store') }}" method="POST" enctype="multipart/form-data"
                                 class="needs-validation">
                                 @csrf
                                 <div class="card-body">
                                     <div class="row g-3">
 
 
-                                        <!-- Title -->
+                                        <!-- service_name -->
                                         <div class="col-md-6">
-                                            <label class="form-label">Title</label>
-                                            <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                                name="title" value="{{ old('title') }}" required />
-                                            @error('title')
+                                            <label class="form-label">Service Name</label>
+                                            <input type="text"
+                                                class="form-control @error('service_name') is-invalid @enderror"
+                                                name="service_name" value="{{ old('service_name') }}" required />
+                                            @error('service_name')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <!-- Slug -->
+                                        <div class="col-md-4">
+                                            <label class="form-label">Slug Name</label>
+                                            <input type="text" name="slug"
+                                                class="form-control @error('slug') is-invalid @enderror"
+                                                value="{{ old('slug') }}" required />
+                                            @error('slug')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>

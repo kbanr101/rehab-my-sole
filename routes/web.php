@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\ProductSubCategoryController;
 use App\Http\Controllers\Admin\ServicePurchaseController;
-
+use App\Http\Controllers\Admin\ServiceListController;
 
 
 use App\Http\Controllers\Admin\SliderController;
@@ -72,6 +72,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('admin/productcategory', ProductCategoryController::class);
     Route::resource('admin/productsubcategory', ProductSubCategoryController::class);
     Route::resource('admin/servicepurchase', ServicePurchaseController::class);
+    Route::resource('admin/servicelist', ServiceListController::class);
 
 
     // slidercontroller

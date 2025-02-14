@@ -98,6 +98,34 @@
                 </ul>
             </li> --}}
 
+            <li class="nav-item">
+                <a href="#"
+                    class="nav-link {{ (Request::is('servicelist.create') ? 'active' : '' || Request::is('servicelist.list')) ? 'active' : '' }}">
+                    <i class="nav-icon bi bi-box-seam-fill"></i>
+                    <p>
+                        Service
+                        <i class="nav-arrow bi bi-chevron-right"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+
+                    <li class="nav-item">
+                        <a href="{{ route('servicelist.create') }}"
+                            class="nav-link {{ Request::is('servicelist.create') ? 'active' : '' }}">
+                            <i class="nav-icon bi bi-circle"></i>
+                            <p>Create Service</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('servicelist.index') }}"
+                            class="nav-link {{ Request::is('servicelist.index') ? 'active' : '' }}">
+                            <i class="nav-icon bi bi-circle"></i>
+                            <p>Service List</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
 
             <li class="nav-item">
                 <a href="{{ route('servicepurchase.index') }}"
