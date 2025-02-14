@@ -10,7 +10,7 @@ class ServicePurchase extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'service_name',
+        'service_id',
         'pic_date',
         'address',
         'city',

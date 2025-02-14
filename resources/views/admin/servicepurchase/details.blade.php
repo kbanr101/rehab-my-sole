@@ -118,6 +118,8 @@
                                                     @enderror
                                                 </div>
 
+                                                <input type="hidden" name="email" value="<?php echo $details['user']['email']; ?>">
+                                                <input type="hidden" name="name" value="<?php echo $details['user']['name']; ?>">
                                                 <div class="col-md-4">
                                                     <label class="form-label">Discount Amount</label>
                                                     <input type="number"

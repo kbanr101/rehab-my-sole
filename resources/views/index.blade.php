@@ -31,71 +31,23 @@
                     services to make your footwear look, feel, and perform like new again.</p>
             </div>
             <div class="row pb-3">
-                <div class="col-md-3">
-                    <div class="serviceCard">
-                        <div class="serviceImage">
-                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes"
-                                class="img-fluid w-100" />
-                        </div>
-                        <div class="serviceCard-detail p-3">
-                            <h4>Cleaning</h4>
-                            <p>Revitalize, refresh, and rejuvenate your shoes with eco-friendly cleaning.</p>
-                            <div class="price_track">Price From: <span>$300</span></div>
-                            <div class="serviceCard-action">
-                                <a href="{{ route('personalize') }}" class="defaultBtnClass trBtnClass">Select</a>
+                @foreach ($service as $val)
+                    <div class="col-md-3">
+                        <div class="serviceCard">
+                            <div class="serviceImage">
+                                <img src="{{ asset($val->image) }}" alt="Customize shoes" class="img-fluid w-100" />
+                            </div>
+                            <div class="serviceCard-detail p-3">
+                                <h4>{{ $val->service_name }}</h4>
+                                <p>{!! $val->description !!}</p>
+                                {{-- <div class="price_track">Price From: <span>$300</span></div> --}}
+                                <div class="serviceCard-action">
+                                    <a href="{{ route('personalize') }}" class="defaultBtnClass trBtnClass">Select</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="serviceCard">
-                        <div class="serviceImage">
-                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes"
-                                class="img-fluid w-100" />
-                        </div>
-                        <div class="serviceCard-detail p-3">
-                            <h4>Customization</h4>
-                            <p>Transform ordinary footwear into art through sustainable, personalized customization.</p>
-                            <div class="price_track">Price From: <span>$300</span></div>
-                            <div class="serviceCard-action">
-                                <a href="{{ route('personalize') }}" class="defaultBtnClass trBtnClass">Select</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="serviceCard">
-                        <div class="serviceImage">
-                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes"
-                                class="img-fluid w-100" />
-                        </div>
-                        <div class="serviceCard-detail p-3">
-                            <h4>Repair</h4>
-                            <p>Restore every worn detail meticulously with eco-conscious repair craftsmanship.</p>
-                            <div class="price_track">Price From: <span>$300</span></div>
-                            <div class="serviceCard-action">
-                                <a href="{{ route('personalize') }}" class="defaultBtnClass trBtnClass">Select</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="serviceCard">
-                        <div class="serviceImage">
-                            <img src="{{ asset('assets/media/background-landing.png') }}" alt="Customize shoes"
-                                class="img-fluid w-100" />
-                        </div>
-                        <div class="serviceCard-detail p-3">
-                            <h4>Restoration</h4>
-                            <p>Revive cherished memories by restoring shoes with sustainable elegance.</p>
-                            <div class="price_track">Price From: <span>$300</span></div>
-                            <div class="serviceCard-action">
-                                <a href="{{ route('personalize') }}" class="defaultBtnClass trBtnClass">Select</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
     </section>
@@ -168,9 +120,8 @@
                                 <p class="moreText active">{!! Str::limit($post->short_description, 50) !!}</p>
                                 <div class="blog_action">
                                     <span class="moreBtn"></span>
-                                    <a href="{{ route('blogDetailPage', $post->slug) }}"><svg width="19"
-                                            height="18" viewBox="0 0 19 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
+                                    <a href="{{ route('blogDetailPage', $post->slug) }}"><svg width="19" height="18"
+                                            viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M5.4458 3.79004L13.2334 1.19416C16.7282 0.0292268 18.627 1.93715 17.4712 5.43196L14.8754 13.2196C13.1325 18.4572 10.2707 18.4572 8.52783 13.2196L7.75732 10.9081L5.4458 10.1376C0.208172 8.39475 0.208172 5.54203 5.4458 3.79004Z"
                                                 stroke="#292D32" stroke-width="1.37591" stroke-linecap="round"
@@ -255,6 +206,7 @@
     <section class="joinForm pt-5 pb-5">
         @include('contactForm')
     </section>
+    @include('sweetalert::alert')
 @endsection
 @section('script')
     <script>

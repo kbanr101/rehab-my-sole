@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Likes;
 use App\Models\Category;
+use App\Models\ServiceList;
 use Jorenvh\Share\ShareFacade as Share;
 
 class HomeController extends Controller
@@ -14,7 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->take(3)->get();
-        return view('index', compact('posts'));
+        $service = ServiceList::orderBy('created_at', 'desc')->take(4)->get();
+
+        return view('index', compact('posts', 'service'));
     }
     public function comingSoon()
     {

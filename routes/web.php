@@ -157,6 +157,8 @@ Route::get('successful', [HomeController::class, 'successful'])->name('successfu
 
 Route::get('personalize', [ServiceBookController::class, 'index'])->name('personalize');
 Route::post('personalize', [ServiceBookController::class, 'store'])->name('personalize');
+Route::get('/checkout/{id}', [ServiceBookController::class, 'checkout'])->name('checkout');
+
 
 
 Route::get('blog-list', [HomeController::class, 'blogList'])->name('blogListPage');

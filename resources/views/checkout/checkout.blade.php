@@ -5,7 +5,7 @@
             <ul class="breadcrumbs">
                 <li><a href="{{ url('/') }}"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
                 <li><a href="{{ route('personalize') }}">Personalize</a></li>
-                <li><a href="{{ route('checkout' . $decodedId) }}">Checkout</a></li>
+                <li><a href="{{ route('checkout', ['id' => $decodedId]) }}">Checkout</a></li>
             </ul>
         </div>
     </div>
@@ -32,42 +32,36 @@
                                         <div class="form-group mb-3">
                                             <label for="name">Enter your first name</label>
                                             <input class="form-control" type="name" id="name" name="name"
-                                                value="" placeholder="John" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group mb-3">
-                                            <label for="lname">Enter your last name</label>
-                                            <input class="form-control" type="lname" id="lname" name="lname"
-                                                value="" placeholder="Doe" />
+                                                value="{{ $details['user']['name'] }}" readonly placeholder="John" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="phone">Phone number</label>
                                             <input class="form-control" type="phone" id="phone" name="phone"
-                                                value="" placeholder="+91 98765 654" />
+                                                value="{{ $details['user']['phone_number'] }}" readonly
+                                                placeholder="+91 98765 654" />
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="postal">Postal code</label>
                                             <input class="form-control" type="postal" id="postal" name="postal"
                                                 value="" placeholder="110043" />
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="address">Street address</label>
                                             <input class="form-control" type="text" id="address" name="address"
-                                                value="" placeholder="7 june Street" />
+                                                value="{{ $details['address'] }}" readonly placeholder="7 june Street" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="city">City</label>
                                             <input class="form-control" type="text" id="city" name="city"
-                                                value="" placeholder="Madagascar" />
+                                                value="{{ $details['city'] }}" readonly placeholder="Madagascar" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -90,11 +84,15 @@
                         <div class="billing-summary card-box">
                             <form class="summary-item">
                                 <h3 class="form-side-title mb-4">Billing Summary</h3>
-                                <div class="price-list">Cost of cleaning <span>$100</span></div>
-                                <div class="price-list">Discount <span>-$0</span></div>
-                                <div class="price-list">Shipping <span>$0.00</span></div>
+                                <div class="price-list">Cost of cleaning
+                                    <span>${{ $details['order']['charge_amount'] }}</span>
+                                </div>
+                                <div class="price-list">Discount <span>-${{ $details['order']['discount'] }}</span></div>
+                                <div class="price-list">Shipping <span>${{ $details['order']['delivery_amount'] }}</span>
+                                </div>
                                 <hr>
-                                <h3 class="subtotal price-list">Grand Total<span>$100</span></h3>
+                                <h3 class="subtotal price-list">Grand
+                                    Total<span>${{ $details['order']['total_amount'] }}</span></h3>
                                 <div class="form-side-title-small mb-2 mt-3">Order comment</div>
                                 <div class="form-group">
                                     <textarea type="text" placeholder="Type here" rows="4" class="form-control"></textarea>

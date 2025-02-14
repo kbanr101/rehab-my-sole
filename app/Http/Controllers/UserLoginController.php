@@ -38,8 +38,12 @@ class UserLoginController extends Controller
 
             session(['token' => $data['token'], 'user' => $data['user']]);
             Alert::success('Login Successful', 'Welcome Back!');
+            if (session()->has('checkout_id')) {  // Check if session key exists
+                $checkout_id = session()->pull('checkout_id'); // Get & remove in one step
+                return redirect('/checkout/' . $checkout_id)->with('success', 'Login successful');
+            }
 
-            return redirect()->route('aboutusPage')->with('success', 'Login successful');
+            return redirect('/')->with('success', 'Login successful');
         } else {
             Alert::error('Login Failed', 'Invalid Credentials!');
 
@@ -126,7 +130,7 @@ class UserLoginController extends Controller
 
             session(['token' => $data['token'], 'user' => $data['user']]);
             Alert::success('Login Successful', 'Welcome Rehab My Sole');
-            return redirect()->route('aboutusPage')->with('success', 'Login successful');
+            return redirect('/')->with('success', 'Login successful');
         } else {
             Alert::error('Sign Up Failed', 'Invalid Credentials Details!');
 

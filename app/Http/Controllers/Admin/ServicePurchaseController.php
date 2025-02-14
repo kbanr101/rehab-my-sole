@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ServicePurchase;
 use App\Models\ServiceOrder;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PersonalizationMail;
 
 class ServicePurchaseController extends Controller
 {
@@ -48,6 +50,7 @@ class ServicePurchaseController extends Controller
                 'total_amount' => $total_amount,
             ]);
 
+            Mail::to($request->email)->send(new PersonalizationMail($request->all()));
 
             return redirect()->back()->with('success', 'Charges Added Successfully.');
         } catch (\Exception $e) {

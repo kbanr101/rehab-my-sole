@@ -69,8 +69,9 @@
                                 <label for="service">Service type</label>
                                 <select class="form-control" id="service" name="service">
                                     <option value="">Choose service type</option>
-                                    <option value="Cleaning">Cleaning</option>
-                                    <option value="Customization">Customization</option>
+                                    @foreach ($service as $val)
+                                        <option value="{{ $val->id }}">{{ $val->service_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -296,6 +297,10 @@
                         'padding': '8px 10px'
                     }).fadeIn();
                     $('#personalizeForm')[0].reset();
+                    selectedFiles = [];
+                    $('#imageInput').val(''); // Reset file input
+                    $('#previewContainer').empty(); // Remove image previews
+                    $('#imageCount').text('Total Images: 0'); // Reset image count
                 },
                 error: function(xhr, status, error) {
                     $('#responseMessage').text('An error occurred. Please try again.').css({
